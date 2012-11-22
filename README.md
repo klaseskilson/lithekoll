@@ -1,4 +1,4 @@
 lithekoll
 =========
 
-Ett projekt i Elektornisk Publicering på Linköpings tekniska högskola vid Linköpings Universitet.
+Ett projekt i Elektronisk Publicering på Linköpings tekniska högskola vid Linköpings Universitet.
