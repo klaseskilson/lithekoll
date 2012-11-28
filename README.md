@@ -1,7 +1,7 @@
 LiTHekoll
 =========
 
-Ett projekt i Elektronisk Publicering på Linköpings tekniska högskola vid Linköpings Universitet.
+Ett projekt i Elektronisk Publicering på Linköpings Tekniska Högskola vid Linköpings Universitet.
 
 Bra grejer att kolla på kan vara detta:
 * http://try.github.com/ - Lär dig git från grunden!
