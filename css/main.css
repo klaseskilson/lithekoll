@@ -3,8 +3,7 @@ här börjar vår css
 */
 body{
 	font-size: 100%;
-	background-color: #F1FBED;
-	font-family: Georgia;
+	font-family: "Helvetica Neue",Arial,sans-serif;
 }
 
 .wrapper{
@@ -21,25 +20,37 @@ body{
 
 #container{
 	margin: 50px 0;
-
 }
 
+#header {
+	margin-bottom: 40px;
+}
 
 #header header{
-	height: 150px;
+	width: 50%;
+	float:left;
+	font-size: 350%;
 }
 
-#footer footer{
+#header nav {
+	float: right;
+}
+#header nav a{
+	float: left;
 }
 
-<<<<<<< HEAD
-#block{
+
+.fancyborder {
 	background: #555 url("../img/bg.png");
 	padding: 40px 20px;
+	font-family: Georgia, serif;
+	color: rgb(233, 233, 233);
 }
-
-#content{
-}
+	.fancyborder p {
+		font-size: 130%;
+		margin: 0 0 20px;
+		padding: 5px 0 0;
+	}
 
 .alignment{
 	width: 400px;
@@ -54,22 +65,10 @@ form.signup input[type="text"], form.signup input[type="email"], form.signup inp
 	padding: 5px;
 	border-radius: 3px;
 	width: 295px;
-	margin: 5px;
+	margin: 0 5px 5px;
 }
 form.signup input.name {
 	width: 135px;
 	clear: none;
 }
 
-body, label, input, textarea, select, button {
-	font-family: "Helvetica Neue",Arial,sans-serif;
-}
-
-h1{
-	font-size: 35pt;
-}
-
-a{
-	color: #000;
-
-}

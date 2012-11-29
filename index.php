@@ -6,11 +6,17 @@ include("includes/start.php");
 
 build_header();
 ?>
-<div id="block">
-	<div  class="wrapper">
+<div class="fancyborder">
+	<div class="wrapper">
 		<div class="alignment">
 			<p>
 				Hejhej hemskt mycket hej
+			</p>
+			<p>
+				Använd vår tjänst
+			</p>
+			<p>
+				SPARA TILL EN PONNY förihelvete
 			</p>
 		</div><!-- .alignment -->
 		<div class="alignment">
