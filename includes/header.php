@@ -25,7 +25,6 @@
 				</header>
 				<nav>
 					<a href="#">Hem</a>
-					<a href="#">Om Projektet</a>
-					<a href="#">Lorem Ipsum</a>
+					<a href="#">Projektet</a>
 				</nav>
 			</div> <!-- #header -->
