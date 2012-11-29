@@ -25,7 +25,7 @@ if(isset($_POST['submit']))
 	if(empty($sname))
 		$error .= "Skriv in Efternamn ";
 	if(empty($email) && preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,6})$", $email))
-		$error .= "Skriv in en korrekt email ";
+		$error .= "Skriv in en korrekt e-postadress ";
 	if($emailexists !== 0 )
 		$error .= "Epost-adressen är redan registrerad ";
 	if(strlen($password) < 5)
