@@ -15,9 +15,8 @@ if(isset($_POST['submit']))
 build_header();
 ?>
 
-<div id="content">
+<div id="content" class="wrapper">
 	<h1>Bli medlem!</h1>
-	<?php echo hashgen(); ?>
 	<form action="signup.php" method="post">
 		<label for="fname">Förnamn</label>
 		<input type="text" name="fname" id="fname" />
