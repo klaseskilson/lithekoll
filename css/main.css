@@ -3,6 +3,8 @@ här börjar vår css
 */
 body{
 	font-size: 100%;
+	background-color: #F1FBED;
+	font-family: Georgia;
 }
 
 .wrapper{
@@ -19,6 +21,7 @@ body{
 
 #container{
 	margin: 50px 0;
+
 }
 
 
@@ -29,6 +32,7 @@ body{
 #footer footer{
 }
 
+<<<<<<< HEAD
 #block{
 	background: #555 url("../img/bg.png");
 	padding: 40px 20px;
@@ -40,6 +44,7 @@ body{
 .alignment{
 	width: 400px;
 	float: left;
+	margin: 15px 0 0;
 }
 
 form.signup input[type="text"], form.signup input[type="email"], form.signup input[type="password"]{
@@ -56,7 +61,15 @@ form.signup input.name {
 	clear: none;
 }
 
-
 body, label, input, textarea, select, button {
 	font-family: "Helvetica Neue",Arial,sans-serif;
+}
+
+h1{
+	font-size: 35pt;
+}
+
+a{
+	color: #000;
+
 }

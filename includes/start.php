@@ -8,10 +8,10 @@
 include("functions.php");
 include("database.php");
 
-$connection = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)
+/*$connection = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)
 	or die("Näru: " . mysql_error());
 
 $db = mysql_select_db(DB_DATEBASE)
 	or die("Nix: " . mysql_error());
-
+*/
 ?>
