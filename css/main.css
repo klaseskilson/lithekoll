@@ -1,6 +1,15 @@
-/*
-här börjar vår css
-*/
+
+
+/* ==========================================
+   TYPSNITT!
+   ==========================================*/
+@import url(http://fonts.googleapis.com/css?family=Rambla);
+
+
+
+/* ==========================================
+	BODY och liknande
+   ==========================================*/
 body{
 	font-size: 100%;
 	font-family: "Helvetica Neue",Arial,sans-serif;
@@ -22,8 +31,21 @@ body{
 	margin: 50px 0;
 }
 
+/* ==========================================
+   LÄNK
+   ==========================================*/
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+/* ==========================================
+   HEADER
+   ==========================================*/
+
 #header {
 	margin-bottom: 40px;
+	font-family: 'Rambla', sans-serif;
 }
 
 #header header{
@@ -37,9 +59,20 @@ body{
 }
 #header nav a{
 	float: left;
+	font-size: 140%;
+	padding: 10px;
+	margin-left: 10px;
+	color: #9B9999;
+	border-radius: 5px
+}
+#header nav a:hover{
+	color: #fff;
+	background: #409918;
 }
 
-
+/* ==========================================
+   Fancy-pants
+   ==========================================*/
 .fancyborder {
 	background: #555 url("../img/bg.png");
 	padding: 40px 20px;
@@ -55,8 +88,15 @@ body{
 .alignment{
 	width: 400px;
 	float: left;
-	margin: 15px 0 0;
 }
+
+.fancyborder form.signup {
+	float: right;
+}
+
+/* ==========================================
+   Signup-form
+   ==========================================*/
 
 form.signup input[type="text"], form.signup input[type="email"], form.signup input[type="password"]{
 	clear:left;
@@ -64,11 +104,20 @@ form.signup input[type="text"], form.signup input[type="email"], form.signup inp
 	font-size: 100%;
 	padding: 5px;
 	border-radius: 3px;
-	width: 295px;
+	width: 325px;
 	margin: 0 5px 5px;
 }
 form.signup input.name {
-	width: 135px;
+	width: 150px;
 	clear: none;
+}
+form.signup input#submit {
+	background: #4099ff;
+	font-size: 100%;
+	padding: 8px 5px;
+	color: #fff;
+	border: 2px solid #1559a6;
+	border-radius: 3px;
+	margin: 0 5px 0px;
 }
 

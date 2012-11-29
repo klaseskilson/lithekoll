@@ -21,10 +21,13 @@
 		<div id="container">
 			<div id="header" class="wrapper">
 				<header>
-					<h1>LiTHekoll</h1>
+					<a href="./">
+						<h1>LiTHekoll</h1>
+					</a>
 				</header>
 				<nav>
 					<a href="./">Hem</a>
 					<a href="#">Projektet</a>
+					<a href="login.php">Login</a>
 				</nav>
 			</div> <!-- #header -->
