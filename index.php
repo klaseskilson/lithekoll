@@ -14,7 +14,7 @@ build_header();
 		<input type="text" name="sname" id="sname" placeholder="Efternamn" />
 		<input type="email" name="email" id="email" placeholder="Email" />
 		<input type="password" name="password" id="password" placeholder="Lösenord" />
-		<input type="password" name="confirm" id="confirm" placeholder="Upprepa Lösenord" />
+		<input type="password" name="confirm" id="confirm" placeholder="Upprepa lösenord" />
 		<input type="submit" name="submit" id="submit" value="Bli medlem!" />
 	</form>
 </div> <!-- #content -->
