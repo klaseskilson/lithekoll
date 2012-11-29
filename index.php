@@ -10,7 +10,7 @@ build_header();
 	<div  class="wrapper">
 		<div class="alignment">
 			<p>
-				Hejhej här är en spexig text om oss.
+				Hejhej hemskt mycket hej
 			</p>
 		</div><!-- .alignment -->
 		<div class="alignment">
