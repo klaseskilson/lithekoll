@@ -27,8 +27,6 @@ build_header();
 </div><!-- #block -->
 
 <div id="content" class="wrapper">
-
-	
 </div> <!-- #content -->
 
 <?php

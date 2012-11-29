@@ -52,4 +52,29 @@ function hashgen($floor = 7, $roof = 10)
 	return $string;
 }
 
+/*
+ * krypterar lösenord med dev.medieteknik.nu:s kryptering
+ * https://github.com/medieteknik/Medieteknik.nu/blob/master/application/helpers/common_helper.php
+ * @param 	string 	$password	lösenordet som ska krypteras
+ * @return 	string 	bra lösenord
+ */
+function encrypt_password($password)
+{
+	$salt = 'kryddbeaärsåjävlagott';
+	if(CRYPT_SHA512 == 1)
+	{
+		return substr(crypt($password, '$6$rounds=10000$'.$salt.'$'),33);
+	}
+	if (CRYPT_SHA256 == 1)
+	{
+	    return substr(crypt($password, '$5$rounds=10000$'.$salt.'$'),33);
+	}
+	if (CRYPT_MD5 == 1)
+	{
+	    return substr(crypt($password, '$1$'.$salt.'$'),12);
+	}
+
+	return false;
+}
+
 ?>
