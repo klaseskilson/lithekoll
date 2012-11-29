@@ -16,6 +16,8 @@ if(isset($_POST['submit']))
 	$password = prep($_POST['password']);
 	$confirm = prep($_POST['confirm']);
 
+	$emailexists = mysql_num_rows(mysql_query("SELECT email FROM users where email ='$email' LIMIT 1"));
+
 	// error-array
 	$error = '';
 	if(empty($fname))
@@ -24,6 +26,8 @@ if(isset($_POST['submit']))
 		$error .= "Skriv in Efternamn ";
 	if(empty($email) && preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,6})$", $email))
 		$error .= "Skriv in en korrekt email ";
+	if($emailexists !== 0 )
+		$error .= "Epost-adressen är redan registrerad ";
 	if(strlen($password) < 5)
 		$error .= "Skriv in lösenord ";
 	if($password !== $confirm)
@@ -56,7 +60,10 @@ build_header();
 
 <div id="content" class="wrapper">
 	<h1>Bli medlem!</h1>
-	<?php echo $error; ?>
+	<?php
+		echo $error;
+		signupform();
+	?>
 </div> <!-- #content -->
 
 <?php
