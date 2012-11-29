@@ -24,7 +24,7 @@
 					<h1>LiTHekoll</h1>
 				</header>
 				<nav>
-					<a href="#">Hem</a>
+					<a href="/">Hem</a>
 					<a href="#">Projektet</a>
 				</nav>
 			</div> <!-- #header -->

@@ -22,20 +22,31 @@ if(isset($_POST['submit']))
 		$error .= "Skriv in Förnamn ";
 	if(empty($sname))
 		$error .= "Skriv in Efternamn ";
-	if(empty($email))
-		$error .= "Skriv in email ";
-	if(strlen($password) < 8)
+	if(empty($email) && preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,6})$", $email))
+		$error .= "Skriv in en korrekt email ";
+	if(strlen($password) < 5)
 		$error .= "Skriv in lösenord ";
 	if($password !== $confirm)
-		$error .= "lösenord ";
+		$error .= "Lösenorden stämmer inte överens ";
 
 	if($error == '')
 	{
 		//GÖTT
+		$pwd = encrypt_password($password);
+		$hash = hashgen();
 
+		$query = "INSERT INTO users (email, fname, sname, password, hash, udate)
+		VALUES ('$email', '$fname', '$sname', '$pwd', '$hash', NOW())";
+
+		$adduser = mysql_query($query);
+
+		if($adduser)
+			echo 'woo';
+		else
+			die(mysql_error());
 	}
-
-	$error = "<p>".$error."</p>";
+	else
+		$error = "<p>".$error."</p>";
 
 }
 
