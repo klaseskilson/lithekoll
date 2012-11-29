@@ -3,7 +3,7 @@
 					<a href="#">Villkor</a>
 					<a href="#">Kontakt</a>
 					<a href="#">Facebook</a>
-					<a href="#">Twitter</a>
+					<a href="https://twitter.com/lithekoll">Twitter</a>
 				</nav>
 			</div>
 		</div><!-- #container -->
