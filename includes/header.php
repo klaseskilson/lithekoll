@@ -19,9 +19,11 @@
 		<div id="container">
 			<div id="header">
 				<header>
-					<!-- logga osv här -->
+					<h1>LiTHekoll</h1>
 				</header>
 				<nav>
-					<!-- här har man ett gäng länkar -->
+					<a href="#">Hem</a>
+					<a href="#">Om Projektet</a>
+					<a href="#">Lorem Ipsum</a>
 				</nav>
 			</div> <!-- #header -->
