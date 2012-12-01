@@ -4,6 +4,9 @@ ini_set('error_reporting', E_ALL);
 
 include("includes/start.php");
 
+if(loginstatus())
+	header("Location: dashboard.php");
+
 build_header();
 ?>
 <div class="fancyborder">
@@ -19,9 +22,7 @@ build_header();
 				SPARA TILL EN PONNY förihelvete
 			</p>
 		</div><!-- .alignment -->
-		<div class="alignment">
-			<?php signupform(); ?>
-		</div><!-- .alignment -->
+		<?php signupform(); ?>
 	</div><!-- .wrapper -->
 </div><!-- #block -->
 

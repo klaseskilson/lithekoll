@@ -81,12 +81,31 @@ function encrypt_password($password)
 function signupform()
 {
 	echo '	<form action="signup.php" method="post" class="signup">
-		<input type="text" name="fname" id="fname" placeholder="Förnamn" class="name" />
-		<input type="text" name="sname" id="sname" placeholder="Efternamn" class="name" />
-		<input type="email" name="email" id="email" placeholder="E-post" />
+		<input type="text" name="fname" id="fname" placeholder="Förnamn" class="name" value="'.$_POST['fname'].'" />
+		<input type="text" name="sname" id="sname" placeholder="Efternamn" class="name" value="'.$_POST['sname'].'" />
+		<input type="email" name="email" id="email" placeholder="E-post" value="'.$_POST['email'].'" />
 		<input type="password" name="password" id="password" placeholder="Lösenord" class="name" />
 		<input type="password" name="confirm" id="confirm" placeholder="Upprepa lösenord" class="name" />
-		<input type="submit" name="submit" id="submit" value="Bli medlem!" />
+		<input type="submit" name="submit" id="submit" value="Registrera dig!" /><a href="login.php">Logga in &rarr;</a>
 	</form>';
 }
+
+// echo a llogin form
+function loginform()
+{
+	echo '	<form action="login.php" method="post" class="login">
+		<input type="email" name="email" id="email" placeholder="E-post" value="'.$_POST['email'].'" />
+		<input type="password" name="password" id="password" placeholder="Lösenord" />
+		<input type="submit" name="dologin" id="dologin" value="Logga in!" />
+	</form>';
+}
+
+//check if a user is properly logged in
+function loginstatus()
+{
+	if($_SESSION['LiTHekoll_login_bool'])
+		return true;
+	return false;
+}
+
 ?>

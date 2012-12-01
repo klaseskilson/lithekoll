@@ -28,6 +28,9 @@
 				<nav>
 					<a href="./">Hem</a>
 					<a href="#">Projektet</a>
-					<a href="login.php">Login</a>
+					<?php
+						// kolla om användaren är inloggad
+						echo (loginstatus() ? '<a href="login.php?logout">Logga ut</a>' : '<a href="login.php">Logga in</a>');
+					?>
 				</nav>
 			</div> <!-- #header -->

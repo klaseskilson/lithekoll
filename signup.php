@@ -16,22 +16,22 @@ if(isset($_POST['submit']))
 	$password = prep($_POST['password']);
 	$confirm = prep($_POST['confirm']);
 
-	$emailexists = mysql_num_rows(mysql_query("SELECT email FROM users where email ='$email' LIMIT 1"));
+	$emailexists = mysql_num_rows(mysql_query("SELECT email FROM users where email='".$email."' LIMIT 1"));
 
 	// error-array
 	$error = '';
 	if(empty($fname))
-		$error .= "Skriv in Förnamn ";
+		$error .= "<li>Skriv in förnamn</li>";
 	if(empty($sname))
-		$error .= "Skriv in Efternamn ";
-	if(empty($email) && preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,6})$", $email))
-		$error .= "Skriv in en korrekt e-postadress ";
-	if($emailexists !== 0 )
-		$error .= "Epost-adressen är redan registrerad ";
+		$error .= "<li>Skriv in efternamn</li>";
+	if(empty($email) || preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,6})$", $email))
+		$error .= "<li>Skriv in en korrekt e-postadress</li>";
+	if($emailexists !== 0)
+		$error .= "<li>Epost-adressen är redan registrerad</li>";
 	if(strlen($password) < 5)
-		$error .= "Skriv in lösenord ";
+		$error .= "<li>Skriv in lösenord</li>";
 	if($password !== $confirm)
-		$error .= "Lösenorden stämmer inte överens ";
+		$error .= "<li>Lösenorden stämmer inte överens</li>";
 
 	if($error == '')
 	{
@@ -44,13 +44,15 @@ if(isset($_POST['submit']))
 
 		$adduser = mysql_query($query);
 
-		if($adduser)
-			echo 'woo';
+		if($adduser){
+
+			header("Location: ?success");
+		}
 		else
 			die(mysql_error());
 	}
 	else
-		$error = "<p>".$error."</p>";
+		$error = "<ul class=\"error\">".$error."</p>";
 
 }
 
@@ -59,10 +61,15 @@ build_header();
 ?>
 
 <div id="content" class="wrapper">
-	<h1>Bli medlem!</h1>
+	<h1>Registrera dig för LiTHekoll <span>Börja spara pengar nu!</span></h1>
 	<?php
-		echo $error;
-		signupform();
+		if(isset($_GET['success']))
+			echo '<p class="hurra">Klart</p>!';
+		else
+		{
+			echo $error;
+			signupform();
+		}
 	?>
 </div> <!-- #content -->
 
