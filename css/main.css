@@ -1,5 +1,3 @@
-
-
 /* ==========================================
    TYPSNITT!
    ==========================================*/
@@ -30,8 +28,9 @@ body{
 		visibility: hidden;
 	}
 
-.wrapper p, .wrapper ul, wrapper h1{
+.wrapper p, .wrapper ul, .wrapper h1, .wrapper h2{
 	padding: 0 20px;
+	margin: 0 0 10px;
 }
 
 #container{
@@ -55,6 +54,31 @@ a {
 }
 .fleft {
 	float: left;
+}
+p.error, p.hurra, p.ingress {
+	padding: 10px 0; margin: 0 20px 10px;
+	font-family: 'Rambla', sans-serif;
+	font-size: 105%;
+}
+	p.error em, p.hurra em, p.ingress em{
+		font-style: normal;
+		font-weight: bold;
+	}
+p.error {
+	background: #DC6060;
+	border: 2px solid #A60000;
+	color: #fff;
+	padding: 10px;
+}
+p.hurra {
+	background: #fff9d7;
+	border: 2px solid #e2c822;
+	color: gray;
+	padding: 10px;
+}
+
+p{
+	line-height: 140%;
 }
 
 /* ==========================================
@@ -108,7 +132,6 @@ a {
 	background: #555 url('../img/dark.png');
 	color: #fff;
 	font-family: 'Rambla', sans-serif;
-	margin: 0 0 10px;
 }
 	#content h1 span {
 		clear: both;

@@ -46,8 +46,23 @@ build_header();
 ?>
 
 <div id="content" class="wrapper">
-	<h1>Logga in</h1>
 	<?php
+		if(isset($_GET['firsttime'])){
+			// om man blivit hitskickad för första gången får man en chans att skriva in sitt lösenord
+			$uid = prep($_GET['firsttime']);
+
+			// hitta användarens namn
+			$query = mysql_query("SELECT fname FROM users WHERE uid='$uid' LIMIT 1");
+
+			$user = mysql_fetch_array($query);
+
+			echo "<h1>Välkommen, ".$user['fname']."! Logga in här nedan.</h1>";
+			echo "<p class=\"hurra\"><em>Hurra!</em> Du är nu aktiverad och kan börja använda
+				  LiTHekoll. Det första steget är att logga in här nedan.</p>";
+		}
+		else{
+			echo "<h1>Logga in</h1>";
+		}
 		if(isset($_POST['dologin']))
 			echo $error;
 		if(isset($_GET['logout']))

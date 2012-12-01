@@ -45,7 +45,9 @@ if(isset($_POST['submit']))
 		$adduser = mysql_query($query);
 
 		if($adduser){
+			// MAILA ANVÄNDARE HÄR
 
+			// skicka vidare till ett meddelande där det står att allt gick väl
 			header("Location: ?success");
 		}
 		else
@@ -61,12 +63,17 @@ build_header();
 ?>
 
 <div id="content" class="wrapper">
-	<h1>Registrera dig för LiTHekoll <span>Börja spara pengar nu!</span></h1>
 	<?php
-		if(isset($_GET['success']))
-			echo '<p class="hurra">Klart</p>!';
+		if(isset($_GET['success'])){
+			// gratulera användaren
+			echo "<h1>Välkommen! Kolla din mail.</h1>";
+			echo '<p class="hurra"><em>Hurra! Nu är du registrerad på LiTHekoll, roligt!</em> Innan du kan
+				  börja använda vår tjänst måste du dock aktivera ditt konto. Det gör du genom att klicka på länken i
+				  det mail vi precis skickat till dig.</p>';
+		}
 		else
 		{
+			echo '<h1>Registrera dig för LiTHekoll <span>Börja spara pengar nu!</span></h1>';
 			echo $error;
 			signupform();
 		}
