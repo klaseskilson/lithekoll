@@ -46,9 +46,28 @@ if(isset($_POST['submit']))
 
 		if($adduser){
 			// MAILA ANVÄNDARE HÄR
+			$message = 'Hej'.$fname.'!\n\nVälkommen till LiTHekoll! Ditt konto är alldeles strax klart för att användas. Allt du behöver göra är att klicka på länken här nedan så kommer ditt konto aktiveras.\n\nhttp://lithekoll.nu/activate.php?hash='.$hash.'&email='.$email.'\n\nMed vänliga hälsningar\nLiTHekoll-teamet';
+			$subject = 'Aktivera Lithekoll';
+			$from = 'From: donotreply@lithekoll.nu';
+			if (mail ($email, $subject, $message, $from))
+				// skicka vidare till ett meddelande där det står att allt gick väl
+				header("Location: ?success");
+			else{
+				build_header ('Kunde inte aktivera! - ');
+				?>
+				<div id="content" class="wrapper">
+					<h1>Nu blev det fel!</h1>
+					<p class="error">
+						Kunde inte skicka mail!
+						<a href="resend.php">Klicka här</a> för att skicka mailet igen.
+					</p>
+				</div> <!-- #content -->
 
-			// skicka vidare till ett meddelande där det står att allt gick väl
-			header("Location: ?success");
+				<?php
+
+				build_footer ();
+				die();
+			}
 		}
 		else
 			die(mysql_error());
