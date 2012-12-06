@@ -17,7 +17,7 @@ if(isset($_POST['dologin']))
 	// kolla om frågan retunerade något
 	if (mysql_num_rows($loginquery) !== 0){
 		//sätt sessionsvariabler, men hämta först användaren
-		$user = mysql_fetch_array($query);
+		$user = mysql_fetch_array($loginquery);
 
 		$_SESSION['LiTHekoll_login_bool'] = true;
 		$_SESSION['LiTHekoll_login_timestamp'] = time();
