@@ -46,7 +46,7 @@ if(isset($_GET['logout']))
 build_header();
 ?>
 
-<div id="content" class="wrapper">
+<div id="content" class="wrapper contentwrapper">
 	<?php
 		if(isset($_GET['firsttime'])){
 			// om man blivit hitskickad för första gången får man en chans att skriva in sitt lösenord

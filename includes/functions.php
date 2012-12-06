@@ -82,7 +82,7 @@ function encrypt_password($password)
 // echo a signup form
 function signupform()
 {
-	echo '	<form action="signup.php" method="post" class="signup">
+	echo '	<form action="signup.php" method="post" class="signup clearfix">
 		<input type="text" name="fname" id="fname" placeholder="Förnamn" class="name" value="'.(isset($_POST['fname']) ? $_POST['fname'] : "").'" />
 		<input type="text" name="sname" id="sname" placeholder="Efternamn" class="name" value="'.(isset($_POST['sname']) ? $_POST['sname'] : "").'" />
 		<input type="email" name="email" id="email" placeholder="E-post" value="'.(isset($_POST['email']) ? $_POST['email'] : "").'" />
@@ -111,5 +111,9 @@ function loginstatus()
 	return false;
 }
 
+function mailmessage($message)
+{
+	$message = '<html>';
+}
 
 ?>
