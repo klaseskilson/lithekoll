@@ -10,7 +10,7 @@
    ==========================================*/
 body{
 	font-size: 100%;
-	font-family: Helvetica, arial, freesans, clean, sans-serif;
+	font-family: Helvetica, Arial, 'freesans', sans-serif;
 	background: url('../img/light.png');
 }
 
@@ -41,6 +41,10 @@ body{
 	margin: 0 0 10px;
 }
 
+.lotsoftext {
+	padding-top: 10px;
+}
+
 #container{
 	margin: 50px 0;
 }
@@ -66,7 +70,19 @@ a {
 .hide {
 	display: none;
 }
-p.error, p.hurra, p.ingress {
+.clearfix::after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+/* ==========================================
+   Paragraphs
+   ==========================================*/
+
+p.error, p.hurra, p.ingress, ul.error {
 	padding: 10px 0; margin: 0 20px 10px;
 	font-family: 'Rambla', sans-serif;
 	font-size: 105%;
@@ -75,7 +91,10 @@ p.error, p.hurra, p.ingress {
 		font-style: normal;
 		font-weight: bold;
 	}
-p.error {
+ul.error {
+	list-style: none;
+}
+p.error, ul.error {
 	background: #DC6060;
 	border: 2px solid #A60000;
 	color: #fff;
@@ -88,8 +107,14 @@ p.hurra {
 	padding: 10px;
 }
 
-p{
+p, ul{
 	line-height: 140%;
+}
+
+.lotsoftext p {
+	padding: 10px 20px;
+	font: 110% Georgia, Times, serif;
+	line-height: 160%;
 }
 
 /* ==========================================
@@ -157,25 +182,36 @@ p{
    ==========================================*/
 .fancyborder {
 	background: #555 url("../img/dark.png");
-	padding: 40px 20px;
+	padding: 40px 20px 20px;
 	font-family: Georgia, serif;
 	color: rgb(233, 233, 233);
 }
-	.fancyborder p {
-		font-size: 130%;
-		margin: 0 0 20px;
-		padding: 5px 0 0;
+	.fancyborder.compact{
+		padding: 20px 10px 0;
 	}
+.fancyborder p {
+	font-size: 130%;
+	margin: 0 0 20px;
+	padding: 5px 20px 0;
+}
+	.fancyborder.compact p{
+		margin: 0 0 10px;
+	}
+
+.fancyborder form.signup {
+	float: right;
+	padding: 0; margin: 0;
+}
+
+.fancyborder .wrapper {
+	margin: 0 auto;
+}
 
 .alignment{
 	width: 400px;
 	float: left;
 }
 
-.fancyborder form.signup {
-	float: right;
-	padding: 0; margin: 0;
-}
 
 /* ==========================================
    FORM

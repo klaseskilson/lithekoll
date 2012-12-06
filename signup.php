@@ -73,7 +73,7 @@ if(isset($_POST['submit']))
 			die(mysql_error());
 	}
 	else
-		$error = "<ul class=\"error\">".$error."</p>";
+		$error = "<ul class=\"error\">".$error."</ul>";
 
 }
 
@@ -81,7 +81,7 @@ if(isset($_POST['submit']))
 build_header();
 ?>
 
-<div id="content" class="wrapper">
+<div id="content" class="wrapper contentwrapper">
 	<?php
 		if(isset($_GET['success'])){
 			// gratulera användaren

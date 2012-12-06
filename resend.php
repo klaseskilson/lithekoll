@@ -30,7 +30,7 @@ if(isset($_POST['submit']))
 build_header();
 ?>
 
-<div id="content" class="wrapper">
+<div id="content" class="wrapper contentwrapper">
 	<h1>Begär nytt aktiveringsmail</h1>
 	<?php
 	if (isset ($_POST['submit'])){
