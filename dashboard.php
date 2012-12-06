@@ -6,17 +6,32 @@ include("includes/start.php");
 
 build_header();
 ?>
-
-<p>
-	Här kan det vara nåt
-</p>
-
-
-
-
-
-
-
+<div id="content">
+	<div class="wrapper contentwrapper">
+		<h1>Kontrollpanel</h1>
+		<p>
+			Här kan det vara nåt
+		</p>
+	</div>
+	<div class="wrapper contentwrapper">
+		<h1>Kontrollpanel</h1>
+		<p>
+			Här kan det vara nåt
+		</p>
+	</div>
+	<div class="wrapper contentwrapper">
+		<h1>Kontrollpanel</h1>
+		<p>
+			Här kan det vara nåt
+		</p>
+	</div>
+	<div class="wrapper contentwrapper">
+		<h1>Kontrollpanel</h1>
+		<p>
+			Här kan det vara nåt
+		</p>
+	</div>
+</div>
 
 
 <?php

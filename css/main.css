@@ -16,7 +16,7 @@ body{
 
 .wrapper{
 	width: 800px;
-	margin: 0 auto;
+	margin: 0 auto 20px;
 	padding: 0;
 }
 /* clear fix för wrapper */
@@ -27,6 +27,10 @@ body{
 		clear: both;
 		visibility: hidden;
 	}
+
+.contentwrapper {
+	background: #fff;
+}
 
 .wrapper p, .wrapper ul, .wrapper h1, .wrapper h2{
 	padding: 0 20px;
@@ -123,7 +127,6 @@ p{
    CONTENT
    ==========================================*/
 #content {
-	background-color: #fff;
 }
 	#content form {
 		padding: 10px 20px;
