@@ -6,6 +6,9 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<title><?php echo $before; ?>LiTHekoll<?php echo $after; ?></title>
+		<link rel="icon" 
+      			type="image/png" 
+      			href="img/favicon.png">
 <?php /*
 		<!-- mobile friendly stuff -->
 		<meta name="HandheldFriendly" content="True">
