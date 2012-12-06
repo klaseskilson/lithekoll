@@ -19,7 +19,7 @@ function build_header($before = '', $after = '')
  * avslutar html-sidan genom att inkludera footer.php
  * @return 	-				hela sidan echo:as
  */
-function build_footer()
+function build_footer($loadchartapi = false)
 {
 	include("footer.php");
 }
@@ -102,6 +102,36 @@ function loginform()
 	</form>';
 }
 
+function transactions()
+{
+echo '	<form action="login.php" method="post" class="login">
+		<div class="hide">
+			<button type="button">Utgifter</button>
+			<button type="button">Inkomster</button>
+		</div>
+		<div class="flik">
+			<a href="#" onclick="switch(\'inkomst\', \'utgift\'); return false;" class="focus">Utgifter</a>
+			<a href="#" onclick="return false;">Inkomster</a>
+		</div>
+	</form>';
+	transform();
+}
+
+function transform()
+{
+	echo '<div>
+			<input type="text" class = "utgift" placeholder="kostnad"/>
+			<input type="text" class = "utgift" placeholder="datum"/>
+			<input type="text" class = "utgift" placeholder="övrigt "/>
+		</div>
+
+		<div>
+			<input type="text" class = "inkomst" placeholder="kostnad"/>
+			<input type="text" class = "inkomst" placeholder="datum"/>
+			<input type="text" class = "inkomst" placeholder="övrigt "/>
+		</div>';
+
+}
 //check if a user is properly logged in
 function loginstatus()
 {
