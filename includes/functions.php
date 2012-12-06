@@ -61,13 +61,15 @@ function hashgen($floor = 7, $roof = 10)
 function encrypt_password($password)
 {
 	$salt = 'kryddbeaärsåjävlagott';
-	if (CRYPT_SHA512 == 1)
+	if (defined('CRYPT_SHA512'))
 	{
-		return substr(crypt($password, '$6$rounds=10000$'.$salt.'$'),33);
+		if (CRYPT_SHA512 == 1)
+			return substr(crypt($password, '$6$rounds=10000$'.$salt.'$'),33);
 	}
-	if (CRYPT_SHA256 == 1)
+	if (defined('CRYPT_SHA256'))
 	{
-	    return substr(crypt($password, '$5$rounds=10000$'.$salt.'$'),33);
+		if (CRYPT_SHA256 == 1)
+		    return substr(crypt($password, '$5$rounds=10000$'.$salt.'$'),33);
 	}
 	if (CRYPT_MD5 == 1)
 	{
