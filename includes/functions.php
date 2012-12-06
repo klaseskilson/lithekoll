@@ -143,7 +143,13 @@ function loginstatus()
 
 function mailmessage($message)
 {
-	$message = '<html>';
+	$message = '
+	<html>
+	<h1>
+		Välkommen till LiTHekoll!
+	</h1>
+	</html>
+	';
 }
 
 ?>

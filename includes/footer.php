@@ -8,14 +8,15 @@
 			</div>
 		</div><!-- #container -->
 
-<?php
-	if($loadchartapi)
-		echo  '<script type="text/javascript" src="https://www.google.com/jsapi"></script>';
-?>	</body>
-
 	<!-- load jQuery -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
 
-	<script type="text/javascript" src="js/script.js" />
+	<script type="text/javascript" src="js/script.js"></script>
+<?php
+	if($loadchartapi)
+		echo '<script type="text/javascript" src="https://www.google.com/jsapi"></script>';
+?>
+</body>
+
 </html>
