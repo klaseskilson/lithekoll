@@ -13,13 +13,13 @@ build_header();
 	<div class="wrapper">
 		<div class="alignment">
 			<p>
-				Hejhej hemskt mycket hej
+				Välkommen till LiTHekoll!
 			</p>
 			<p>
-				Använd vår tjänst
+				Hen får gärna registrera sig och använda vår tjänst!
 			</p>
 			<p>
-				SPARA TILL EN PONNY förihelvete
+				Få LiTHekoll idag!
 			</p>
 		</div><!-- .alignment -->
 		<?php signupform(); ?>

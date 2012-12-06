@@ -29,7 +29,7 @@ if(isset($_POST['dologin']))
 	}
 	else
 		$error = '<p class="error"><em>Kunde inte logga in.</em> E-postadressen eller
-				  lösenordet stämmer inte övverens. Kontrollera att du skrev rätt och försök igen.</p>';
+				  lösenordet stämmer inte överens. Kontrollera att du skrev rätt och försök igen.</p>';
 }
 
 if(isset($_GET['logout']))

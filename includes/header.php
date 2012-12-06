@@ -27,7 +27,7 @@
 				</header>
 				<nav>
 					<a href="./">Hem</a>
-					<a href="#">Projektet</a>
+					<a href="./project.php">Projektet</a>
 					<?php
 						// kolla om användaren är inloggad
 						echo (loginstatus() ? '<a href="login.php?logout">Logga ut</a>' : '<a href="login.php">Logga in</a>');

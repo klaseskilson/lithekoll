@@ -29,7 +29,7 @@ if(isset($_POST['submit']))
 	if($emailexists !== 0)
 		$error .= "<li>Epost-adressen är redan registrerad</li>";
 	if(strlen($password) < 5)
-		$error .= "<li>Skriv in lösenord</li>";
+		$error .= "<li>Lösenordet måste vara minst 5 tecken</li>";
 	if($password !== $confirm)
 		$error .= "<li>Lösenorden stämmer inte överens</li>";
 
