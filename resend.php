@@ -17,7 +17,7 @@ if(isset($_POST['submit']))
 		$subject = 'Aktivera Lithekoll';
 		$from = 'From: donotreply@lithekoll.nu';
 
-		if (mail ($email, $subject, $mailet, $from))
+		if (mail ($email, $subject, $mailet, MAILHEADER))
 			$message = "<p class=\"hurra\">Ett mail har skickats till din mail med en aktiveringslänk. Klicka på den och börja lithekolla!</p>";
 		else
 			$message = "<p class=\"error\">Tyvärr kunde mailet inte skickas, vi beklagar. Försök gärna igen senare!</p>";

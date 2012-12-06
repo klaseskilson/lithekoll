@@ -141,15 +141,21 @@ function loginstatus()
 	return false;
 }
 
+/*
+ * förbereder ett meddelande att mailas enligt en viss mall
+ * @param 	string 	$message	meddelandet
+ * @return 	string 	meddelandet formaterat
+ */
 function mailmessage($message)
 {
-	$message = '
-	<html>
+	$message = '<html>
 	<h1>
-		Välkommen till LiTHekoll!
+		LiTHekoll!
 	</h1>
-	</html>
-	';
+	<div>
+		'.$message.'
+	</div>
+	</html>';
 }
 
 ?>
