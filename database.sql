@@ -39,9 +39,10 @@ ALTER TABLE `balance`
 	ADD CONSTRAINT `balance_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `users` (`uid`);
 
 CREATE TABLE IF NOT EXISTS `categories` (
-	`uid` INT(6) default 0,
+	`uid` INT(6) default 1,
 	`catid` INT(10) AUTO_INCREMENT,
 	`catname` CHAR(100) NOT NULL,
+	`positive` BOOL default 0,
 	PRIMARY KEY (`uid`, `catid`),
 	KEY `catid` (`catid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
@@ -66,3 +67,26 @@ ALTER TABLE `transactions`
 	ADD CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `users` (`uid`),
 	ADD CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`catid`) REFERENCES `categories` (`catid`);
 
+INSERT INTO users (uid, email, fname, sname, password, active, udate)
+	VALUES ('1', 'lol@lol.se', 'Petra', 'Puttmeister', 'lol', '1', 'DATE');
+
+INSERT INTO categories (catname)
+	VALUES ('Övrigt');
+
+INSERT INTO categories (catname)
+	VALUES ('Mat');
+
+INSERT INTO categories (catname)
+	VALUES ('Bostad');
+
+INSERT INTO categories (catname)
+	VALUES ('Nöjen');
+
+INSERT INTO categories (catname)
+	VALUES ('Resor');
+
+INSERT INTO categories (catname, positive)
+	VALUES ('Inkomster', '1');
+
+INSERT INTO categories (catname)
+	VALUES ('Kommunikation');
