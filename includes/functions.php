@@ -111,15 +111,10 @@ echo '	<form action="login.php" method="post" class="login">
 		</div>
 		<div class="flik">
 			<a href="#"  class="focus">Utgifter</a>
-			<a href="#" onclick="return false;">Inkomster</a>
+			<a href="#"  class="ofokus">Inkomster</a>
 		</div>
-	</form>
+	</form>'
 
-	<script>
-    $(".focus").click(function () {
-        $(this).removeClass(".focus")
-    });
-</script>'
 ;
 	transform();
 }
