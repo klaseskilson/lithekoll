@@ -247,6 +247,11 @@ input[type="submit"] {
 
 .flik a.focus{
 	background-color: #999;
+
+}
+
+.byte{
+	background-color: black;
 }
 
 /* ==========================================
