@@ -123,13 +123,7 @@ function transform()
 			<input type="text" class = "utgift" placeholder="kostnad"/>
 			<input type="text" class = "utgift" placeholder="datum"/>
 			<input type="text" class = "utgift" placeholder="övrigt "/>
-		</div>
-
-		<div>
-			<input type="text" class = "inkomst" placeholder="kostnad"/>
-			<input type="text" class = "inkomst" placeholder="datum"/>
-			<input type="text" class = "inkomst" placeholder="övrigt "/>
-		</div>';
+		</div>';		
 
 }
 //check if a user is properly logged in
