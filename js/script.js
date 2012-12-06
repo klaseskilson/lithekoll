@@ -1,7 +1,6 @@
 
 (function() {
 $('.focus').click(function() {
-	console.log(this);
 	$('.focus').removeClass('show');
 		$('.ofokus').addClass('show');
 
@@ -9,11 +8,8 @@ $('.focus').click(function() {
 });
 })();
 
-
-
 (function() {
 $('.ofokus').click(function() {
-	console.log(this);
 	$('.ofokus').removeClass('show');
 		$('.focus').addClass('show');
 	
