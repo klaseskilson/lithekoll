@@ -19,7 +19,7 @@ build_header();
 				Hen får gärna registrera sig och använda vår tjänst!
 			</p>
 			<p>
-				Få LiTHekoll idag!
+				Skaffa LiTHekoll idag!
 			</p>
 		</div><!-- .alignment -->
 		<?php signupform(); ?>
