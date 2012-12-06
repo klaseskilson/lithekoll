@@ -77,7 +77,7 @@ function encrypt_password($password)
 	return false;
 }
 
-// ehco a signup form
+// echo a signup form
 function signupform()
 {
 	echo '	<form action="signup.php" method="post" class="signup">
@@ -90,7 +90,7 @@ function signupform()
 	</form>';
 }
 
-// echo a llogin form
+// echo a login form
 function loginform()
 {
 	echo '	<form action="login.php" method="post" class="login">
