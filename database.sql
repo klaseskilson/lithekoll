@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 	`sname` CHAR(100) NOT NULL,
 	`password` CHAR(130) NOT NULL,
 	`active` BOOL default 0,
-	`hash` CHAR(10) NOT NULL,
+	`hash` CHAR(100) NOT NULL,
 	`udate` DATE,
 	PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
