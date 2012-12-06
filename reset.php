@@ -22,11 +22,11 @@ if(isset($_POST['submit']))
 		if($updateq)
 		{
 			//fortsätt
-			$mailet = 'Hej'.$user['fname'].'!\n\nVälkommen till LiTHekoll! Ditt konto är alldeles strax klart för att användas. Allt du behöver göra är att klicka på länken här nedan så kommer ditt konto aktiveras.\n\nhttp://lithekoll.nu/activate.php?hash='.$user['hash'].'&email='.$user['email'].'\n\nMed vänliga hälsningar\nLiTHekoll-teamet\n\n\nPS. Kompis, du kan inte svara på det här mailet. DS.';
+			$mailet = mailmessage('Hej'.$user['fname'].'!\n\nVälkommen till LiTHekoll! Ditt konto är alldeles strax klart för att användas. Allt du behöver göra är att klicka på länken här nedan så kommer ditt konto aktiveras.\n\nhttp://lithekoll.nu/activate.php?hash='.$user['hash'].'&email='.$user['email'].'\n\nMed vänliga hälsningar\nLiTHekoll-teamet\n\n\nPS. Kompis, du kan inte svara på det här mailet. DS.');
 			$subject = 'Aktivera Lithekoll';
 			$from = 'From: donotreply@lithekoll.nu';
 
-			if (mail ($email, $subject, $mailet, $from))
+			if (mail ($email, $subject, $mailet, MAILHEADER))
 				$message = "<p class=\"hurra\">Hurra! Ett mail har skickats till den e-post du angav. Följ instruktionerna där och </p>";
 			else
 				$message = "<p class=\"error\">Tyvärr kunde mailet inte skickas, vi beklagar. Försök gärna igen senare!</p>";

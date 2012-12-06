@@ -49,7 +49,7 @@ if(isset($_POST['submit']))
 			$message = 'Hej'.$fname.'!\n\nVälkommen till LiTHekoll! Ditt konto är alldeles strax klart för att användas. Allt du behöver göra är att klicka på länken här nedan så kommer ditt konto aktiveras.\n\nhttp://lithekoll.nu/activate.php?hash='.$hash.'&email='.$email.'\n\nMed vänliga hälsningar\nLiTHekoll-teamet';
 			$subject = 'Aktivera Lithekoll';
 			$from = 'From: donotreply@lithekoll.nu';
-			if (mail ($email, $subject, $message, $from))
+			if (mail ($email, $subject, $message, MAILHEADER))
 				// skicka vidare till ett meddelande där det står att allt gick väl
 				header("Location: ?success");
 			else{

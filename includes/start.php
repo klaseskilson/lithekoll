@@ -10,6 +10,9 @@ session_start();
 include("functions.php");
 include("database.php");
 
+// grej som skickas med i alla mail
+define('MAILHEADER', 'Content-Type: text/html; From: ');
+
 $connection = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD)
 	or die("Näru: " . mysql_error());
 
