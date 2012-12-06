@@ -61,7 +61,7 @@ function hashgen($floor = 7, $roof = 10)
 function encrypt_password($password)
 {
 	$salt = 'kryddbeaärsåjävlagott';
-	if(CRYPT_SHA512 == 1)
+	if (CRYPT_SHA512 == 1)
 	{
 		return substr(crypt($password, '$6$rounds=10000$'.$salt.'$'),33);
 	}
@@ -81,9 +81,9 @@ function encrypt_password($password)
 function signupform()
 {
 	echo '	<form action="signup.php" method="post" class="signup">
-		<input type="text" name="fname" id="fname" placeholder="Förnamn" class="name" value="'.$_POST['fname'].'" />
-		<input type="text" name="sname" id="sname" placeholder="Efternamn" class="name" value="'.$_POST['sname'].'" />
-		<input type="email" name="email" id="email" placeholder="E-post" value="'.$_POST['email'].'" />
+		<input type="text" name="fname" id="fname" placeholder="Förnamn" class="name" value="'.(isset($_POST['fname']) ? $_POST['fname'] : "").'" />
+		<input type="text" name="sname" id="sname" placeholder="Efternamn" class="name" value="'.(isset($_POST['sname']) ? $_POST['sname'] : "").'" />
+		<input type="email" name="email" id="email" placeholder="E-post" value="'.(isset($_POST['email']) ? $_POST['email'] : "").'" />
 		<input type="password" name="password" id="password" placeholder="Lösenord" class="name" />
 		<input type="password" name="confirm" id="confirm" placeholder="Upprepa lösenord" class="name" />
 		<input type="submit" name="submit" id="submit" value="Registrera dig!" /><a href="login.php">Logga in &rarr;</a>
@@ -94,7 +94,7 @@ function signupform()
 function loginform()
 {
 	echo '	<form action="login.php" method="post" class="login">
-		<input type="email" name="email" id="email" placeholder="E-post" value="'.$_POST['email'].'" />
+		<input type="email" name="email" id="email" placeholder="E-post" value="'.(isset($_POST['email']) ? $_POST['email'] : "").'" />
 		<input type="password" name="password" id="password" placeholder="Lösenord" />
 		<input type="submit" name="dologin" id="dologin" value="Logga in!" />
 	</form>';
@@ -103,8 +103,9 @@ function loginform()
 //check if a user is properly logged in
 function loginstatus()
 {
-	if($_SESSION['LiTHekoll_login_bool'])
-		return true;
+	if(isset($_SESSION['LiTHekoll_login_bool']))
+		if($_SESSION['LiTHekoll_login_bool'])
+			return true;
 	return false;
 }
 
