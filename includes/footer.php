@@ -19,6 +19,4 @@
 		echo '<script type="text/javascript" src="https://www.google.com/jsapi"></script>';
 ?>
 </body>
-
->>>>>>> 6b15e1b601fc8becf12fcee1a954b0c697942837
 </html>

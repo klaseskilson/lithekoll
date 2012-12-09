@@ -8,12 +8,12 @@ include("includes/start.php");
 if(isset($_POST['submit']))
 {
 	$email = prep($_POST['email']);
-	$emailquery = mysql_query("SELECT email, hash FROM users where email='".$email."' LIMIT 1");
+	$emailquery = mysql_query("SELECT email, hash, fname FROM users where email='".$email."' LIMIT 1");
 
 	if(mysql_num_rows($emailquery) !== 0)
 	{
 		$user = mysql_fetch_array($emailquery);
-		$mailet = 'Hej'.$fname.'!\n\nVälkommen till LiTHekoll! Ditt konto är alldeles strax klart för att användas. Allt du behöver göra är att klicka på länken här nedan så kommer ditt konto aktiveras.\n\nhttp://lithekoll.nu/activate.php?hash='.$user['hash'].'&email='.$user['email'].'\n\nMed vänliga hälsningar\nLiTHekoll-teamet\n\n\nPS. Kompis, du kan inte svara på det här mailet. DS.';
+		$mailet = 'Hej'.$user['fname'].'!\n\nVälkommen till LiTHekoll! Ditt konto är alldeles strax klart för att användas. Allt du behöver göra är att klicka på länken här nedan så kommer ditt konto aktiveras.\n\nhttp://lithekoll.nu/activate.php?hash='.$user['hash'].'&email='.$user['email'].'\n\nMed vänliga hälsningar\nLiTHekoll-teamet\n\n\nPS. Kompis, du kan inte svara på det här mailet. DS.';
 		$subject = 'Aktivera Lithekoll';
 		$from = 'From: donotreply@lithekoll.nu';
 

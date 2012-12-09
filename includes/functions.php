@@ -53,7 +53,7 @@ function hashgen($floor = 7, $roof = 10)
 }
 
 /*
- * krypterar lösenord med dev.medieteknik.nu:s kryptering
+ * krypterar lösenord med en modifierad version av dev.medieteknik.nu:s kryptering
  * https://github.com/medieteknik/Medieteknik.nu/blob/master/application/helpers/common_helper.php
  * @param 	string 	$password	lösenordet som ska krypteras
  * @return 	string 	bra lösenord
@@ -93,13 +93,15 @@ function signupform()
 }
 
 // echo a login form
-function loginform()
+function loginform($resetlink = true)
 {
 	echo '	<form action="login.php" method="post" class="login">
 		<input type="email" name="email" id="email" placeholder="E-post" value="'.(isset($_POST['email']) ? $_POST['email'] : "").'" />
 		<input type="password" name="password" id="password" placeholder="Lösenord" />
-		<input type="submit" name="dologin" id="dologin" value="Logga in!" />
-	</form>';
+		<input type="submit" name="dologin" id="dologin" value="Logga in!" />';
+		if($resetlink)
+			echo '<a href="../reset.php">Glömt lösenord?</a>';
+	echo '</form>';
 }
 
 function transactions()
@@ -123,7 +125,7 @@ function transform()
 			<input type="text" class = "utgift" placeholder="kostnad"/>
 			<input type="text" class = "utgift" placeholder="datum"/>
 			<input type="text" class = "utgift" placeholder="övrigt "/>
-		</div>';		
+		</div>';
 
 }
 //check if a user is properly logged in
