@@ -112,10 +112,12 @@ echo '	<form action="login.php" method="post" class="login">
 			<button type="button">Inkomster</button>
 		</div>
 		<div class="flik">
-			<a href="#" onclick="switch(\'inkomst\', \'utgift\'); return false;" class="focus">Utgifter</a>
-			<a href="#" onclick="return false;">Inkomster</a>
+			<a href="#"  class="focus">Utgifter</a>
+			<a href="#"  class="ofokus">Inkomster</a>
 		</div>
-	</form>';
+	</form>'
+
+;
 	transform();
 }
 

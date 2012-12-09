@@ -22,9 +22,8 @@ build_header();
 		<div class = "contentwrapper wrapper-50 fright">
 			<h1>Diagram</h1>
 		   
+      <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
-    if(document.readyState === "complete")
-    {
       google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
@@ -44,9 +43,10 @@ build_header();
         var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
         chart.draw(data, options);
       }
-  }
-		 </script>
-		  <div id="chart_div" style="width: 390px; height: 100;"></div>
+    </script>
+
+     <div id="chart_div" style="width: 350px; height: 300px;"></div>
+
 	</div>
 	</div>
 		<div class="wrapper contentwrapper">
