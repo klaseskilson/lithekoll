@@ -46,9 +46,9 @@ if(isset($_POST['submit']))
 
 		if($adduser){
 			// MAILA ANVÄNDARE HÄR
-			$message = 'Hej'.$fname.'!\n\nVälkommen till LiTHekoll! Ditt konto är alldeles strax klart för att användas. Allt du behöver göra är att klicka på länken här nedan så kommer ditt konto aktiveras.\n\nhttp://lithekoll.nu/activate.php?hash='.$hash.'&email='.$email.'\n\nMed vänliga hälsningar\nLiTHekoll-teamet';
-			$subject = 'Aktivera Lithekoll';
-			$from = 'From: donotreply@lithekoll.nu';
+			$message = mailmessage('<p>Hej '.$fname.'!</p><p>Välkommen till LiTHekoll. Ditt konto är alldeles strax klart för att användas. Allt du behöver göra är att klicka på länken här nedan.</p><p>http://lithekoll.nu/activate.php?hash='.$hash.'&email='.$email.'</p><p>	Om länken inte går att klicka på, kopiera den och klista in den i din webläsares adressfält.</p><p>Med vänliga hälsningar, <br />LiTHekoll-teamet</p><p>PS. Kompis, du kan inte svara på det här mailet. DS.</p>');
+			$subject = 'Välkommen till LiTHekoll!';
+
 			if (mail ($email, $subject, $message, MAILHEADER))
 				// skicka vidare till ett meddelande där det står att allt gick väl
 				header("Location: ?success");
@@ -58,8 +58,8 @@ if(isset($_POST['submit']))
 				<div id="content" class="wrapper">
 					<h1>Nu blev det fel!</h1>
 					<p class="error">
-						Kunde inte skicka mail!
-						<a href="resend.php">Klicka här</a> för att skicka mailet igen.
+						Ajaj! Vi kunde inte skicka aktiveringsmailet till dig.
+						<a href="resend.php">Klicka här</a> för att försöka igen.
 					</p>
 				</div> <!-- #content -->
 
