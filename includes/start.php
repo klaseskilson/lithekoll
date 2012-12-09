@@ -18,6 +18,6 @@ $db = mysql_select_db(DB_DATEBASE)
 include("functions.php");
 
 // grej som skickas med i alla mail
-define('MAILHEADER', 'Content-Type: text/html; From: donotreply@lithekoll.nu; ');
+define('MAILHEADER', 'Content-Type: text/html; From: LiTHekoll-teamet <donotreply@lithekoll.nu>; ');
 
 ?>
