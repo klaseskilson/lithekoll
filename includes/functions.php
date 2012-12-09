@@ -154,6 +154,7 @@ function mailmessage($message)
 		'.$message.'
 	</div>
 	</html>';
+	return $message;
 }
 
 ?>
