@@ -36,6 +36,7 @@ if(isset($_POST['submit']))
 	if($error == '')
 	{
 		//GÖTT
+		//DANIEL WOOOO
 		$pwd = encrypt_password($password);
 		$hash = hashgen();
 
