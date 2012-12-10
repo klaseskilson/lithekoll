@@ -29,15 +29,19 @@ build_header();
 				function drawChart() {
 					var data = google.visualization.arrayToDataTable([
 						['Kategori', 'Pengar'],
-						['Work',     11],
-						['Eat',      2],
-						['Commute',  2],
-						['Watch TV', 2],
-						['Sleep',    7]
+						<?php
+							foreach (get_categories() as $key => $value) {
+								echo '[\''.$value.'\', '.get_sumbycatid($key).'],';
+							}
+						?>
 					]);
 
 					var options = {
-						title: 'Hejhej!'
+						colors: [<?php
+							foreach ($colors as $color) {
+								echo '\''.$color.'\', ';
+							}
+						?>]
 					};
 
 					var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
@@ -45,7 +49,7 @@ build_header();
 				}
 			</script>
 
-     <div id="chart_div" style="width: 100%; height: 300px;"></div>
+     <div id="chart_div" style="width: 100%;"></div>
 
 	</div>
 	</div>
