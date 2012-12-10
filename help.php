@@ -6,7 +6,8 @@ $helpsections = array(
 					'activationmail' => 'Aktiveringsmail'
 				);
 $helptexts = array(
-				'resetpassword' => '<p>Hejhej hemskt mycket hej!</p>'
+				'resetpassword' => '<p>Har du glömt bort till lösenord? <a href="reset.php">Klicka här</a> för att få ett återställningsmail till den e-postadress du angav när du blev medlem.</p>',
+				'activationmail' => '<p>Har du inte fått aktiveringsmailet? <a href="resend.php">Klicka här</a> för att skicka det igen!</p>'
 			);
 
 build_header();

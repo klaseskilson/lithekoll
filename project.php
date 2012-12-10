@@ -22,7 +22,7 @@ build_header();
 </div><!-- #fancyborder -->
 
 <div id="content" class="wrapper contentwrapper lotsoftext">
-	<p>
+	<p class="ingress">
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus tempor convallis tellus in luctus. Donec a euismod nunc. Maecenas vulputate sapien non elit euismod bibendum. Cras ut felis nec augue rutrum vulputate. Nam molestie volutpat semper. Donec risus nisl, lacinia at viverra vel, lacinia a velit. Praesent posuere ipsum at leo euismod vel egestas dolor vulputate. Donec commodo tortor id lorem pharetra consequat. Fusce lacinia suscipit tristique. Nulla luctus tristique purus vitae gravida. Nam blandit, sapien quis molestie vehicula, urna mauris cursus enim, a semper mi lacus et ante. Aenean nec mi leo, a lacinia sapien. Vestibulum venenatis rhoncus turpis, nec tincidunt mi tincidunt sed. Vivamus convallis nisi ut sem vulputate eget aliquam mi porta.
 	</p>
 	<p>
