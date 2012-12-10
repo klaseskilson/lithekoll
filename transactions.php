@@ -18,10 +18,10 @@ if(isset($_POST['submitu']))
 
 	if($error == '')
 	{
-		$query = "INSERT INTO transactions (uid, catid, description, minus, date) 
+		$query = "INSERT INTO transactions (uid, catid, description, minus, tdate)
 		VALUES ('".$_SESSION['LiTHekoll_login_id']."', '3', '$ukomet', '$usum', NOW())";
 	}
-	
+
 	mysql_query($query);
 	header("Location: dashboard.php");
 
@@ -39,9 +39,9 @@ elseif(isset($_POST['submiti']))
 
 	if($error == '')
 	{
-		$query = "INSERT INTO transactions (uid, catid, description, plus, date) 
+		$query = "INSERT INTO transactions (uid, catid, description, plus, tdate)
 		VALUES ('".$_SESSION['LiTHekoll_login_id']."', '6', '$ikomet', '$isum', NOW())";
-	
+
 	}
 		mysql_query($query);
 
