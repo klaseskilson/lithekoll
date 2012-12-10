@@ -110,25 +110,28 @@ function transform()
 {
 
 	echo '
+	<form action ="transactions.php" method="post">
 	<div class="flik">
 			<a href="#"  class="knapputgift showutgift">Utgifter</a>
 			<a href="#"  class="knappinkomst showinkomst">Inkomster</a>
 		</div>
 
 	<div class = "utgift showutgift">
-			<input type="text" class ="usum" placeholder="Kostnad"/>
-			<input type="text" class ="udatum" placeholder="Datum"/>
-			<input type="text" class ="ukomet" placeholder="Kommentar "/>
+			<input type="text" name ="usum" placeholder="Kostnad"/>
+			<input type="text" name ="udatum" placeholder="Datum"/>
+			<input type="text" name ="ukomet" placeholder="Kommentar "/>  
 		</div>
 
 	
 
-		<div class = "inkomst hide">
-			<input type="text" class ="isum" placeholder="Inkomst"/>
-			<input type="text" class ="idatum" placeholder="Datum"/>
-			<input type="text" class ="ikomet" placeholder="Kommentar"/>
-		</div>';		
+	<div class = "inkomst hide">
+			<input type="text" name ="isum" placeholder="Inkomst"/>
+			<input type="text" name ="idatum" placeholder="Datum"/>
+			<input type="text" name ="ikomet" placeholder="Kommentar"/>
+		</div>		
 
+		<input type="submit" id="submitu" name="submitu" value="Skicka" />
+		</form>';
 
 }
 //check if a user is properly logged in

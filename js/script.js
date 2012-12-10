@@ -7,6 +7,7 @@
 		$('.utgift').addClass('showutgift');
 		$('.utgift').removeClass('hide');
 		$('.inkomst').addClass('hide');
+		$('#submitu').attr("name", "submitu");
 	});
 
 	$('.knappinkomst').click(function(event) {
@@ -15,6 +16,7 @@
 		$('.inkomst').addClass('showinkomst');
 		$('.inkomst').removeClass('hide');
 		$('.utgift').addClass('hide');
+		$('#submitu').attr("name", "submiti");
 	});
 
 })();
