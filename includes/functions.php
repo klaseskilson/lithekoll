@@ -89,7 +89,7 @@ function signupform()
 		<input type="email" name="email" id="email" placeholder="E-post" value="'.(isset($_POST['email']) ? $_POST['email'] : "").'" />
 		<input type="password" name="password" id="password" placeholder="Lösenord" class="name" />
 		<input type="password" name="confirm" id="confirm" placeholder="Upprepa lösenord" class="name" />
-		<input type="submit" name="submit" id="submit" value="Registrera dig!" /><a href="login.php">Logga in &rarr;</a>
+		<input type="submit" name="submit" id="submit" value="Registrera dig!" /><a href="login.php">Medlem? Logga in &rarr;</a>
 	</form>';
 }
 
@@ -122,13 +122,16 @@ function transform()
 			<input type="text" name ="ukomet" placeholder="Kommentar "/>  
 		</div>
 
-	
+
+
 
 	<div class = "inkomst hide">
 			<input type="text" name ="isum" placeholder="Inkomst"/>
 			<input type="text" name ="idatum" placeholder="Datum"/>
 			<input type="text" name ="ikomet" placeholder="Kommentar"/>
 		</div>		
+
+
 
 		<input type="submit" id="submitu" name="submitu" value="Skicka" />
 		</form>';
@@ -161,6 +164,32 @@ function mailmessage($message)
 	return $message;
 }
 
+function get_categories()
+{
+	$uid = prep($_SESSION['LiTHekoll_login_id']);
+	$query = mysql_query("SELECT catname, catid FROM categories WHERE uid='1' or uid='$uid' and positive='0'");
+	$categories = array();
 
+	while ($row = mysql_fetch_array($query)) {
+		$categories[$row['catid']] = $row['catname'];
+	}
+	return $categories;
+}
+
+function get_sumbycatid ($catid)
+{
+	$from = date('Y-m').'-01';
+	$to = date('Y-m-d');
+	$uid = prep($_SESSION['LiTHekoll_login_id']);
+
+	$query = mysql_query("SELECT minus FROM transactions WHERE uid='$uid' and catid='$catid' and tdate between '$from' and '$to'");
+
+	$sum = 0;
+	while ($row = mysql_fetch_array($query))
+		$sum += $row['minus'];
+
+	return $sum;
+
+}
 
 ?>

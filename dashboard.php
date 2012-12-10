@@ -15,12 +15,12 @@ build_header();
 	</div>
 	<div class="wrapper">
 		<div class = "contentwrapper wrapper-50 fleft">
-		<h2>Transaktioner</h2>
+		<h2>Lägg till transaktion</h2>
 
 		<?php transform(); ?>
 	</div>
 		<div class = "contentwrapper wrapper-50 fright">
-			<h2><?php echo date('Y - m'); ?></h2>
+			<h2><?php echo date('m Y'); ?></h2>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 			<script type="text/javascript">
@@ -29,15 +29,19 @@ build_header();
 				function drawChart() {
 					var data = google.visualization.arrayToDataTable([
 						['Kategori', 'Pengar'],
-						['Work',     11],
-						['Eat',      2],
-						['Commute',  2],
-						['Watch TV', 2],
-						['Sleep',    7]
+						<?php
+							foreach (get_categories() as $key => $value) {
+								echo '[\''.$value.'\', '.get_sumbycatid($key).'],';
+							}
+						?>
 					]);
 
 					var options = {
-						title: 'Hejhej!'
+						colors: [<?php
+							foreach ($colors as $color) {
+								echo '\''.$color.'\', ';
+							}
+						?>]
 					};
 
 					var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
@@ -45,7 +49,7 @@ build_header();
 				}
 			</script>
 
-     <div id="chart_div" style="width: 100%; height: 300px;"></div>
+     <div id="chart_div" style="width: 100%;"></div>
 
 	</div>
 	</div>
