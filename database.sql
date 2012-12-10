@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `transactions` (
 	`description` CHAR(100) DEFAULT NULL,
 	`plus` INT(10) DEFAULT 0,
 	`minus` INT(10) DEFAULT 0,
-	`date` DATETIME DEFAULT '0000-00-00 00:00:00' NOT NULL,
+	`tdate` DATETIME DEFAULT '0000-00-00 00:00:00' NOT NULL,
 	`location` CHAR(100) DEFAULT NULL,
 	PRIMARY KEY (`uid`, `transid`, `catid`),
 	KEY `transid` (`transid`)

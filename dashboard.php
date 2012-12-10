@@ -46,7 +46,6 @@ build_header();
 	<div class="wrapper">
 		<div class = "contentwrapper wrapper-50 fleft">
 		<h2>Lägg till transaktion</h2>
-
 		<?php transform(); ?>
 	</div>
 		<div class = "contentwrapper wrapper-50 fright">
