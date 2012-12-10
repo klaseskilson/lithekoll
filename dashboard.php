@@ -10,7 +10,7 @@ build_header();
 	<div class="wrapper contentwrapper">
 		<h1>Välkommen, <?php echo $_SESSION['LiTHekoll_login_fname']; ?></h1>
 		<p>
-			Blabla
+			Här kan det stå något trevligt...
 		</p>
 	</div>
 	<div class="wrapper contentwrapper">
@@ -86,7 +86,7 @@ build_header();
 		<h2>Översikt</h2>
 
 	<p>
-	hefjwfwe
+	Här ska man kunna se sina senaste transaktioner!!!!!!!!!!!(!)
 	</p>
 
 	</div>
