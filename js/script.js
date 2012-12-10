@@ -1,19 +1,30 @@
 
 (function() {
-	$('.focus').click(function() {
-	$('.focus').removeClass('show');
-	$('.ofokus').addClass('show');
-	$('.utgift').toggle();
+	$('.knapputgift').click(function() {
+	$('.knapputgift').addClass('showutgift');
+	$('.utgift').addClass('showutgift');
+	$('.utgift').removeClass('hide');
+	$('.inkomst').addClass('hide');
+
+
+
 
 
 });
 })();
 
 (function() {
-	$('.ofokus').click(function() {
-	$('.ofokus').removeClass('show');
-	$('.focus').addClass('show');
+	$('.knappinkomst').click(function() {
+	$('.knappinkomst').addClass('showinkomst');
+	$('.inkomst').addClass('showinkomst');
+	$('.inkomst').removeClass('hide');
+	$('.utgift').addClass('hide');
 	
 
 });
 })();
+
+
+
+	
+	
