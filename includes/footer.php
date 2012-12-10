@@ -1,7 +1,10 @@
 			<div id="footer" class="wrapper">
 				<nav>
+					<a href="help.php">Hjälp & support</a>
 					<a href="#">Villkor</a>
 					<a href="#">Kontakt</a>
+				</nav>
+				<nav id="follow">
 					<a href="http://www.facebook.com/groups/lithekoll/" target="_blank">Facebook</a>
 					<a href="https://twitter.com/lithekoll" target="_blank">Twitter</a>
 				</nav>

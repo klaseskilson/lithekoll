@@ -57,6 +57,31 @@ a {
 	text-decoration: none;
 }
 
+p a {
+	color: #272727;
+	border-bottom: 1px dotted #777;
+}
+	p a:hover {
+		color: #000;
+		border-style: solid;
+	}
+
+h1 a {
+	color: #999;
+	text-transform: uppercase;
+	font-size: 70%;
+	line-height: 150%;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+}
+	h1 a:hover {
+		color: #fff;
+		text-transform: uppercase;
+		padding-right: 10px;
+	}
+
 /* ==========================================
    MISC
    ==========================================*/
@@ -82,6 +107,11 @@ a {
    Paragraphs
    ==========================================*/
 
+.lotsoftext p {
+	padding: 10px 20px;
+	font: 110% Georgia, Times, serif;
+	line-height: 160%;
+}
 p.error, p.hurra, p.ingress, ul.error {
 	padding: 10px 0; margin: 0 20px 10px;
 	font-family: 'Rambla', sans-serif;
@@ -106,15 +136,8 @@ p.hurra {
 	color: gray;
 	padding: 10px;
 }
-
 p, ul{
 	line-height: 140%;
-}
-
-.lotsoftext p {
-	padding: 10px 20px;
-	font: 110% Georgia, Times, serif;
-	line-height: 160%;
 }
 
 /* ==========================================
@@ -176,6 +199,13 @@ p, ul{
 		padding: 10px 0 0;
 		font-size: 70%;
 	}
+#content h2 {
+	margin: 0 20px 5px;
+	font-size: 120%;
+	font-family: 'Rambla', sans-serif;
+	border-bottom: 1px solid #CFCFCF;
+	padding: 15px 0 5px;
+}
 
 /* ==========================================
    Fancy-pants
@@ -232,23 +262,39 @@ input[type="submit"] {
 	margin: 0 5px 0;
 }
 
-.flik a:hover{
-	color: #fff;
-	background: #409918;
+.knapputgift:hover{
+	background-color: #D45C49;
 }
+
+.knappinkomst:hover{
+	background-color: #4CA14C;
+}
+
 .flik a{
 	border-top-left-radius: 10px 10px;
 	border-top-right-radius: 10px 10px;
 	float: left;
-	margin: 0 30px 25px 0;
-	padding: 10px;
-
+	margin: 0 2px 25px 0;
+	padding: 8px;
 }
 
-.show {
-	background-color: blue;
+.showinkomst {
+	background-color: #5FBD5F;
+	margin: 22px 0 0;
 }
 
+.showutgift {
+	background-color: #F27A67;
+	margin: 22px 0 0;
+}
+
+.utgift {
+	padding: 25px 0 10px 10px;
+}
+
+.inkomst {
+	padding: 25px 0 10px 10px;
+}
 /* ==========================================
    Signup-form
    ==========================================*/

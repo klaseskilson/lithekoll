@@ -22,7 +22,7 @@ if(isset($_POST['submit']))
 		if($updateq)
 		{
 			//fortsätt
-			$mailet = mailmessage('Hej'.$user['fname'].'!\n\nVälkommen till LiTHekoll! Ditt konto är alldeles strax klart för att användas. Allt du behöver göra är att klicka på länken här nedan så kommer ditt konto aktiveras.\n\nhttp://lithekoll.nu/reset.php?key='.$user['hash'].'&email='.$user['email'].'\n\nMed vänliga hälsningar\nLiTHekoll-teamet\n\n\nPS. Kompis, du kan inte svara på det här mailet. DS.');
+			$mailet = mailmessage('Hej'.$user['fname'].'!\n\nVälkommen till LiTHekoll! Ditt konto är alldeles strax klart för att användas. Allt du behöver göra är att klicka på länken här nedan så kommer ditt konto aktiveras.\n\nhttp://lithekoll.nu/reset.php?key='.$hash.'\n\nMed vänliga hälsningar\nLiTHekoll-teamet\n\n\nPS. Kompis, du kan inte svara på det här mailet. DS.');
 			$subject = 'Aktivera Lithekoll';
 			$from = 'From: donotreply@lithekoll.nu';
 
@@ -70,14 +70,16 @@ if(isset ($_GET['key'])){
 
 				if($updateq)
 				{
+					$message = "<p class=\"hurra\">Ditt lösenord har uppdaterats. Du kan nu logga in här nedan. ";
+
 					// fortsätt, skicka mail
-					$mailet = mailmessage('<p>Hej '.$user['fnamn'].'!</p><p>Ditt lösenord har precis ändrats på ditt LiTHekoll-konto. Om du inte känner igen detta, hör av dig till oss på support@lithekoll.nu omedelbart så kan vi hjälpa dig få kontroll över ditt konto igen.</p><p>Tack för att du använder LiTHekoll!</p><p>Med vänliga hälsningar, <br />LiTHekoll-teamet</p><p>PS. Kompis, du kan inte svara på det här mailet.</p>');
+					$mailet = mailmessage('<p>Hej '.$user['fname'].'!</p><p>Ditt lösenord har precis ändrats på ditt LiTHekoll-konto. Om du inte känner igen detta, hör av dig till oss på support@lithekoll.nu omedelbart så kan vi hjälpa dig få kontroll över ditt konto igen.</p><p>Tack för att du använder LiTHekoll!</p><p>Med vänliga hälsningar, <br />LiTHekoll-teamet</p><p>PS. Kompis, du kan inte svara på det här mailet.</p>');
 					$subject = 'Ditt lösenord har ändrats på Lithekoll';
 
 					if (mail ($email, $subject, $mailet, MAILHEADER))
-						$message .= "Ett mail har skickats till dig för att bekräfta detta.";
+						$message .= "Ett mail har skickats till dig för att bekräfta detta.</p>";
 					else
-						$message .= "Tyvärr kunde vi inte skicka ett mail till dig för att bekräfta detta.";
+						$message .= "Tyvärr kunde vi inte skicka ett mail till dig för att bekräfta detta.</p>";
 				}
 				else
 				{

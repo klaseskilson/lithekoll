@@ -112,8 +112,8 @@ echo '	<form action="login.php" method="post" class="login">
 			<button type="button">Inkomster</button>
 		</div>
 		<div class="flik">
-			<a href="#"  class="focus">Utgifter</a>
-			<a href="#"  class="ofokus">Inkomster</a>
+			<a href="#"  class="knapputgift showutgift">Utgifter</a>
+			<a href="#"  class="knappinkomst showinkomst">Inkomster</a>
 		</div>
 	</form>'
 
@@ -123,11 +123,19 @@ echo '	<form action="login.php" method="post" class="login">
 
 function transform()
 {
-	echo '<div>
-			<input type="text" class = "utgift" placeholder="kostnad"/>
-			<input type="text" class = "utgift" placeholder="datum"/>
-			<input type="text" class = "utgift" placeholder="övrigt "/>
-		</div>';
+
+	echo '<div class = "utgift showutgift">
+			<input type="text" class ="usum" placeholder="Kostnad"/>
+			<input type="text" class ="udatum" placeholder="Datum"/>
+			<input type="text" class ="ukomet" placeholder="Kommentar "/>
+		</div>
+
+		<div class = "inkomst hide">
+			<input type="text" class ="isum" placeholder="Inkomst"/>
+			<input type="text" class ="idatum" placeholder="Datum"/>
+			<input type="text" class ="ikomet" placeholder="Kommentar"/>
+		</div>';		
+
 
 }
 //check if a user is properly logged in
