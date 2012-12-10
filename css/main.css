@@ -262,6 +262,10 @@ input[type="submit"] {
 	margin: 0 5px 0;
 }
 
+
+/* ==========================================
+	Transaktions-formulär
+   ==========================================*/
 .knapputgift:hover{
 	background-color: #D45C49;
 }

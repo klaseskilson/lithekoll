@@ -15,12 +15,12 @@ build_header();
 	</div>
 	<div class="wrapper">
 		<div class = "contentwrapper wrapper-50 fleft">
-		<h2>Transaktioner</h2>
+		<h2>Lägg till transaktion</h2>
 
 		<?php transactions(); ?>
 	</div>
 		<div class = "contentwrapper wrapper-50 fright">
-			<h2><?php echo date('Y - m'); ?></h2>
+			<h2><?php echo date('m Y'); ?></h2>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 			<script type="text/javascript">

@@ -89,7 +89,7 @@ function signupform()
 		<input type="email" name="email" id="email" placeholder="E-post" value="'.(isset($_POST['email']) ? $_POST['email'] : "").'" />
 		<input type="password" name="password" id="password" placeholder="Lösenord" class="name" />
 		<input type="password" name="confirm" id="confirm" placeholder="Upprepa lösenord" class="name" />
-		<input type="submit" name="submit" id="submit" value="Registrera dig!" /><a href="login.php">Logga in &rarr;</a>
+		<input type="submit" name="submit" id="submit" value="Registrera dig!" /><a href="login.php">Medlem? Logga in &rarr;</a>
 	</form>';
 }
 
@@ -135,7 +135,7 @@ function transform()
 			<input type="text" class ="isum" placeholder="Inkomst"/>
 			<input type="text" class ="idatum" placeholder="Datum"/>
 			<input type="text" class ="ikomet" placeholder="Kommentar"/>
-		</div>';		
+		</div>';
 
 
 }
@@ -179,7 +179,7 @@ function get_utgift(){
 		$error .= "<li>Skriv in datum</li>";
 
 	if($error == ''){
-		$query = "INSERT INTO transactions (description, minus, date) 
+		$query = "INSERT INTO transactions (description, minus, date)
 		VALUES ('$ukomet', '$usum', '$udatum')";
 	}
 
@@ -198,7 +198,7 @@ function get_inkomst(){
 		$error .= "<li>Skriv in datum</li>";
 
 	if($error == ''){
-		$query = "INSERT INTO transactions (description, plus, date) 
+		$query = "INSERT INTO transactions (description, plus, date)
 		VALUES ('$ikomet', '$isum', '$idatum')";
 	}
 	else
