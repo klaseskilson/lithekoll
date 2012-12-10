@@ -17,7 +17,7 @@ build_header();
 		<div class = "contentwrapper wrapper-50 fleft">
 		<h2>Transaktioner</h2>
 
-		<?php transactions(); ?>
+		<?php transform(); ?>
 	</div>
 		<div class = "contentwrapper wrapper-50 fright">
 			<h2><?php echo date('Y - m'); ?></h2>
