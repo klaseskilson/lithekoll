@@ -232,23 +232,39 @@ input[type="submit"] {
 	margin: 0 5px 0;
 }
 
-.flik a:hover{
-	color: #fff;
-	background: #409918;
+.knapputgift:hover{
+	background-color: #D45C49;
 }
+
+.knappinkomst:hover{
+	background-color: #4CA14C;
+}
+
 .flik a{
 	border-top-left-radius: 10px 10px;
 	border-top-right-radius: 10px 10px;
 	float: left;
-	margin: 0 30px 25px 0;
-	padding: 10px;
-
+	margin: 0 2px 25px 0;
+	padding: 8px;
 }
 
-.show {
-	background-color: blue;
+.showinkomst {
+	background-color: #5FBD5F;
+	margin: 22px 0 0;
 }
 
+.showutgift {
+	background-color: #F27A67;
+	margin: 22px 0 0;
+}
+
+.utgift {
+	padding: 25px 0 10px 10px;
+}
+
+.inkomst {
+	padding: 25px 0 10px 10px;
+}
 /* ==========================================
    Signup-form
    ==========================================*/
