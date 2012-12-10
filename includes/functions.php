@@ -158,5 +158,32 @@ function mailmessage($message)
 	return $message;
 }
 
+function get_categories()
+{
+	$uid = prep($_SESSION['LiTHekoll_login_id']);
+	$query = mysql_query("SELECT catname, catid FROM categories WHERE uid='1' or uid='$uid' and positive='0'");
+	$categories = array();
+
+	while ($row = mysql_fetch_array($query)) {
+		$categories[$row['catid']] = $row['catname'];
+	}
+	return $categories;
+}
+
+function get_sumbycatid ($catid)
+{
+	$from = date('Y-m').'-01';
+	$to = date('Y-m-d');
+	$uid = prep($_SESSION['LiTHekoll_login_id']);
+
+	$query = mysql_query("SELECT minus FROM transactions WHERE uid='$uid' and catid='$catid' and tdate between '$from' and '$to'");
+
+	$sum = 0;
+	while ($row = mysql_fetch_array($query))
+		$sum += $row['minus'];
+
+	return $sum;
+
+}
 
 ?>
