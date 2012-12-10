@@ -120,6 +120,10 @@ function transform()
 			<input type="text" name ="usum" placeholder="Kostnad"/>
 			<input type="text" name ="udatum" placeholder="Datum"/>
 			<input type="text" name ="ukomet" placeholder="Kommentar "/>  
+			
+			 
+	
+
 		</div>
 
 
@@ -130,10 +134,14 @@ function transform()
 			<input type="text" name ="idatum" placeholder="Datum"/>
 			<input type="text" name ="ikomet" placeholder="Kommentar"/>
 		</div>		
+				<select>';
 
+				foreach (get_categories() as $key => $value) {
+				echo '<option value ="'.$key.'"> '.$value.'</option>';
+			}
+			echo
 
-
-		<input type="submit" id="submitu" name="submitu" value="Skicka" />
+		'<input type="submit" id="submitu" name="submitu" value="Skicka" />
 		</form>';
 
 }
@@ -222,7 +230,7 @@ function get_utgsum ()
 	$to = date('Y-m-d');
 	$uid = prep($_SESSION['LiTHekoll_login_id']);
 
-	$query = mysql_query("SELECT minus FROM transactions WHERE uid='$uid' and tdate between '$from' and '$to'");
+	$query = mysql_query("SELECT minus FROM transactions WHERE uid='$uid' and tdate between '$from' and '$to'") or die(mysql_error());
 
 	$sum = 0;
 	while ($row = mysql_fetch_array($query))
