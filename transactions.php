@@ -18,10 +18,14 @@ if(isset($_POST['submitu']))
 
 	if($error == '')
 	{
+<<<<<<< HEAD
 		$query = "INSERT INTO transactions (uid, catid, description, minus, tdate) 
+=======
+		$query = "INSERT INTO transactions (uid, catid, description, minus, tdate)
+>>>>>>> b942a4cb75c0299d2c1763f5d9c21057667502cc
 		VALUES ('".$_SESSION['LiTHekoll_login_id']."', '3', '$ukomet', '$usum', NOW())";
 	}
-	
+
 	mysql_query($query);
 	header("Location: dashboard.php");
 
@@ -39,9 +43,13 @@ elseif(isset($_POST['submiti']))
 
 	if($error == '')
 	{
+<<<<<<< HEAD
 		$query = "INSERT INTO transactions (uid, catid, description, plus, tdate) 
+=======
+		$query = "INSERT INTO transactions (uid, catid, description, plus, tdate)
+>>>>>>> b942a4cb75c0299d2c1763f5d9c21057667502cc
 		VALUES ('".$_SESSION['LiTHekoll_login_id']."', '6', '$ikomet', '$isum', NOW())";
-	
+
 	}
 		mysql_query($query);
 

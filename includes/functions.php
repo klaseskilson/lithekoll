@@ -121,9 +121,6 @@ function transform()
 			<input type="text" name ="udatum" placeholder="Datum"/>
 			<input type="text" name ="ukomet" placeholder="Kommentar "/>  
 			
-			 
-	
-
 		</div>
 
 
@@ -133,8 +130,10 @@ function transform()
 			<input type="text" name ="isum" placeholder="Inkomst"/>
 			<input type="text" name ="idatum" placeholder="Datum"/>
 			<input type="text" name ="ikomet" placeholder="Kommentar"/>
+
 		</div>		
 				<select>';
+
 
 				foreach (get_categories() as $key => $value) {
 				echo '<option value ="'.$key.'"> '.$value.'</option>';
@@ -196,7 +195,7 @@ function get_categories()
 function get_sumbycatid ($catid)
 {
 	$from = date('Y-m').'-01';
-	$to = date('Y-m-d');
+	$to = date('Y-m-').(date('d')+1);
 	$uid = prep($_SESSION['LiTHekoll_login_id']);
 
 	$query = mysql_query("SELECT minus FROM transactions WHERE uid='$uid' and catid='$catid' and tdate between '$from' and '$to'");
@@ -211,7 +210,7 @@ function get_sumbycatid ($catid)
 function get_inksum ()
 {
 	$from = date('Y-m').'-01';
-	$to = date('Y-m-d');
+	$to = date('Y-m-').(date('d')+1);
 	$uid = prep($_SESSION['LiTHekoll_login_id']);
 
 	$query = mysql_query("SELECT plus FROM transactions WHERE uid='$uid' and tdate between '$from' and '$to'");
@@ -227,7 +226,7 @@ function get_inksum ()
 function get_utgsum ()
 {
 	$from = date('Y-m').'-01';
-	$to = date('Y-m-d');
+	$to = date('Y-m-').(date('d')+1);
 	$uid = prep($_SESSION['LiTHekoll_login_id']);
 
 	$query = mysql_query("SELECT minus FROM transactions WHERE uid='$uid' and tdate between '$from' and '$to'") or die(mysql_error());
