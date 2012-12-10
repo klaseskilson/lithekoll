@@ -1,43 +1,51 @@
 <?php
 
-function get_utgift(){
+ini_set('error_reporting', E_ALL);
+
+include("includes/start.php");
+
+if(isset($_POST['submitu']))
+{
+
 
 	$usum = prep($_POST['usum']);
 	$udatum = prep($_POST['udatum']);
 	$ukomet = prep($_POST['ukomet']);
 
 	$error = '';
-	if(empty($usum) or $usum < 0)
-		$error .= "<li>Skriv in kostnad</li>";
-	if(empty($udatum))
-		$error .= "<li>Skriv in datum</li>";
+	if(empty($usum) || $usum < 0)
+		$error .= "<li>Skriv in positiv summa</li>";
 
-	if($error == ''){
-		$query = "INSERT INTO transactions (uid, description, minus, date) 
-		VALUES ('$_SESSION['LiTHekoll_login_id']', '$ukomet', '$usum', '$udatum')";
-
+	if($error == '')
+	{
+		$query = "INSERT INTO transactions (uid, catid, description, minus, date) 
+		VALUES ('".$_SESSION['LiTHekoll_login_id']."', '3', '$ukomet', '$usum', NOW())";
 	}
+	
+	mysql_query($query);
+	header("Location: dashboard.php");
 
 }
 
-function get_inkomst(){
-
-	$isum = prep($_POST["isum"]);
-	$idatum = prep($_POST["idatum"]);
-	$ikomet = prep($_POST["ikomet"]);
+elseif(isset($_POST['submiti']))
+{
+	$isum = prep($_POST['isum']);
+	$idatum = prep($_POST['idatum']);
+	$ikomet = prep($_POST['ikomet']);
 
 	$error = '';
-	if(empty($isum) or $isum < 0)
-		$error .= "<li>Skriv in inkomst</li>";
-	if(empty($idatum))
-		$error .= "<li>Skriv in datum</li>";
 
-	if($error == ''){
-		$query = "INSERT INTO transactions (uid, description, plus, date) 
-		VALUES ('$_SESSION['LiTHEkoll_login_id']', '$ikomet', '$isum', '$idatum')";
+
+
+	if($error == '')
+	{
+		$query = "INSERT INTO transactions (uid, catid, description, plus, date) 
+		VALUES ('".$_SESSION['LiTHekoll_login_id']."', '6', '$ikomet', '$isum', NOW())";
+	
 	}
-	else
-		$error = "<ul class=\"error\">".$error."</ul>";
-}
+		mysql_query($query);
 
+header("Location: dashboard.php");
+}
 ?>
+

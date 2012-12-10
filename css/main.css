@@ -9,8 +9,7 @@
 	BODY och liknande
    ==========================================*/
 body{
-	font-size: 100%;
-	font-family: Helvetica, Arial, 'freesans', sans-serif;
+	font: 100% Helvetica, Arial, 'freesans', sans-serif;
 	background: url('../img/light.png');
 }
 
@@ -262,6 +261,10 @@ input[type="submit"] {
 	margin: 0 5px 0;
 }
 
+
+/* ==========================================
+	Transaktions-formulär
+   ==========================================*/
 .knapputgift:hover{
 	background-color: #D45C49;
 }
@@ -279,12 +282,12 @@ input[type="submit"] {
 }
 
 .showinkomst {
-	background-color: #5FBD5F;
+	background-color: rgba(112, 218, 85, 0.62);
 	margin: 22px 0 0;
 }
 
 .showutgift {
-	background-color: #F27A67;
+	background-color: rgba(218, 85, 85, 0.62);
 	margin: 22px 0 0;
 }
 
@@ -340,3 +343,39 @@ form.signup {
 			color: #504C4C;
 		}
 
+
+/* ==========================================
+	DASHBOARD!!!!!!!!
+   ==========================================*/
+.sumboxcont {
+	padding: 0 0 10px;
+}
+.sumbox {
+	width: 20%;
+	margin: 0 6%;
+	float: left;
+	text-align: center;
+}
+.sumbox h3{
+	font-size: 80%;
+	font-family: Helvetica, Arial, 'freesans', sans-serif;
+	text-transform: uppercase;
+	font-weight: normal;
+	background: rgba(0, 0, 0, 0.15);
+	padding: 5px 0;
+}
+.sumbox p {
+	font-size: 200%;
+}
+
+.sumbox#plus {
+	background: rgba(112, 218, 85, 0.62);
+}
+
+.sumbox#minus {
+	background: rgba(218, 85, 85, 0.62);
+}
+
+.sumbox#sum {
+	background: rgba(85, 165, 218, 0.62);
+}
