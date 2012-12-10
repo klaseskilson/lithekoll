@@ -132,11 +132,11 @@ function transform()
 			<input type="text" name ="ikomet" placeholder="Kommentar"/>
 
 		</div>		
-				<select>';
+				<select name ="cat" class = "select">';
 
 
 				foreach (get_categories() as $key => $value) {
-				echo '<option value ="'.$key.'"> '.$value.'</option>';
+				echo '<option  value ="'.$key.'"> '.$value.'</option>';
 			}
 			echo
 
