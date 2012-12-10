@@ -80,6 +80,7 @@ function encrypt_password($password)
 }
 
 // echo a signup form
+//Erik was here!!!
 function signupform()
 {
 	echo '	<form action="signup.php" method="post" class="signup clearfix">
@@ -163,6 +164,45 @@ function mailmessage($message)
 	</div>
 	</html>';
 	return $message;
+}
+
+function get_utgift(){
+
+	$usum = prep($_POST['usum']);
+	$udatum = prep($_POST['udatum']);
+	$ukomet = prep($_POST['ukomet']);
+
+	$error = '';
+	if(empty($usum) or $usum < 0)
+		$error .= "<li>Skriv in kostnad</li>";
+	if(empty($udatum))
+		$error .= "<li>Skriv in datum</li>";
+
+	if($error == ''){
+		$query = "INSERT INTO transactions (description, minus, date) 
+		VALUES ('$ukomet', '$usum', '$udatum')";
+	}
+
+}
+
+function get_inkomst(){
+
+	$isum = prep($_POST["isum"]);
+	$idatum = prep($_POST["idatum"]);
+	$ikomet = prep($_POST["ikomet"]);
+
+	$error = '';
+	if(empty($isum) or $isum < 0)
+		$error .= "<li>Skriv in inkomst</li>";
+	if(empty($idatum))
+		$error .= "<li>Skriv in datum</li>";
+
+	if($error == ''){
+		$query = "INSERT INTO transactions (description, plus, date) 
+		VALUES ('$ikomet', '$isum', '$idatum')";
+	}
+	else
+		$error = "<ul class=\"error\">".$error."</ul>";
 }
 
 ?>
