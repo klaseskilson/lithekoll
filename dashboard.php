@@ -8,10 +8,40 @@ build_header();
 ?>
 <div id="content">
 	<div class="wrapper contentwrapper">
-		<h1>Kontrollpanel</h1>
+		<h1>Välkommen, <?php echo $_SESSION['LiTHekoll_login_fname']; ?></h1>
 		<p>
-			Här kan det vara nåt
+			Blabla
 		</p>
+	</div>
+	<div class="wrapper contentwrapper">
+		<h2>Just nu</h2>
+		<div class="sumboxcont">
+			<div class="sumbox" id="plus">
+				<h3>Inkomster</h3>
+				<p>
+					<?php
+						echo get_inksum();
+					?>
+				</p>
+			</div><!-- .sumbox#plus -->
+			<div class="sumbox" id="minus">
+				<h3>Utgifter</h3>
+				<p>
+					<?php
+						echo get_utgsum();
+					?>
+				</p>
+			</div><!-- .sumbox#minus -->
+			<div class="sumbox" id="sum">
+				<h3>Balans</h3>
+				<p>
+					<?php
+						echo (get_inksum()-get_utgsum());
+					?>
+				</p>
+			</div><!-- .sumbox#sum -->
+			<div class="clearfix"></div>
+		</div><!-- .sumboxcont -->
 	</div>
 	<div class="wrapper">
 		<div class = "contentwrapper wrapper-50 fleft">

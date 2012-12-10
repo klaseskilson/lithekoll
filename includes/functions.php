@@ -158,10 +158,14 @@ function mailmessage($message)
 	return $message;
 }
 
+/*
+ * hämtar alla kategorier från användaren
+ * @return 	array 	alla kategorier
+ */
 function get_categories()
 {
 	$uid = prep($_SESSION['LiTHekoll_login_id']);
-	$query = mysql_query("SELECT catname, catid FROM categories WHERE uid='1' or uid='$uid' and positive='0'");
+	$query = mysql_query("SELECT catname, catid FROM categories WHERE (uid='1' or uid='$uid') and positive='0' ORDER BY catname");
 	$categories = array();
 
 	while ($row = mysql_fetch_array($query)) {
@@ -170,6 +174,11 @@ function get_categories()
 	return $categories;
 }
 
+/*
+ * hämtar alla kategorier från användaren
+ * @param 	int 	$catid 	kategoriidt
+ * @return 	array 	alla kategorier
+ */
 function get_sumbycatid ($catid)
 {
 	$from = date('Y-m').'-01';
@@ -183,7 +192,38 @@ function get_sumbycatid ($catid)
 		$sum += $row['minus'];
 
 	return $sum;
-
 }
+
+function get_inksum ()
+{
+	$from = date('Y-m').'-01';
+	$to = date('Y-m-d');
+	$uid = prep($_SESSION['LiTHekoll_login_id']);
+
+	$query = mysql_query("SELECT plus FROM transactions WHERE uid='$uid' and tdate between '$from' and '$to'");
+
+	$sum = 0;
+	while ($row = mysql_fetch_array($query))
+		$sum += $row['plus'];
+
+	return $sum;
+}
+
+
+function get_utgsum ()
+{
+	$from = date('Y-m').'-01';
+	$to = date('Y-m-d');
+	$uid = prep($_SESSION['LiTHekoll_login_id']);
+
+	$query = mysql_query("SELECT minus FROM transactions WHERE uid='$uid' and tdate between '$from' and '$to'");
+
+	$sum = 0;
+	while ($row = mysql_fetch_array($query))
+		$sum += $row['minus'];
+
+	return $sum;
+}
+
 
 ?>

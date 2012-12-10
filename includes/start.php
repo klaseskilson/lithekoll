@@ -20,7 +20,7 @@ include("functions.php");
 // grej som skickas med i alla mail
 define('MAILHEADER', 'Content-Type: text/html; From: LiTHekoll-teamet <donotreply@lithekoll.nu>; ');
 
-$colors = array('#75E89E', '#A9D7FF', '#FAFF59', '#E8A745', '#FF504C', '#FFE000', '#E89C72', '#ADBAE8', '#FE8AFF', '#5CFFBB',
+$colors = array('#75E89E', '#A9D7FF', '#AB8DFF', '#E8A745', '#FF504C', '#FFE000', '#E89C72', '#ADBAE8', '#FE8AFF', '#5CFFBB',
 	 '#E8D874', '#00FF63', '#FF9F8C', '#C2AFE8', '#5EFFE6');
 
 ?>
