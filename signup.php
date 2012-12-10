@@ -29,7 +29,7 @@ if(isset($_POST['submit']))
 	if($emailexists !== 0)
 		$error .= "<li>Epost-adressen är redan registrerad</li>";
 	if(strlen($password) < 5)
-		$error .= "<li>Skriv in lösenord</li>";
+		$error .= "<li>Lösenordet måste vara minst 5 tecken</li>";
 	if($password !== $confirm)
 		$error .= "<li>Lösenorden stämmer inte överens</li>";
 
@@ -46,15 +46,34 @@ if(isset($_POST['submit']))
 
 		if($adduser){
 			// MAILA ANVÄNDARE HÄR
+			$message = mailmessage('<p>Hej '.$fname.'!</p><p>Välkommen till LiTHekoll. Ditt konto är alldeles strax klart för att användas. Allt du behöver göra är att klicka på länken här nedan.</p><p>http://lithekoll.nu/activate.php?hash='.$hash.'&email='.$email.'</p><p>	Om länken inte går att klicka på, kopiera den och klista in den i din webläsares adressfält.</p><p>Med vänliga hälsningar, <br />LiTHekoll-teamet</p><p>PS. Kompis, du kan inte svara på det här mailet. DS.</p>');
+			$subject = 'Välkommen till LiTHekoll!';
 
-			// skicka vidare till ett meddelande där det står att allt gick väl
-			header("Location: ?success");
+			if (mail ($email, $subject, $message, MAILHEADER))
+				// skicka vidare till ett meddelande där det står att allt gick väl
+				header("Location: ?success");
+			else{
+				build_header ('Kunde inte aktivera! - ');
+				?>
+				<div id="content" class="wrapper">
+					<h1>Nu blev det fel!</h1>
+					<p class="error">
+						Ajaj! Vi kunde inte skicka aktiveringsmailet till dig.
+						<a href="resend.php">Klicka här</a> för att försöka igen.
+					</p>
+				</div> <!-- #content -->
+
+				<?php
+
+				build_footer ();
+				die();
+			}
 		}
 		else
 			die(mysql_error());
 	}
 	else
-		$error = "<ul class=\"error\">".$error."</p>";
+		$error = "<ul class=\"error\">".$error."</ul>";
 
 }
 
@@ -62,7 +81,7 @@ if(isset($_POST['submit']))
 build_header();
 ?>
 
-<div id="content" class="wrapper">
+<div id="content" class="wrapper contentwrapper">
 	<?php
 		if(isset($_GET['success'])){
 			// gratulera användaren

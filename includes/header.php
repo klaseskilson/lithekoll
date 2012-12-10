@@ -6,6 +6,9 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<title><?php echo $before; ?>LiTHekoll<?php echo $after; ?></title>
+		<link rel="icon" 
+      			type="image/png" 
+      			href="img/favicon.png">
 <?php /*
 		<!-- mobile friendly stuff -->
 		<meta name="HandheldFriendly" content="True">
@@ -27,7 +30,7 @@
 				</header>
 				<nav>
 					<a href="./">Hem</a>
-					<a href="#">Projektet</a>
+					<a href="./project.php">Projektet</a>
 					<?php
 						// kolla om användaren är inloggad
 						echo (loginstatus() ? '<a href="login.php?logout">Logga ut</a>' : '<a href="login.php">Logga in</a>');

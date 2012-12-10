@@ -17,18 +17,19 @@ if(isset($_POST['dologin']))
 	// kolla om frågan retunerade något
 	if (mysql_num_rows($loginquery) !== 0){
 		//sätt sessionsvariabler, men hämta först användaren
-		foreach (mysql_fetch_array($loginquery) as $user) {
-			$_SESSION['LiTHekoll_login_bool'] = true;
-			$_SESSION['LiTHekoll_login_timestamt'] = time();
-			$_SESSION['LiTHekoll_login_id'] = $user['uid'];
-		}
+		$user = mysql_fetch_array($loginquery);
+
+		$_SESSION['LiTHekoll_login_bool'] = true;
+		$_SESSION['LiTHekoll_login_timestamp'] = time();
+		$_SESSION['LiTHekoll_login_id'] = $user['uid'];
+		$_SESSION['LiTHekoll_login_fname'] = $user['fname'];
 
 		// skicka användaren till dashboarden
 		header("Location: dashboard.php");
 	}
 	else
 		$error = '<p class="error"><em>Kunde inte logga in.</em> E-postadressen eller
-				  lösenordet stämmer inte övverens. Kontrollera att du skrev rätt och försök igen.</p>';
+				  lösenordet stämmer inte överens. Kontrollera att du skrev rätt och försök igen.</p>';
 }
 
 if(isset($_GET['logout']))
@@ -45,7 +46,7 @@ if(isset($_GET['logout']))
 build_header();
 ?>
 
-<div id="content" class="wrapper">
+<div id="content" class="wrapper contentwrapper">
 	<?php
 		if(isset($_GET['firsttime'])){
 			// om man blivit hitskickad för första gången får man en chans att skriva in sitt lösenord

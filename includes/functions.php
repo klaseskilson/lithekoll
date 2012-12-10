@@ -19,7 +19,7 @@ function build_header($before = '', $after = '')
  * avslutar html-sidan genom att inkludera footer.php
  * @return 	-				hela sidan echo:as
  */
-function build_footer()
+function build_footer($loadchartapi = false)
 {
 	include("footer.php");
 }
@@ -53,7 +53,7 @@ function hashgen($floor = 7, $roof = 10)
 }
 
 /*
- * krypterar lösenord med dev.medieteknik.nu:s kryptering
+ * krypterar lösenord med en modifierad version av dev.medieteknik.nu:s kryptering
  * https://github.com/medieteknik/Medieteknik.nu/blob/master/application/helpers/common_helper.php
  * @param 	string 	$password	lösenordet som ska krypteras
  * @return 	string 	bra lösenord
@@ -61,13 +61,15 @@ function hashgen($floor = 7, $roof = 10)
 function encrypt_password($password)
 {
 	$salt = 'kryddbeaärsåjävlagott';
-	if(CRYPT_SHA512 == 1)
+	if (defined('CRYPT_SHA512'))
 	{
-		return substr(crypt($password, '$6$rounds=10000$'.$salt.'$'),33);
+		if (CRYPT_SHA512 == 1)
+			return substr(crypt($password, '$6$rounds=10000$'.$salt.'$'),33);
 	}
-	if (CRYPT_SHA256 == 1)
+	if (defined('CRYPT_SHA256'))
 	{
-	    return substr(crypt($password, '$5$rounds=10000$'.$salt.'$'),33);
+		if (CRYPT_SHA256 == 1)
+		    return substr(crypt($password, '$5$rounds=10000$'.$salt.'$'),33);
 	}
 	if (CRYPT_MD5 == 1)
 	{
@@ -77,35 +79,82 @@ function encrypt_password($password)
 	return false;
 }
 
-// ehco a signup form
+// echo a signup form
 function signupform()
 {
-	echo '	<form action="signup.php" method="post" class="signup">
-		<input type="text" name="fname" id="fname" placeholder="Förnamn" class="name" value="'.$_POST['fname'].'" />
-		<input type="text" name="sname" id="sname" placeholder="Efternamn" class="name" value="'.$_POST['sname'].'" />
-		<input type="email" name="email" id="email" placeholder="E-post" value="'.$_POST['email'].'" />
+	echo '	<form action="signup.php" method="post" class="signup clearfix">
+		<input type="text" name="fname" id="fname" placeholder="Förnamn" class="name" value="'.(isset($_POST['fname']) ? $_POST['fname'] : "").'" />
+		<input type="text" name="sname" id="sname" placeholder="Efternamn" class="name" value="'.(isset($_POST['sname']) ? $_POST['sname'] : "").'" />
+		<input type="email" name="email" id="email" placeholder="E-post" value="'.(isset($_POST['email']) ? $_POST['email'] : "").'" />
 		<input type="password" name="password" id="password" placeholder="Lösenord" class="name" />
 		<input type="password" name="confirm" id="confirm" placeholder="Upprepa lösenord" class="name" />
 		<input type="submit" name="submit" id="submit" value="Registrera dig!" /><a href="login.php">Logga in &rarr;</a>
 	</form>';
 }
 
-// echo a llogin form
-function loginform()
+// echo a login form
+function loginform($resetlink = true)
 {
 	echo '	<form action="login.php" method="post" class="login">
-		<input type="email" name="email" id="email" placeholder="E-post" value="'.$_POST['email'].'" />
+		<input type="email" name="email" id="email" placeholder="E-post" value="'.(isset($_POST['email']) ? $_POST['email'] : "").'" />
 		<input type="password" name="password" id="password" placeholder="Lösenord" />
-		<input type="submit" name="dologin" id="dologin" value="Logga in!" />
-	</form>';
+		<input type="submit" name="dologin" id="dologin" value="Logga in!" />';
+		if($resetlink)
+			echo '<a href="../reset.php">Glömt lösenord?</a>';
+	echo '</form>';
 }
 
+function transactions()
+{
+echo '	<form action="login.php" method="post" class="login">
+		<div class="hide">
+			<button type="button">Utgifter</button>
+			<button type="button">Inkomster</button>
+		</div>
+		<div class="flik">
+			<a href="#"  class="focus">Utgifter</a>
+			<a href="#"  class="ofokus">Inkomster</a>
+		</div>
+	</form>'
+
+;
+	transform();
+}
+
+function transform()
+{
+	echo '<div>
+			<input type="text" class = "utgift" placeholder="kostnad"/>
+			<input type="text" class = "utgift" placeholder="datum"/>
+			<input type="text" class = "utgift" placeholder="övrigt "/>
+		</div>';
+
+}
 //check if a user is properly logged in
 function loginstatus()
 {
-	if($_SESSION['LiTHekoll_login_bool'])
-		return true;
+	if(isset($_SESSION['LiTHekoll_login_bool']))
+		if($_SESSION['LiTHekoll_login_bool'])
+			return true;
 	return false;
+}
+
+/*
+ * förbereder ett meddelande att mailas enligt en viss mall
+ * @param 	string 	$message	meddelandet
+ * @return 	string 	meddelandet formaterat
+ */
+function mailmessage($message)
+{
+	$message = '<html>
+	<h1>
+		LiTHekoll!
+	</h1>
+	<div>
+		'.$message.'
+	</div>
+	</html>';
+	return $message;
 }
 
 ?>
