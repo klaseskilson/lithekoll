@@ -110,38 +110,30 @@ function transform()
 {
 
 	echo '
-	<form action ="transactions.php" method="post">
-	<div class="flik">
-			<a href="#"  class="knapputgift showutgift">Utgifter</a>
-			<a href="#"  class="knappinkomst showinkomst">Inkomster</a>
+	<form action="transactions.php" method="post">
+		<div class="flik">
+				<a href="#" class="knapputgift showutgift">Utgifter</a>
+				<a href="#" class="knappinkomst showinkomst">Inkomster</a>
+			</div>
+
+		<div class = "utgift showutgift">
+			<input type="text" name="usum" placeholder="Kostnad" />
+			<input type="text" name="udatum" placeholder="Datum" />
+			<input type="text" name="ukomet" placeholder="Kommentar" />
 		</div>
-
-	<div class = "utgift showutgift">
-			<input type="text" name ="usum" placeholder="Kostnad"/>
-			<input type="text" name ="udatum" placeholder="Datum"/>
-			<input type="text" name ="ukomet" placeholder="Kommentar "/>  
-			
+		<div class = "inkomst hide">
+				<input type="text" name="isum" placeholder="Inkomst" />
+				<input type="text" name="idatum" placeholder="Datum" />
+				<input type="text" name="ikomet" placeholder="Kommentar" />
 		</div>
-
-
-
-
-	<div class = "inkomst hide">
-			<input type="text" name ="isum" placeholder="Inkomst"/>
-			<input type="text" name ="idatum" placeholder="Datum"/>
-			<input type="text" name ="ikomet" placeholder="Kommentar"/>
-
-		</div>		
-				<select name ="cat" class = "select">';
-
-
-				foreach (get_categories() as $key => $value) {
-				echo '<option  value ="'.$key.'"> '.$value.'</option>';
+		<select name ="cat" class = "select">';
+			foreach (get_categories() as $key => $value) {
+				echo '<option value ="'.$key.'"> '.$value.'</option>';
 			}
-			echo
-
-		'<input type="submit" id="submitu" name="submitu" value="Skicka" />
-		</form>';
+	echo '
+		</select>
+		<input type="submit" id="submitu" name="submitu" value="Skicka" />
+	</form>';
 
 }
 //check if a user is properly logged in
