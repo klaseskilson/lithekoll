@@ -1,7 +1,7 @@
 /* ==========================================
    TYPSNITT!
    ==========================================*/
-@import url(http://fonts.googleapis.com/css?family=Rambla);
+@import url(http://fonts.googleapis.com/css?family=Rambla|Quicksand);
 
 
 
@@ -93,6 +93,9 @@ h1 a {
 }
 .hide {
 	display: none;
+}
+.show {
+	display: block;
 }
 .clearfix::after {
 	content: ".";
@@ -348,34 +351,43 @@ form.signup {
 	DASHBOARD!!!!!!!!
    ==========================================*/
 .sumboxcont {
-	padding: 0 0 10px;
+	font-family: 'Quicksand', Helvetica, Arial, 'freesans', sans-serif;
+	padding: 0 20px 10px;
 }
 .sumbox {
 	width: 20%;
-	margin: 0 6%;
+	margin: 0 3%;
 	float: left;
 	text-align: center;
 }
+	.sumbox#plus {
+		background: rgba(112, 218, 85, 0.62);
+	}
+	.sumbox#minus {
+		background: rgba(218, 85, 85, 0.62);
+	}
+	.sumbox#sum {
+		background: rgba(85, 165, 218, 0.62);
+	}
 .sumbox h3{
-	font-size: 80%;
-	font-family: Helvetica, Arial, 'freesans', sans-serif;
+	font-size: 90%;
+	font-family: 'Quicksand', Helvetica, Arial, 'freesans', sans-serif;
 	text-transform: uppercase;
 	font-weight: normal;
 	background: rgba(0, 0, 0, 0.15);
 	padding: 5px 0;
 }
 .sumbox p {
-	font-size: 200%;
+	font-size: 220%;
 }
 
-.sumbox#plus {
-	background: rgba(112, 218, 85, 0.62);
+.sumboxcont p.divider {
+	font-size: 300%;
+	line-height: 86px;
+	float: left;
+	width: 10%;
+	margin: 0; padding: 0;
+	text-align: center;
 }
 
-.sumbox#minus {
-	background: rgba(218, 85, 85, 0.62);
-}
 
-.sumbox#sum {
-	background: rgba(85, 165, 218, 0.62);
-}

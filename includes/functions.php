@@ -80,7 +80,6 @@ function encrypt_password($password)
 }
 
 // echo a signup form
-//Erik was here!!!
 function signupform()
 {
 	echo '	<form action="signup.php" method="post" class="signup clearfix">
@@ -104,7 +103,6 @@ function loginform($resetlink = true)
 			echo '<a href="../reset.php">Glömt lösenord?</a>';
 	echo '</form>';
 }
-
 
 function transform()
 {
@@ -134,8 +132,9 @@ function transform()
 		</select>
 		<input type="submit" id="submitu" name="submitu" value="Skicka" />
 	</form>';
-
 }
+
+
 //check if a user is properly logged in
 function loginstatus()
 {
@@ -167,10 +166,10 @@ function mailmessage($message)
  * hämtar alla kategorier från användaren
  * @return 	array 	alla kategorier
  */
-function get_categories()
+function get_categories($positive = 0)
 {
 	$uid = prep($_SESSION['LiTHekoll_login_id']);
-	$query = mysql_query("SELECT catname, catid FROM categories WHERE (uid='1' or uid='$uid') and positive='0' ORDER BY catname");
+	$query = mysql_query("SELECT catname, catid FROM categories WHERE (uid='1' or uid='$uid') and positive='$positive' ORDER BY catname");
 	$categories = array();
 
 	while ($row = mysql_fetch_array($query)) {
@@ -230,5 +229,26 @@ function get_utgsum ()
 	return $sum;
 }
 
+function get_transactions ($categories = '', $positive = 0, $limit = 15, $page = 0)
+{
+	$uid = prep($_SESSION['LiTHekoll_login_id']);
+
+	$addextra = '';
+
+	if(is_array($categories))
+	{
+		$addextra .= 'AND (';
+		foreach ($categories as $key => $value)
+			$addextra .= "catid='".$value."' OR";
+		$addextra .= ' catid=\'0\')';
+	}
+
+	$query = mysql_query("SELECT * FROM transactions WHERE uid='$uid' $addextra ORDER BY tdate DESC LIMIT $limit");
+
+	while ($row = mysql_fetch_array($query)){
+	}
+
+
+}
 
 ?>
