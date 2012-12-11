@@ -116,17 +116,17 @@ function transform()
 				<a href="#" class="knappinkomst showinkomst">Inkomster</a>
 			</div>
 
-		<div class = "utgift showutgift">
+		<div class="utgift showutgift">
 			<input type="text" name="usum" placeholder="Kostnad" />
 			<input type="text" name="udatum" placeholder="Datum" />
 			<input type="text" name="ukomet" placeholder="Kommentar" />
 		</div>
-		<div class = "inkomst hide">
+		<div class="inkomst hide">
 				<input type="text" name="isum" placeholder="Inkomst" />
 				<input type="text" name="idatum" placeholder="Datum" />
 				<input type="text" name="ikomet" placeholder="Kommentar" />
 		</div>
-		<select name ="cat" class = "select">';
+		<select name="cat" class="select">';
 			foreach (get_categories() as $key => $value) {
 				echo '<option value ="'.$key.'"> '.$value.'</option>';
 			}
