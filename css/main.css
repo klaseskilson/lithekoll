@@ -102,6 +102,7 @@ h1 a {
 	visibility: hidden;
 }
 
+
 /* ==========================================
    Paragraphs
    ==========================================*/
@@ -183,7 +184,7 @@ p, ul{
 #content {
 }
 	#content form {
-		padding: 10px 20px;
+		padding: 20px 10px;
 	}
 
 #content h1 {
@@ -265,6 +266,26 @@ input[type="submit"] {
 /* ==========================================
 	Transaktions-formulär
    ==========================================*/
+
+input.addl {
+	width: 40%;
+	margin: 5px 5px 5px 15px;
+}
+
+input.addr {
+	width: 40%;
+	margin: 5px 15px 5px 5px;
+}
+
+.select {
+	width: 44%;
+	padding: 5px 5px;
+	margin: 6px 0 8px 15px;
+	font-size: 100%;
+	color: #D1D1D3;
+
+}
+
 .knapputgift:hover{
 	background-color: #D45C49;
 }
@@ -277,7 +298,7 @@ input[type="submit"] {
 	border-top-left-radius: 10px 10px;
 	border-top-right-radius: 10px 10px;
 	float: left;
-	margin: 0 2px 25px 0;
+	margin: -13px 2px 2px 0;
 	padding: 8px;
 }
 
@@ -291,12 +312,16 @@ input[type="submit"] {
 	margin: 22px 0 0;
 }
 
+.trans{
+	padding: 10px 25px;
+}
+
 .utgift {
-	padding: 25px 0 10px 10px;
+	padding: 25px 0 10px 0px;
 }
 
 .inkomst {
-	padding: 25px 0 10px 10px;
+	padding: 25px 0 10px 0px;
 }
 /* ==========================================
    Signup-form
