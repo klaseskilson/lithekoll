@@ -19,9 +19,8 @@ if(isset($_POST['submitu']))
 
 	if($error == '')
 	{
-
-	$query = "INSERT INTO transactions (uid, catid, description, minus, tdate)
-	VALUES ('".$_SESSION['LiTHekoll_login_id']."', '$cat', '$ukomet', '$usum', NOW())";
+		$query = "INSERT INTO transactions (uid, catid, description, minus, tdate)
+		VALUES ('".$_SESSION['LiTHekoll_login_id']."', '$cat', '$ukomet', '$usum', NOW())";
 	}
 
 	mysql_query($query);

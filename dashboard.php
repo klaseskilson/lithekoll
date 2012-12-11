@@ -24,6 +24,9 @@ build_header();
 					?>
 				</p>
 			</div><!-- .sumbox#plus -->
+			<p class="divider">
+				&ndash;<!-- minus ju -->
+			</p>
 			<div class="sumbox" id="minus">
 				<h3>Utgifter</h3>
 				<p>
@@ -32,6 +35,9 @@ build_header();
 					?>
 				</p>
 			</div><!-- .sumbox#minus -->
+			<p class="divider">
+				&#61; <!-- likhetstecken -->
+			</p>
 			<div class="sumbox" id="sum">
 				<h3>Balans</h3>
 				<p>
