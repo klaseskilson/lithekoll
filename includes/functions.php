@@ -115,32 +115,34 @@ function transform()
 			</div>
 
 		<div class="utgift showutgift">
+			<input type="text" class = "fleft width addl" name="usum" placeholder="Kostnad" />
 			<input type="text" class ="fright width addr" name="ukomet" placeholder="Kommentar" />
-			<input type="text" class = "fleft width addl" name="usum" placeholder="Kostnad" required />
-			<input type="date" class= "fright width addr" name="udatum"/>
-			<select name="cat" class="select width fleft">';
+			
+			
+			<select name="ucat" class="select width fleft">';
 			foreach (get_categories() as $key => $value) {
 				echo '<option value ="'.$key.'"> '.$value.'</option>';
 			}
 	echo '
 		</select>
+		<input type="date" class= "fright width addr" name="udatum" placeholder="ÅÅ/MM/DD"/>
 		<div class = "clearfix"></div>
 		</div>
 		
 		<div class="inkomst hide">
-				<input type="text" class= "fright width addr" name="ikomet" placeholder="Kommentar" />
 				<input type="text" class= "fleft width addl" name="isum" placeholder="Summa" />
-				<input type="text" class= "fright width addr" name="idatum" placeholder="Datum" />
-				<select name="cat" class="select width fleft add" placeholder="Kategori">';
-			foreach (get_categories() as $key => $value) {
+				<input type="text" class= "fright width addr" name="ikomet" placeholder="Kommentar" />
+				<select name="icat" class="select width fleft add" >';
+			foreach (get_categories(1) as $key => $value) {
 				echo '<option value ="'.$key.'"> '.$value.'</option>';
 			}
 	echo '
 		</select>
+		<input type="date" class= "fright width addr" name="idatum" placeholder="ÅÅ/MM/DD" />
 		<div class = "clearfix"></div>
 		</div>
 		
-		<input type="submit" id="submitu" class="fleft trans" name="submitu" value="Lägg till" />
+		<input type="submit" id="submitu" class="fleft trans" name="submitu" value="Hej" />
 	</form>';
 }
 

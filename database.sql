@@ -85,8 +85,15 @@ INSERT INTO categories (catname)
 INSERT INTO categories (catname)
 	VALUES ('Resor');
 
-INSERT INTO categories (catname, positive)
-	VALUES ('Inkomster', '1');
-
 INSERT INTO categories (catname)
 	VALUES ('Kommunikation');
+
+INSERT INTO categories (catname, positive)
+	VALUES ('Lön', '1');
+
+INSERT INTO categories (catname, positive)
+	VALUES ('Bidrag & Lån', '1');
+
+INSERT INTO categories (catname, positive)
+	VALUES ('Övrigt', '1');
+
