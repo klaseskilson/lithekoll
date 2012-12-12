@@ -11,7 +11,9 @@ if(isset($_POST['submitu']))
 	$usum = prep($_POST['usum']);
 	$udatum = prep($_POST['udatum']);
 	$ukomet = prep($_POST['ukomet']);
-	$cat = $_POST['cat'];
+	$ucat = prep($_POST['ucat']);
+	$udatum = date('Y-m-d H:i:s', strtotime($udatum));
+
 
 	$error = '';
 	if(empty($usum) || $usum < 0)
@@ -20,7 +22,7 @@ if(isset($_POST['submitu']))
 	if($error == '')
 	{
 		$query = "INSERT INTO transactions (uid, catid, description, minus, tdate)
-		VALUES ('".$_SESSION['LiTHekoll_login_id']."', '$cat', '$ukomet', '$usum', NOW())";
+		VALUES ('".$_SESSION['LiTHekoll_login_id']."', '$ucat', '$ukomet', '$usum', '$udatum')";
 	}
 
 	mysql_query($query);
@@ -33,8 +35,8 @@ elseif(isset($_POST['submiti']))
 	$isum = prep($_POST['isum']);
 	$idatum = prep($_POST['idatum']);
 	$ikomet = prep($_POST['ikomet']);
-
-
+	$icat = prep($_POST['icat']);
+	$idatum = date('Y-m-d H:i:s', strtotime($idatum));
 	$error = '';
 
 
@@ -42,7 +44,7 @@ elseif(isset($_POST['submiti']))
 	if($error == '')
 	{
 		$query = "INSERT INTO transactions (uid, catid, description, plus, tdate)
-		VALUES ('".$_SESSION['LiTHekoll_login_id']."', '6', '$ikomet', '$isum', NOW())";
+		VALUES ('".$_SESSION['LiTHekoll_login_id']."', '$icat', '$ikomet', '$isum', '$idatum')";
 
 	}
 		mysql_query($query);

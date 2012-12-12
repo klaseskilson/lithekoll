@@ -8,6 +8,7 @@
 		$('.utgift').removeClass('hide');
 		$('.inkomst').addClass('hide');
 		$('#submitu').attr("name", "submitu");
+		console.log($this);
 	});
 
 	$('.knappinkomst').click(function(event) {
@@ -25,4 +26,3 @@
 
 
 
-z
