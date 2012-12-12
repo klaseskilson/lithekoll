@@ -271,5 +271,15 @@ function get_transactions ($categories = '', $positive = 0, $limit = 15, $page =
 	return $transactions;
 }
 
+function get_transaction ($transid)
+{
+	$uid = prep($_SESSION['LiTHekoll_login_id']);
+
+	$query = mysql_query("SELECT * FROM transactions WHERE uid='$uid' and transid='$transid'");
+	$transaction = mysql_fetch_array($query);
+
+	return $transaction;
+}
+
 
 ?>

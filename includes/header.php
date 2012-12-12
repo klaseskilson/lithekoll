@@ -39,7 +39,7 @@
 			</div> <!-- #header -->
 			<div class="wrapper" id="noscript">
 				<p class="error">
-					ÖJ. LiTHekoll använder sig av JavaScript! Aktivera det, vännen lille.
+					ÖJ. LiTHekoll använder sig av JavaScript! Aktivera det aå funkar allt som det ska, vännen.
 				</p>
 			</div>
 			<script>

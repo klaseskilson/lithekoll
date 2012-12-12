@@ -9,7 +9,7 @@
 	BODY och liknande
    ==========================================*/
 body{
-	font: 100% 'Lucida Grande', Helvetica, Arial, 'freesans', sans-serif;
+	font: 100% 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, 'freesans', sans-serif;
 	background: url('../img/light.png');
 }
 
@@ -254,7 +254,7 @@ input{
 	border-radius: 3px;
 }
 
-input[type="text"], input[type="email"], input[type="password"], input[type="date"]{
+input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="tel"], select{
 	margin: 0 5px 5px 0;
 	padding: 5px;
 }
@@ -434,6 +434,13 @@ form.signup {
 	#dashboard tr:nth-child(even):hover{
 		background-color: #f7f7f7;
 	}
+	#dashboard tr .penna{
+		background:;
+	}
+	#dashboard tr:hover .penna{
+		background: url('../img/pen.png');
+		background-size: cover;
+	}
 
 #dashboard tr th {
 	text-align: left;
@@ -459,3 +466,10 @@ form.signup {
 	#dashboard td .plus {
 		background: rgba(112, 218, 85, 0.62);
 	}
+
+#dashboard .penna {
+	width: 25px;
+	height: 20px;
+	display: block;
+	margin: 5px 0 0;
+}
