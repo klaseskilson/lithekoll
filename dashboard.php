@@ -120,7 +120,7 @@ build_header();
 						<td>
 							<?php
 								$allcategories = get_categories(2);
-								$colorposition = sizeof($colors) % $key;
+								$colorposition = sizeof($colors) % ($key+1);
 							?>
 							<span class="<?php echo $transaction['minus'] == 0 ? 'plus' : 'minus';?>">
 								<?php echo $transaction['minus'] == 0 ? '+' : '&ndash;';?>
