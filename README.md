@@ -3,10 +3,14 @@ LiTHekoll
 
 Ett projekt i Elektronisk Publicering på Linköpings Tekniska Högskola vid Linköpings Universitet.
 
-Bra grejer att kolla på kan vara detta:
-* http://try.github.com/ - Lär dig git från grunden!
-* https://github.com/LiTHehack/gittips - LiTHehacks gtitips.
+LiTHekoll låter användaren skapa ett konto och hålla koll på sin ekonomi.
 
-Jag lägger till en ny cool grej här:
+## Filstruktur
 
-https://developers.google.com/chart/ - Googles diagram API
+    /includes
+Häri finns alla filer som includeras, de som inte själva möter besökaren. Mappen är läskyddad utifrån.
+
+    /js
+    /img
+    /css
+HTML-relaterade grejer.
