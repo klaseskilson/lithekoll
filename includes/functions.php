@@ -108,17 +108,15 @@ function transform()
 {
 
 	echo '
-	<form action="transactions.php" method="post">
+	<form action="transactions.php" method="post" id="inputform">
 		<div class="flik">
-				<a href="#" class="knapputgift showutgift">Utgifter</a>
-				<a href="#" class="knappinkomst showinkomst">Inkomster</a>
+				<a href="#" class="knapputgift showknapputgift showknapputgiftaktiv">Utgifter</a>
+				<a href="#" class="knappinkomst showknappinkomst">Inkomster</a>
 			</div>
 
 		<div class="utgift showutgift">
-			<input type="text" class = "fleft width addl" name="usum" placeholder="Kostnad" />
+			<input type="text" class = "fleft width addl required" name="usum" placeholder="Kostnad" />
 			<input type="text" class ="fright width addr" name="ukomet" placeholder="Kommentar" />
-			
-			
 			<select name="ucat" class="select width fleft">';
 			foreach (get_categories() as $key => $value) {
 				echo '<option value ="'.$key.'"> '.$value.'</option>';
@@ -126,6 +124,8 @@ function transform()
 	echo '
 		</select>
 		<input type="date" class= "fright width addr" name="udatum" placeholder="ÅÅ/MM/DD"/>
+		<div class = "clearfix"></div>
+		<input type="submit" id="submitu" class="fleft trans" name="submitu" value="Lägg till" />
 		<div class = "clearfix"></div>
 		</div>
 		
@@ -140,9 +140,11 @@ function transform()
 		</select>
 		<input type="date" class= "fright width addr" name="idatum" placeholder="ÅÅ/MM/DD" />
 		<div class = "clearfix"></div>
+		<input type="submit" id="submitu" class="fleft trans" name="submiti" value="Lägg till" />
+		<div class = "clearfix"></div>
 		</div>
 		
-		<input type="submit" id="submitu" class="fleft trans" name="submitu" value="Hej" />
+		
 	</form>';
 }
 
