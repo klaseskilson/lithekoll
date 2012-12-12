@@ -47,9 +47,45 @@ elseif(isset($_POST['submiti']))
 		VALUES ('".$_SESSION['LiTHekoll_login_id']."', '$icat', '$ikomet', '$isum', '$idatum')";
 
 	}
-		mysql_query($query);
+	mysql_query($query);
 
-header("Location: dashboard.php");
+	header("Location: dashboard.php");
 }
+
+elseif(isset($_GET['edit']))
+{
+	$transaction = get_transaction(prep($_GET['edit']));
+
+	if(!is_array($transaction))
+		die('Finns inte ju.');
+
+	build_header('Redigera transaktion - ');
+
+	?>
+
+
+<div id="content" class="wrapper contentwrapper">
+	<h1>Redigera transaktion</h1>
+	<form action="transaction.php">
+		<input type="text" value="<?php echo $transaction['description']; ?>" placeholder="Kommentar" />
+		<input type="tel" value="<?php echo $transaction['minus'] == 0 ? $transaction['plus'] : $transaction['minus']; ?>" placeholder="Belopp" />
+		<input type="date" value="<?php echo date('Y-m-d', strtotime($transaction['tdate'])); ?>" placeholder="ÅÅÅÅ-MM-DD" />
+		<select name="cat">
+		<?php
+			foreach (get_categories() as $key => $value) {
+				echo '<option value ="'.$key.'" '.(($key == $transaction['catid']) ? 'selected="selected"' : '').'> '.$value.'</option>';
+			}
+		?>
+		</select>
+	</form>
+	<p>
+	</p>
+</div> <!-- #content -->
+
+
+	<?php
+	build_footer();
+}
+
 ?>
 

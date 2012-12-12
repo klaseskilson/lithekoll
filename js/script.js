@@ -3,24 +3,25 @@
 
 	$('.knapputgift').click(function(event) {
 		event.preventDefault();
-		$('.knapputgift').addClass('showutgift');
+		$('.knapputgift').addClass('showknapputgiftaktiv');
+		$('.knappinkomst').removeClass('showknappinkomstaktiv');
 		$('.utgift').addClass('showutgift');
 		$('.utgift').removeClass('hide');
 		$('.inkomst').addClass('hide');
-		$('#submitu').attr("name", "submitu");
 		console.log($this);
 	});
 
 	$('.knappinkomst').click(function(event) {
 		event.preventDefault();
-		$('.knappinkomst').addClass('showinkomst');
+		$('.knappinkomst').addClass('showknappinkomstaktiv');
+		$('.knapputgift').removeClass('showknapputgiftaktiv');
 		$('.inkomst').addClass('showinkomst');
 		$('.inkomst').removeClass('hide');
 		$('.utgift').addClass('hide');
-		$('#submitu').attr("name", "submiti");
 	});
 
 })();
+<<<<<<< HEAD
 
 jQuery.validator.addMethod(
 	'positiveNumber',
@@ -59,3 +60,5 @@ $(document).ready(function() {
 		} 
 	});
 });
+=======
+>>>>>>> 1aac83de4f09a446ed1457301cc7ed913e8f7fdc

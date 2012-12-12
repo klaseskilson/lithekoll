@@ -6,8 +6,8 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<title><?php echo $before; ?>LiTHekoll<?php echo $after; ?></title>
-		<link rel="icon" 
-      			type="image/png" 
+		<link rel="icon"
+      			type="image/png"
       			href="img/favicon.png">
 <?php /*
 		<!-- mobile friendly stuff -->
@@ -37,3 +37,11 @@
 					?>
 				</nav>
 			</div> <!-- #header -->
+			<div class="wrapper" id="noscript">
+				<p class="error">
+					ÖJ. LiTHekoll använder sig av JavaScript! Aktivera det aå funkar allt som det ska, vännen.
+				</p>
+			</div>
+			<script>
+				document.getElementById('noscript').className='hide';
+			</script>
