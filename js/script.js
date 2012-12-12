@@ -21,7 +21,6 @@
 	});
 
 })();
-<<<<<<< HEAD
 
 jQuery.validator.addMethod(
 	'positiveNumber',
@@ -60,5 +59,3 @@ $(document).ready(function() {
 		} 
 	});
 });
-=======
->>>>>>> 1aac83de4f09a446ed1457301cc7ed913e8f7fdc
