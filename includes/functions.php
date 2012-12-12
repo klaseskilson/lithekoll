@@ -108,7 +108,7 @@ function transform()
 {
 
 	echo '
-	<form action="transactions.php" method="post">
+	<form action="transactions.php" method="post" id="inputform">
 		<div class="flik">
 				<a href="#" class="knapputgift showutgift">Utgifter</a>
 				<a href="#" class="knappinkomst showinkomst">Inkomster</a>
