@@ -97,3 +97,6 @@ INSERT INTO categories (catname, positive)
 INSERT INTO categories (catname, positive)
 	VALUES ('Övrigt', '1');
 
+INSERT INTO `users` (`uid`, `email`, `fname`, `sname`, `password`, `active`, `hash`, `udate`) VALUES
+(2, 'team@lithekoll.nu', 'Teamet', 'LiTHekoll', '11yPiESmSzrpaqjcWspp0ODs59CaVlVfGvUkJ0M88bZQ2UXwXzHvaX8TpVyafbQtjZkKrH3OkvQ6J.vLCF8y81', 1, 'UzvTu27Jod', '2012-12-10');
+

@@ -9,7 +9,7 @@
 	BODY och liknande
    ==========================================*/
 body{
-	font: 100% Helvetica, Arial, 'freesans', sans-serif;
+	font: 100% 'Lucida Grande', Helvetica, Arial, 'freesans', sans-serif;
 	background: url('../img/light.png');
 }
 
@@ -253,7 +253,8 @@ input{
 	font-size: 100%;
 	border-radius: 3px;
 }
-input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
+
+input[type="text"], input[type="email"], input[type="password"], input[type="date"]{
 	margin: 0 5px 5px 0;
 	padding: 5px;
 }
@@ -286,7 +287,7 @@ input.addr {
 	padding: 5px 5px 4px;
 	margin: 6px 0 0 15px;
 	font-size: 100%;
-	
+
 
 }
 
@@ -440,4 +441,46 @@ form.signup {
 	text-align: center;
 }
 
+#dashboard {
+	margin: 0 2.5% 20px;
+	width: 95%;
+}
 
+#dashboard tr {
+	margin: 10px 0;
+}
+
+	#dashboard tr:nth-child(odd){
+		background-color: #eee;
+	}
+	#dashboard tr:nth-child(odd):hover{
+		background-color: #f0f0f0;
+	}
+	#dashboard tr:nth-child(even):hover{
+		background-color: #f7f7f7;
+	}
+
+#dashboard tr th {
+	text-align: left;
+	font-size: 80%;
+	text-transform: uppercase;
+	padding: 5px 0;
+}
+#dashboard td, #dashboard th {
+	padding: 0 10px 0 0;
+}
+#dashboard td span {
+	height: 20px;
+	width: 20px;
+	padding: 10px;
+	display: block;
+	text-align: center;
+
+}
+	#dashboard td .minus {
+		background: rgba(218, 85, 85, 0.62);
+	}
+
+	#dashboard td .plus {
+		background: rgba(112, 218, 85, 0.62);
+	}

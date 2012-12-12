@@ -128,7 +128,7 @@ function transform()
 		<input type="submit" id="submitu" class="fleft trans" name="submitu" value="Lägg till" />
 		<div class = "clearfix"></div>
 		</div>
-		
+
 		<div class="inkomst hide">
 				<input type="text" class= "fleft width addl" name="isum" placeholder="Summa" />
 				<input type="text" class= "fright width addr" name="ikomet" placeholder="Kommentar" />
@@ -143,8 +143,7 @@ function transform()
 		<input type="submit" id="submitu" class="fleft trans" name="submiti" value="Lägg till" />
 		<div class = "clearfix"></div>
 		</div>
-		
-		
+
 	</form>';
 }
 
@@ -182,8 +181,11 @@ function mailmessage($message)
  */
 function get_categories($positive = 0)
 {
+	$extra = "and positive='$positive'";
+	if($positive == 2)
+		$extra = '';
 	$uid = prep($_SESSION['LiTHekoll_login_id']);
-	$query = mysql_query("SELECT catname, catid FROM categories WHERE (uid='1' or uid='$uid') and positive='$positive' ORDER BY catname");
+	$query = mysql_query("SELECT catname, catid FROM categories WHERE (uid='1' or uid='$uid') $extra ORDER BY catname");
 	$categories = array();
 
 	while ($row = mysql_fetch_array($query)) {
@@ -259,10 +261,16 @@ function get_transactions ($categories = '', $positive = 0, $limit = 15, $page =
 
 	$query = mysql_query("SELECT * FROM transactions WHERE uid='$uid' $addextra ORDER BY tdate DESC LIMIT $limit");
 
-	while ($row = mysql_fetch_array($query)){
+	$i = 0;
+	$transactions = array();
+	while ($row = mysql_fetch_array($query))
+	{
+		$transactions[$i] = $row;
+		$i++;
 	}
 
-
+	return $transactions;
 }
+
 
 ?>
