@@ -4,6 +4,9 @@ ini_set('error_reporting', E_ALL);
 
 include("includes/start.php");
 
+if(!loginstatus())
+	header('Location: login.php?loginfirst');
+
 build_header();
 ?>
 <div id="content">
@@ -56,7 +59,6 @@ build_header();
 	</div>
 		<div class = "contentwrapper wrapper-50 fright">
 			<h2><?php echo date('m Y'); ?></h2>
-
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 			<script type="text/javascript">
 				google.load("visualization", "1", {packages:["corechart"]});
@@ -90,11 +92,60 @@ build_header();
 	</div>
 		<div class="wrapper contentwrapper">
 		<h2>Översikt</h2>
-
-	<p>
-	Här ska man kunna se sina senaste transaktioner!!!!!!!!!!!(!)
-	</p>
-
+		<table class="transactions" id="dashboard">
+			<tr>
+				<th>
+					<!-- Kategorisymbol -->
+				</th>
+				<th>
+					Transaktion
+				</th>
+				<th>
+					Kategori
+				</th>
+				<th>
+					Belopp
+				</th>
+				<th>
+					Tidpunkt
+				</th>
+			</tr>
+			<?php
+				$alltransactions = get_transactions();
+				foreach ($alltransactions as $key => $transaction) {
+					?>
+					<tr>
+						<td>
+							<?php
+								$allcategories = get_categories(2);
+								$colorposition = sizeof($colors) % $key;
+							?>
+							<span class="<?php echo $transaction['minus'] == 0 ? 'plus' : 'minus';?>">
+								<?php echo $transaction['minus'] == 0 ? '+' : '&ndash;';?>
+							</span>
+						</td>
+						<td>
+							<?php echo $transaction['description']; ?>
+						</td>
+						<td>
+							<?php echo $allcategories[$transaction['catid']]; ?>
+						</td>
+						<td>
+							<?php
+								if ($transaction['minus'] == 0)
+									echo $transaction['plus'];
+								else
+									echo '&ndash;'.$transaction['minus'];
+							?>
+						</td>
+						<td>
+							<?php echo date('Y-m-d H:i', strtotime($transaction['tdate'])); ?>
+						</td>
+					</tr>
+					<?php
+				}
+			?>
+		</table>
 	</div>
 </div>
 

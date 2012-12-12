@@ -115,22 +115,32 @@ function transform()
 			</div>
 
 		<div class="utgift showutgift">
-			<input type="text" name="usum" placeholder="Kostnad" />
-			<input type="text" name="udatum" placeholder="Datum" />
-			<input type="text" name="ukomet" placeholder="Kommentar" />
-		</div>
-		<div class="inkomst hide">
-				<input type="text" name="isum" placeholder="Inkomst" />
-				<input type="text" name="idatum" placeholder="Datum" />
-				<input type="text" name="ikomet" placeholder="Kommentar" />
-		</div>
-		<select name="cat" class="select">';
+			<input type="text" class ="fright width addr" name="ukomet" placeholder="Kommentar" />
+			<input type="text" class = "fleft width addl" name="usum" placeholder="Kostnad" required />
+			<input type="date" class= "fright width addr" name="udatum"/>
+			<select name="cat" class="select width fleft">';
 			foreach (get_categories() as $key => $value) {
 				echo '<option value ="'.$key.'"> '.$value.'</option>';
 			}
 	echo '
 		</select>
-		<input type="submit" id="submitu" name="submitu" value="Skicka" />
+		<div class = "clearfix"></div>
+		</div>
+
+		<div class="inkomst hide">
+				<input type="text" class= "fright width addr" name="ikomet" placeholder="Kommentar" />
+				<input type="text" class= "fleft width addl" name="isum" placeholder="Summa" />
+				<input type="text" class= "fright width addr" name="idatum" placeholder="Datum" />
+				<select name="cat" class="select width fleft add" placeholder="Kategori">';
+			foreach (get_categories() as $key => $value) {
+				echo '<option value ="'.$key.'"> '.$value.'</option>';
+			}
+	echo '
+		</select>
+		<div class = "clearfix"></div>
+		</div>
+
+		<input type="submit" id="submitu" class="fleft trans" name="submitu" value="Lägg till" />
 	</form>';
 }
 
@@ -168,8 +178,11 @@ function mailmessage($message)
  */
 function get_categories($positive = 0)
 {
+	$extra = "and positive='$positive'";
+	if($positive == 2)
+		$extra = '';
 	$uid = prep($_SESSION['LiTHekoll_login_id']);
-	$query = mysql_query("SELECT catname, catid FROM categories WHERE (uid='1' or uid='$uid') and positive='$positive' ORDER BY catname");
+	$query = mysql_query("SELECT catname, catid FROM categories WHERE (uid='1' or uid='$uid') $extra ORDER BY catname");
 	$categories = array();
 
 	while ($row = mysql_fetch_array($query)) {
@@ -245,10 +258,16 @@ function get_transactions ($categories = '', $positive = 0, $limit = 15, $page =
 
 	$query = mysql_query("SELECT * FROM transactions WHERE uid='$uid' $addextra ORDER BY tdate DESC LIMIT $limit");
 
-	while ($row = mysql_fetch_array($query)){
+	$i = 0;
+	$transactions = array();
+	while ($row = mysql_fetch_array($query))
+	{
+		$transactions[$i] = $row;
+		$i++;
 	}
 
-
+	return $transactions;
 }
+
 
 ?>
