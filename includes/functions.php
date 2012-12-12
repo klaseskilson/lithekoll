@@ -116,8 +116,8 @@ function transform()
 
 		<div class="utgift showutgift">
 			<input type="text" class ="fright width addr" name="ukomet" placeholder="Kommentar" />
-			<input type="text" class = "fleft width addl" name="usum" placeholder="Kostnad" />
-			<input type="text" class= "fright width addr" name="udatum" placeholder="Datum" />
+			<input type="text" class = "fleft width addl" name="usum" placeholder="Kostnad" required />
+			<input type="date" class= "fright width addr" name="udatum"/>
 			<select name="cat" class="select width fleft">';
 			foreach (get_categories() as $key => $value) {
 				echo '<option value ="'.$key.'"> '.$value.'</option>';
