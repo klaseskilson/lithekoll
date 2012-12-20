@@ -14,3 +14,13 @@ Häri finns alla filer som includeras, de som inte själva möter besökaren. Ma
     /img
     /css
 HTML-relaterade grejer.
+
+## Installation
+
+Skapa en fil includes/database.php och klistra in följande:
+    <?php
+        define('DB_HOST', 'host');
+        define('DB_USER', 'användare');
+        define('DB_PASSWORD', 'lösenord');
+        define('DB_DATEBASE', 'databas');
+    ?>
