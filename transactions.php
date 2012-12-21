@@ -65,7 +65,7 @@ elseif(isset($_GET['edit']))
 
 
 <div id="content" class="wrapper contentwrapper">
-	<h1>Redigera transaktion</h1>
+	<h1>Redigera transaktion <a href="#" onclick="history.go(-1); return false;" class="fright">&larr; Bakåt</a></h1>
 	<form action="transaction.php">
 		<input type="text" value="<?php echo $transaction['description']; ?>" placeholder="Kommentar" />
 		<input type="tel" value="<?php echo $transaction['minus'] == 0 ? $transaction['plus'] : $transaction['minus']; ?>" placeholder="Belopp" />
