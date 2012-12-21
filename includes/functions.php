@@ -115,7 +115,7 @@ function transform()
 			</div>
 
 		<div class="utgift showutgift">
-			<input type="text" class = "fleft width addl required" name="usum" placeholder="Kostnad" />
+			<input type="text" class = "fleft width addl" name="usum" placeholder="Kostnad" />
 			<input type="text" class ="fright width addr" name="ukomet" placeholder="Kommentar" />
 			<select name="ucat" class="select width fleft">';
 			foreach (get_categories() as $key => $value) {
