@@ -27,10 +27,13 @@ function build_footer($loadchartapi = false)
 /*
  * förbered en sträng för MYSQL-frågor
  * @param 	string 	$string strängen som ska strippas
+ * @param 	bool 	$allowtags huruvida htmltaggar ska tas bort eller ej
  * @return 	string			strängen
  */
-function prep($string)
+function prep($string, $allowtags = true)
 {
+	if($allowtags)
+		return mysql_real_escape_string(trim(strip_tags($string)));
 	return mysql_real_escape_string(trim($string));
 }
 
