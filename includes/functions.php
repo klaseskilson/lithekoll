@@ -154,9 +154,16 @@ function transform()
 //check if a user is properly logged in
 function loginstatus()
 {
+	//finns inlogget?
 	if(isset($_SESSION['LiTHekoll_login_bool']))
-		if($_SESSION['LiTHekoll_login_bool'])
+		// är en timeout satt, och är timeouten mindre än skillnaden mellan inloggningstiden och nu?
+		if(isset($_SESSION['LiTHekoll_login_timeout']) &&
+			($_SESSION['LiTHekoll_login_timeout'] <= (time() - $_SESSION['LiTHekoll_login_timestamp'])))
 			return true;
+		else
+			//stämmer inlogget?
+			if($_SESSION['LiTHekoll_login_bool'])
+				return true;
 	return false;
 }
 
@@ -217,14 +224,22 @@ function get_sumbycatid ($catid)
 	return $sum;
 }
 
+/*
+ * hämtar alla inkomster från denna månad
+ * @return 	int 	summan
+ */
 function get_inksum ()
 {
+	// sätt from- och to-tider.
 	$from = date('Y-m').'-01';
 	$to = date('Y-m-').(date('d')+1);
+	// aktuell användare
 	$uid = prep($_SESSION['LiTHekoll_login_id']);
 
+	// skicka fråga, utnyttja mysqls datumhantering
 	$query = mysql_query("SELECT plus FROM transactions WHERE uid='$uid' and tdate between '$from' and '$to'");
 
+	// nollställ summan, och räkna sedan ihop allt
 	$sum = 0;
 	while ($row = mysql_fetch_array($query))
 		$sum += $row['plus'];
@@ -232,11 +247,16 @@ function get_inksum ()
 	return $sum;
 }
 
-
+/*
+ * hämtar alla utgifter från denna månad
+ * @return 	int 	summan
+ */
 function get_utgsum ()
 {
+	// sätt from- och to-tider.
 	$from = date('Y-m').'-01';
 	$to = date('Y-m-').(date('d')+1);
+	// aktuell användare
 	$uid = prep($_SESSION['LiTHekoll_login_id']);
 
 	$query = mysql_query("SELECT minus FROM transactions WHERE uid='$uid' and tdate between '$from' and '$to'") or die(mysql_error());
@@ -248,7 +268,15 @@ function get_utgsum ()
 	return $sum;
 }
 
-function get_transactions ($categories = '', $positive = 0, $limit = 15, $page = 0)
+/*
+ * hämtar alla transaktioner för användaren
+ * @param 	array 	$categories 	kategorier som ska hämtas
+ * @param 	int 	$positive 	vad som ska hämtas. 0 för alla, 1 för postiva, 2 för negativa
+ * @param 	int 	$limit 	gräns för hur många som ska hämtas
+ * @param 	int 	$ofset 	vilken rad vi ska börja på
+ * @return 	array 	alla kategorier
+ */
+function get_transactions ($categories = '', $positive = 0, $limit = 15, $offset = 0)
 {
 	$uid = prep($_SESSION['LiTHekoll_login_id']);
 
@@ -262,7 +290,7 @@ function get_transactions ($categories = '', $positive = 0, $limit = 15, $page =
 		$addextra .= ' catid=\'0\')';
 	}
 
-	$query = mysql_query("SELECT * FROM transactions WHERE uid='$uid' $addextra ORDER BY tdate DESC LIMIT $limit");
+	$query = mysql_query("SELECT * FROM transactions WHERE uid='$uid' $addextra ORDER BY tdate DESC LIMIT $offset, $limit");
 
 	$i = 0;
 	$transactions = array();
@@ -275,6 +303,11 @@ function get_transactions ($categories = '', $positive = 0, $limit = 15, $page =
 	return $transactions;
 }
 
+/*
+ * hämtar all info om en specifik transaktion
+ * @param 	int 	$transid 	transaktions-id
+ * @return 	array 	all info, samtliga kolumner
+ */
 function get_transaction ($transid)
 {
 	$uid = prep($_SESSION['LiTHekoll_login_id']);
