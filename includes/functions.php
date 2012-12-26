@@ -112,10 +112,10 @@ function transform()
 
 	echo '
 	<form action="transactions.php" method="post" id="inputform">
-		<div class="flik">
-				<a href="#" class="knapputgift showknapputgift showknapputgiftaktiv">Utgifter</a>
-				<a href="#" class="knappinkomst showknappinkomst">Inkomster</a>
-			</div>
+		<h3 class="flik">
+			<a href="#" class="knapputgift showknapputgift showknapputgiftaktiv">Utgifter</a>
+			<a href="#" class="knappinkomst showknappinkomst">Inkomster</a>
+		</h3>
 
 		<div class="utgift showutgift">
 			<input type="text" class = "fleft width addl" name="usum" placeholder="Kostnad" />

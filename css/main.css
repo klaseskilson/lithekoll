@@ -272,6 +272,11 @@ input[type="submit"] {
 	Transaktions-formulär
    ==========================================*/
 
+.flik {
+	border-bottom: 1px solid #bbb;
+	text-align: center;
+}
+
 input.addl {
 	width: 40%;
 	margin: 5px 5px 5px 15px;
@@ -291,52 +296,42 @@ input.addr {
 
 }
 
-.knapputgift:hover{
-	background-color: #D45C49;
-}
-
-.knappinkomst:hover{
-	background-color: #4CA14C;
-}
-
 .flik a{
 	border-top-left-radius: 10px 10px;
 	border-top-right-radius: 10px 10px;
-	float: left;
-	margin: -13px 2px 2px 0;
-	padding: 8px;
+	padding: 5px 5px 0;
 }
 
 .showinkomst {
 	margin: 22px 0 0;
-	border: 4px solid rgba(112, 218, 85, 0.85);
+	/*border: 4px solid rgba(112, 218, 85, 0.85);*/
 }
 
 .showutgift {
 	margin: 22px 0 0;
-	border: 4px solid rgba(218, 85, 85, 0.85);
+	/*border: 4px solid rgba(218, 85, 85, 0.85);*/
 }
 
 .showknappinkomst {
-	background-color: rgba(112, 218, 85, 0.50);
 	margin: 22px 0 0;
-
+	border: 1px solid #bbb;
 }
 
 .showknappinkomstaktiv {
-	background-color: rgba(112, 218, 85, 0.85);
 	margin: 22px 0 0;
-
+	border: 1px solid #bbb;
+	border-bottom: 1px solid #fff;
 }
 
 .showknapputgift {
-	background-color: rgba(218, 85, 85, 0.50);
 	margin: 22px 0 0;
+	border: 1px solid #bbb;
 }
 
 .showknapputgiftaktiv {
-	background-color: rgba(218, 85, 85, 0.85);
 	margin: 22px 0 0;
+	border: 1px solid #bbb;
+	border-bottom: 1px solid #fff;
 }
 
 
