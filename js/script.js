@@ -1,23 +1,21 @@
 
 (function() {
 
-	$('.knapputgift').click(function(event) {
+	$('.utgiftlink').click(function(event) {
 		event.preventDefault();
-		$('.knapputgift').addClass('showknapputgiftaktiv');
-		$('.knappinkomst').removeClass('showknappinkomstaktiv');
-		$('.utgift').addClass('showutgift');
-		$('.utgift').removeClass('hide');
-		$('.inkomst').addClass('hide');
+		$('.utgiftlink').addClass('fokus');
+		$('.inkomstlink').removeClass('fokus');
+		$('.utgift').show();
+		$('.inkomst').hide();
 		console.log($this);
 	});
 
-	$('.knappinkomst').click(function(event) {
+	$('.inkomstlink').click(function(event) {
 		event.preventDefault();
-		$('.knappinkomst').addClass('showknappinkomstaktiv');
-		$('.knapputgift').removeClass('showknapputgiftaktiv');
-		$('.inkomst').addClass('showinkomst');
-		$('.inkomst').removeClass('hide');
-		$('.utgift').addClass('hide');
+		$('.utgiftlink').removeClass('fokus');
+		$('.inkomstlink').addClass('fokus');
+		$('.utgift').hide();
+		$('.inkomst').show();
 	});
 
 })();
@@ -30,14 +28,14 @@ jQuery.validator.addMethod(
 	'Enter a positive number.'
 );
 
-$(document).ready(function() { 
+$(document).ready(function() {
 	$("#inputform").validate({
 // Hantera felmeddelanden
 /*
 		errorLabelContainer: "#transaktionsError",
 		wrapper: "li",
 */
-		rules: { 
+		rules: {
 			usum: {
 				required: true,
 				positiveNumber: true
@@ -46,8 +44,8 @@ $(document).ready(function() {
 				required: true,
 				positiveNumber: true
 			},
-		}, 
-		messages: { 
+		},
+		messages: {
 			usum: {
 				required: "Skrifv in något.",
 				positiveNumber: "Skrifv ett positivt nummer."
@@ -56,6 +54,6 @@ $(document).ready(function() {
 				required: "Skrifv in något.",
 				positiveNumber: "Skrifv ett positivt nummer."
 			}
-		} 
+		}
 	});
 });

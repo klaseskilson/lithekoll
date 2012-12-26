@@ -187,7 +187,7 @@ p, ul{
 #content {
 }
 	#content form {
-		padding: 20px 10px;
+		padding: 20px 20px;
 	}
 
 #content h1 {
@@ -273,16 +273,15 @@ input[type="submit"] {
    ==========================================*/
 
 .flik {
-	border-bottom: 1px solid #bbb;
-	text-align: center;
+	border-bottom: 2px solid #bbb;
 }
 
-input.addl {
+.wrapper-50 input.addl {
 	width: 40%;
 	margin: 5px 5px 5px 15px;
 }
 
-input.addr {
+.wrapper-50 input.addr {
 	width: 40%;
 	margin: 5px 15px 5px 5px;
 }
@@ -292,59 +291,23 @@ input.addr {
 	padding: 5px 5px 4px;
 	margin: 6px 0 0 15px;
 	font-size: 100%;
-
-
 }
 
 .flik a{
 	border-top-left-radius: 10px 10px;
 	border-top-right-radius: 10px 10px;
 	padding: 5px 5px 0;
+	border: 2px solid #bbb;
+	margin: 0 5px;
 }
-
-.showinkomst {
-	margin: 22px 0 0;
-	/*border: 4px solid rgba(112, 218, 85, 0.85);*/
-}
-
-.showutgift {
-	margin: 22px 0 0;
-	/*border: 4px solid rgba(218, 85, 85, 0.85);*/
-}
-
-.showknappinkomst {
-	margin: 22px 0 0;
-	border: 1px solid #bbb;
-}
-
-.showknappinkomstaktiv {
-	margin: 22px 0 0;
-	border: 1px solid #bbb;
-	border-bottom: 1px solid #fff;
-}
-
-.showknapputgift {
-	margin: 22px 0 0;
-	border: 1px solid #bbb;
-}
-
-.showknapputgiftaktiv {
-	margin: 22px 0 0;
-	border: 1px solid #bbb;
-	border-bottom: 1px solid #fff;
-}
-
-
+	.flik a.fokus{
+		border-bottom: 2px solid #fff;
+	}
 
 .trans{
 	padding: 10px 25px;
 }
-
-.utgift {
-	padding: 25px 0 10px 0px;
-}
-
-.inkomst {
+.utgift, .inkomst {
 	padding: 25px 0 10px 0px;
 }
 

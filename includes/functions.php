@@ -111,26 +111,26 @@ function transform()
 {
 
 	echo '
-	<form action="transactions.php" method="post" id="inputform">
+	<form action="transactions.php" method="post" class="transform">
 		<h3 class="flik">
-			<a href="#" class="knapputgift showknapputgift showknapputgiftaktiv">Utgifter</a>
-			<a href="#" class="knappinkomst showknappinkomst">Inkomster</a>
+			<a href="#" class="utgiftlink fokus">Utgifter</a>
+			<a href="#" class="inkomstlink">Inkomster</a>
 		</h3>
 
-		<div class="utgift showutgift">
-			<input type="text" class = "fleft width addl" name="usum" placeholder="Kostnad" />
+		<div class="utgift">
+			<input type="text" class="fleft width addl" name="usum" placeholder="Kostnad" />
 			<input type="text" class ="fright width addr" name="ukomet" placeholder="Kommentar" />
 			<select name="ucat" class="select width fleft">';
-			foreach (get_categories() as $key => $value) {
-				echo '<option value ="'.$key.'"> '.$value.'</option>';
-			}
+	foreach (get_categories() as $key => $value) {
+		echo '<option value ="'.$key.'"> '.$value.'</option>';
+	}
 	echo '
 		</select>
 		<input type="date" class= "fright width addr" name="udatum" placeholder="ÅÅ/MM/DD"/>
 		<div class = "clearfix"></div>
 		<input type="submit" id="submitu" class="fleft trans" name="submitu" value="Lägg till" />
 		<div class = "clearfix"></div>
-		</div>
+		</div><!-- .utgift -->
 
 		<div class="inkomst hide">
 				<input type="text" class= "fleft width addl" name="isum" placeholder="Summa" />
@@ -145,7 +145,7 @@ function transform()
 		<div class = "clearfix"></div>
 		<input type="submit" id="submitu" class="fleft trans" name="submiti" value="Lägg till" />
 		<div class = "clearfix"></div>
-		</div>
+		</div><!-- .inkomst -->
 
 	</form>';
 }
