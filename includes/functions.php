@@ -118,7 +118,7 @@ function transform()
 		</h3>
 
 		<div class="utgift">
-			<input type="text" class="fleft width addl" name="usum" placeholder="Kostnad" />
+			<input type="text" class="normal fleft width addl" name="usum" id="usum" placeholder="Kostnad" />
 			<input type="text" class ="fright width addr" name="ukomet" placeholder="Kommentar" />
 			<select name="ucat" class="select width fleft">';
 	foreach (get_categories() as $key => $value) {
@@ -146,7 +146,7 @@ function transform()
 		<input type="submit" id="submitu" class="fleft trans" name="submiti" value="Lägg till" />
 		<div class = "clearfix"></div>
 		</div><!-- .inkomst -->
-
+		<div id="errorlist" class="fright"></div>
 	</form>';
 }
 

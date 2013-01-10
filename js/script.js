@@ -29,12 +29,13 @@ jQuery.validator.addMethod(
 );
 
 $(document).ready(function() {
-	$("#inputform").validate({
+	$(".transform").validate({
 // Hantera felmeddelanden
 /*
 		errorLabelContainer: "#transaktionsError",
 		wrapper: "li",
 */
+	
 		rules: {
 			usum: {
 				required: true,
@@ -47,13 +48,20 @@ $(document).ready(function() {
 		},
 		messages: {
 			usum: {
-				required: "Skrifv in något.",
-				positiveNumber: "Skrifv ett positivt nummer."
+				required: "Skriv in en summa",
+				positiveNumber: "Skriv in en positiv summa"
 			},
 			isum: {
-				required: "Skrifv in något.",
-				positiveNumber: "Skrifv ett positivt nummer."
+				required: "Skriv in en summa",
+				positiveNumber: "Skriv in en positiv summa"
 			}
-		}
+		},
+		
+        errorPlacement: function(error, element) {
+        error.appendTo('#errorlist');
+    },
+
+
+	
 	});
 });
