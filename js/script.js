@@ -7,6 +7,7 @@
 		$('.inkomstlink').removeClass('fokus');
 		$('.utgift').show();
 		$('.inkomst').hide();
+		$('#errorlist').empty();
 		console.log($this);
 	});
 
@@ -16,6 +17,7 @@
 		$('.inkomstlink').addClass('fokus');
 		$('.utgift').hide();
 		$('.inkomst').show();
+		$('#errorlist').empty();
 	});
 
 })();
@@ -57,6 +59,9 @@ $(document).ready(function() {
 			}
 		},
 		
+
+		
+
         errorPlacement: function(error, element) {
         error.appendTo('#errorlist');
     },
