@@ -61,6 +61,28 @@ elseif(isset($_GET['edit']))
 
 	if(!is_array($transaction))
 		die('Finns inte ju.');
+		
+	if(isset($_POST['submittran']))
+	{
+		$transsum = prep($_POST['transsum']);
+		$transkomet = prep($_POST['transkomet']);
+		$transcat = prep($_POST['transcat']);
+		$transdatum = date('Y-m-d H:i:s', strtotime($_POST['transdatum']));
+		$userid = prep($_SESSION['LiTHekoll_login_id']);
+		$transid = prep($transaction['transid']);
+
+		$error = '';
+		if(empty($transsum) || $transsum < 0)
+			$error .= "<li>Skriv in positiv summa</li>";
+		
+		if($error == '')
+		{
+			$query = "UPDATE transactions SET catid='$transcat', description='$transkomet', minus='$transsum', tdate='$transdatum' WHERE (uid='$userid' AND transid='$transid')";
+		}
+		mysql_query($query) or die(mysql_error());
+
+		header("Location: dashboard.php");
+	}
 
 	build_header('Redigera transaktion - ');
 
@@ -69,18 +91,21 @@ elseif(isset($_GET['edit']))
 
 <div id="content" class="wrapper contentwrapper">
 	<h1>Redigera transaktion <a href="#" onclick="history.go(-1); return false;" class="fright">&larr; Bakåt</a></h1>
-	<form action="transaction.php">
-		<input type="text" value="<?php echo $transaction['description']; ?>" placeholder="Kommentar" />
-		<input type="tel" value="<?php echo $transaction['minus'] == 0 ? $transaction['plus'] : $transaction['minus']; ?>" placeholder="Belopp" />
-		<input type="date" value="<?php echo date('Y-m-d', strtotime($transaction['tdate'])); ?>" placeholder="ÅÅÅÅ-MM-DD" />
-		<select name="cat">
+	<form action="transactions.php?edit=<?php echo $_GET['edit']; ?>" method="post">
+		<input type="text" id="transkomet" name="transkomet" value="<?php echo $transaction['description']; ?>" placeholder="Kommentar" />
+		<input type="tel" id="transsum" name="transsum" value="<?php echo $transaction['minus'] == 0 ? $transaction['plus'] : $transaction['minus']; ?>" placeholder="Belopp" />
+		<input type="date" id="transdatum" name="transdatum" value="<?php echo date('Y-m-d', strtotime($transaction['tdate'])); ?>" placeholder="ÅÅÅÅ-MM-DD" />
+		<select id="transcat" name="transcat">
 		<?php
 			foreach (get_categories() as $key => $value) {
 				echo '<option value ="'.$key.'" '.(($key == $transaction['catid']) ? 'selected="selected"' : '').'> '.$value.'</option>';
 			}
 		?>
 		</select>
+
+		<input type="submit" name="submittran" id="submittran" value="Ändra" />
 	</form>
+
 	<p>
 	</p>
 </div> <!-- #content -->
