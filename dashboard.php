@@ -13,7 +13,7 @@ build_header();
 	<div class="wrapper contentwrapper">
 		<h1>Välkommen, <?php echo $_SESSION['LiTHekoll_login_fname']; ?></h1>
 		<p>
-			Här kan det stå något trevligt...
+			Här får du en översikt över hur din ekonomi ser ut just den här månaden.
 		</p>
 	</div>
 	<div class="wrapper contentwrapper">
