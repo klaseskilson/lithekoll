@@ -1,72 +1,55 @@
-
-(function() {
-
+// jobba bara om allt på sidan är laddat
+$(document).ready(function()
+{
 	$('.utgiftlink').click(function(event) {
 		event.preventDefault();
 		$('.utgiftlink').addClass('fokus');
 		$('.inkomstlink').removeClass('fokus');
 		$('.utgift').show();
 		$('.inkomst').hide();
-		$('#errorlist').empty();
+		$('.errorlist').empty();
 		console.log($this);
 	});
 
-	$('.inkomstlink').click(function(event) {
+	$('.inkomstlink').click(function(event)
+	{
 		event.preventDefault();
 		$('.utgiftlink').removeClass('fokus');
 		$('.inkomstlink').addClass('fokus');
 		$('.utgift').hide();
 		$('.inkomst').show();
-		$('#errorlist').empty();
+		$('.errorlist').empty();
 	});
 
-})();
+	// validering för om man skickar ett transaktionsformulär
+	$(".inkomst").submit(function()
+	{
+		var val = $("#isum").val();
 
-jQuery.validator.addMethod(
-	'positiveNumber',
-	function(value) {
-		return Number(value) > 0;
-	},
-	'Enter a positive number.'
-);
+		// kolla så att det är en positiv siffra
+		if(isNaN(val) || val < 0)
+		{
+			// lägg till error-class på rutan
+			$("#isum").addClass('error');
+			// skriv ut meddelande
+			$(".ierrorlist").html('Skriv ett positivt heltal!');
+			// skicka inte formuläret
+			return false;
+		}
+	});
+	$(".utgift").submit(function()
+	{
+		var val = $("#usum").val();
 
-$(document).ready(function() {
-	$(".transform").validate({
-// Hantera felmeddelanden
-/*
-		errorLabelContainer: "#transaktionsError",
-		wrapper: "li",
-*/
-	
-		rules: {
-			usum: {
-				required: true,
-				positiveNumber: true
-			},
-			isum: {
-				required: true,
-				positiveNumber: true
-			},
-		},
-		messages: {
-			usum: {
-				required: "Skriv in en summa",
-				positiveNumber: "Skriv in en positiv summa"
-			},
-			isum: {
-				required: "Skriv in en summa",
-				positiveNumber: "Skriv in en positiv summa"
-			}
-		},
-		
-
-		
-
-        errorPlacement: function(error, element) {
-        error.appendTo('#errorlist');
-    },
-
-
-	
+		// kolla så att det är en positiv siffra
+		if(isNaN(val) || val < 0)
+		{
+			// lägg till error-class på rutan
+			$("#usum").addClass('error');
+			// skriv ut meddelande
+			$(".uerrorlist").html('Skriv ett positivt heltal!');
+			// skicka inte formuläret
+			return false;
+		}
 	});
 });

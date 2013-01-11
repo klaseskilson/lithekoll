@@ -112,14 +112,15 @@ h1 a {
 	color: red;
 }
 
-label.error { 
-	border: 1px solid white; 
+label.error {
+	border: 1px solid white;
 	color: black;
 	background-color: white;
 	margin-bottom: 5px;
 }
 #errorlist {
 	margin: 5px 5px 0 14px;
+	float: left;
 }
 
 
@@ -144,7 +145,7 @@ p.error, p.hurra, p.ingress, ul.error {
 ul.error {
 	list-style: none;
 }
-p.error, ul.error {
+.error {
 	background: #DC6060;
 	border: 2px solid #A60000;
 	color: #fff;
@@ -291,6 +292,7 @@ input[type="submit"] {
 
 .flik {
 	border-bottom: 2px solid #bbb;
+	margin: 20px 20px 0;
 }
 
 .wrapper-50 input.addl {
@@ -376,7 +378,7 @@ form.signup {
 
 
 /* ==========================================
-	DASHBOARD!!!!!!!!
+	Dashboard
    ==========================================*/
 .sumboxcont {
 	font-family: 'Quicksand', Helvetica, Arial, 'freesans', sans-serif;
