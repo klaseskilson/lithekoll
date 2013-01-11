@@ -109,45 +109,43 @@ function loginform($resetlink = true)
 
 function transform()
 {
-
 	echo '
-	<form action="transactions.php" method="post" class="transform">
-		<h3 class="flik">
-			<a href="#" class="utgiftlink fokus">Utgifter</a>
-			<a href="#" class="inkomstlink">Inkomster</a>
-		</h3>
-
-		<div class="utgift">
-			<input type="text" class="normal fleft width addl" name="usum" id="usum" placeholder="Kostnad" />
-			<input type="text" class="fright width addr" name="ukomet" placeholder="Kommentar" />
-			<select name="ucat" class="select width fleft">';
-	foreach (get_categories() as $key => $value) {
-		echo '<option value ="'.$key.'"> '.$value.'</option>';
-	}
-	echo '
+	<h3 class="flik">
+		<a href="#" class="utgiftlink fokus">Utgifter</a>
+		<a href="#" class="inkomstlink">Inkomster</a>
+	</h3>
+	<form action="transactions.php" method="post" class="transform utgift">
+		<input type="tel" class="normal fleft width addl" name="usum" id="usum" placeholder="Kostnad" />
+		<input type="text" class="fright width addr" name="ukomet" placeholder="Kommentar" />
+		<select name="ucat" class="select width fleft">';
+		foreach (get_categories() as $key => $value) {
+			echo '<option value ="'.$key.'"> '.$value.'</option>';
+		}
+		echo '
 		</select>
-		<input type="date" class="fright width addr" name="udatum" placeholder="ÅÅ/MM/DD"/>
+		<input type="date" class="fright width addr" name="udatum" placeholder="ÅÅ/MM/DD" />
 		<div class="clearfix"></div>
 		<input type="submit" id="submitu" class="fleft trans" name="submitu" value="Lägg till" />
+		<p class="uerrorlist"></p>
 		<div class="clearfix"></div>
-		</div><!-- .utgift -->
+	</form>
+	<form action="transactions.php" method="post" class="transform inkomst hide">
+		<input type="tel" class="fleft width addl" id="isum" name="isum" placeholder="Summa" />
+		<input type="text" class="fright width addr" name="ikomet" placeholder="Kommentar" />
+		<select name="icat" class="select width fleft add" >';
 
-		<div class="inkomst hide">
-			<input type="text" class="fleft width addl" name="isum" placeholder="Summa" />
-			<input type="text" class="fright width addr" name="ikomet" placeholder="Kommentar" />
-			<select name="icat" class="select width fleft add" >';
-			foreach (get_categories(1) as $key => $value) {
-				echo '<option value ="'.$key.'"> '.$value.'</option>';
-			}
-	echo '
+		//hämta kategorier för inkomster
+		foreach (get_categories(1) as $key => $value) {
+			echo '<option value ="'.$key.'"> '.$value.'</option>';
+		}
+		echo '
 		</select>
 		<input type="date" class="fright width addr" name="idatum" placeholder="ÅÅ/MM/DD" />
 		<div class="clearfix"></div>
-		<input type="submit" id="submitu" class="fleft trans" name="submiti" value="Lägg till" />
+		<input type="submit" id="submiti" class="fleft trans" name="submiti" value="Lägg till" />
+		<p class="ierrorlist"></p>
 		<div class="clearfix"></div>
-		</div><!-- .inkomst -->
-		<div id="errorlist" class="fright"></div>
-	</form>';
+	</form><!-- .inkomst -->';
 }
 
 

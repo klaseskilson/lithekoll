@@ -6,14 +6,15 @@ include("includes/start.php");
 
 if(isset($_POST['submitu']))
 {
-
-
 	$usum = prep($_POST['usum']);
 	$udatum = prep($_POST['udatum']);
 	$ukomet = prep($_POST['ukomet']);
 	$ucat = prep($_POST['ucat']);
-	$udatum = date('Y-m-d H:i:s', strtotime($udatum));
 
+	if($udatum !== '')
+		$udatum = date('Y-m-d H:i:s', strtotime($udatum));
+	else
+		$udatum = date('Y-m-d H:i:s');
 
 	$error = '';
 	if(empty($usum) || $usum < 0)
@@ -36,16 +37,18 @@ elseif(isset($_POST['submiti']))
 	$idatum = prep($_POST['idatum']);
 	$ikomet = prep($_POST['ikomet']);
 	$icat = prep($_POST['icat']);
-	$idatum = date('Y-m-d H:i:s', strtotime($idatum));
+
+	if($idatum !== '')
+		$idatum = date('Y-m-d H:i:s', strtotime($idatum));
+	else
+		$idatum = date('Y-m-d H:i:s');
+
 	$error = '';
-
-
 
 	if($error == '')
 	{
 		$query = "INSERT INTO transactions (uid, catid, description, plus, tdate)
 		VALUES ('".$_SESSION['LiTHekoll_login_id']."', '$icat', '$ikomet', '$isum', '$idatum')";
-
 	}
 	mysql_query($query);
 
