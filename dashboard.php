@@ -141,7 +141,7 @@ build_header();
 							?>
 						</td>
 						<td>
-							<?php echo date('Y-m-d H:i', strtotime($transaction['tdate'])); ?>
+							<?php echo date('Y-m-d', strtotime($transaction['tdate'])); ?>
 						</td>
 						<td>
 							<a href="transactions.php?edit=<?php echo $transaction['transid']; ?>" class="penna"> </a>
