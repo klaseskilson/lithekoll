@@ -100,7 +100,7 @@ elseif(isset($_GET['edit']))
 		?>
 		</select>
 
-		<input type="submit" name="submittran" id="submittran" value="Ändra" />
+		<input type="submit" class="submittran" name="submittran" id="submittran" value="Ändra" />
 	</form>
 
 	<p>
