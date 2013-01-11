@@ -107,6 +107,7 @@ function loginform($resetlink = true)
 	echo '</form>';
 }
 
+//Skriver ut formulär
 function transform()
 {
 	echo '

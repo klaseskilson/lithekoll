@@ -23,6 +23,7 @@ build_header();
 				<h3>Inkomster</h3>
 				<p>
 					<?php
+						//Skriv ut inkomstformulär
 						echo get_inksum();
 					?>
 				</p>
@@ -34,6 +35,7 @@ build_header();
 				<h3>Utgifter</h3>
 				<p>
 					<?php
+						//Skriv ut utgiftformulär
 						echo get_utgsum();
 					?>
 				</p>
@@ -45,6 +47,7 @@ build_header();
 				<h3>Balans</h3>
 				<p>
 					<?php
+						//Skriver ut balans-figuren
 						echo (get_inksum()-get_utgsum());
 					?>
 				</p>
@@ -59,6 +62,7 @@ build_header();
 	</div>
 		<div class = "contentwrapper wrapper-50 fright">
 			<h2><?php echo date('m Y'); ?></h2>
+			<!--Skriver ut cirkeldiagramet-->
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 			<script type="text/javascript">
 				google.load("visualization", "1", {packages:["corechart"]});
@@ -92,10 +96,11 @@ build_header();
 	</div>
 		<div class="wrapper contentwrapper">
 		<h2>Översikt</h2>
+		<!--Skriver ut översiktstabellen-->
 		<table class="transactions" id="dashboard">
 			<tr>
 				<th>
-					<!-- Kategorisymbol -->
+					<!-- Kategorisymbol om vi vill i framtiden-->
 				</th>
 				<th>
 					Transaktion

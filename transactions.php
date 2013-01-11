@@ -4,6 +4,7 @@ ini_set('error_reporting', E_ALL);
 
 include("includes/start.php");
 
+//Tar hand om utgiftsformuläret
 if(isset($_POST['submitu']))
 {
 	$usum = prep($_POST['usum']);
@@ -31,6 +32,7 @@ if(isset($_POST['submitu']))
 
 }
 
+//Tar hand om inkomstformuläret
 elseif(isset($_POST['submiti']))
 {
 	$isum = prep($_POST['isum']);
@@ -55,6 +57,7 @@ elseif(isset($_POST['submiti']))
 	header("Location: dashboard.php");
 }
 
+//Tar hand om ändra-transaktions-formuläret
 elseif(isset($_GET['edit']))
 {
 	$transaction = get_transaction(prep($_GET['edit']));
@@ -87,6 +90,7 @@ elseif(isset($_GET['edit']))
 		header("Location: dashboard.php");
 	}
 
+	//Tar hand om radera-transaktions-formuläret
 	if(isset($_POST['submitdel']))
 	{
 		$userid = prep($_SESSION['LiTHekoll_login_id']);
@@ -103,7 +107,7 @@ elseif(isset($_GET['edit']))
 
 	?>
 
-
+<!-- Formulär för att ändra transaktion samt ta-bort-knapp -->
 <div id="content" class="wrapper contentwrapper">
 	<h1>Redigera transaktion <a href="#" onclick="history.go(-1); return false;" class="fright">&larr; Bakåt</a></h1>
 	<form action="transactions.php?edit=<?php echo $_GET['edit']; ?>" method="post">

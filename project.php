@@ -21,6 +21,7 @@ build_header();
 	</div><!-- .wrapper -->
 </div><!-- #fancyborder -->
 
+<!-- En div där man kan skriva mer saker ifall vi vill-->
 <div id="content" class="wrapper lotsoftext">
 	<p class="ingress">
 	</p>
