@@ -77,10 +77,25 @@ elseif(isset($_GET['edit']))
 		
 		if($error == '')
 		{
+			if($transsum < 0)
 			$query = "UPDATE transactions SET catid='$transcat', description='$transkomet', minus='$transsum', tdate='$transdatum' WHERE (uid='$userid' AND transid='$transid')";
+			else
+			$query = "UPDATE transactions SET catid='$transcat', description='$transkomet', plus='$transsum', tdate='$transdatum' WHERE (uid='$userid' AND transid='$transid')";
 		}
 		mysql_query($query) or die(mysql_error());
 
+		header("Location: dashboard.php");
+	}
+
+	if(isset($_POST['submitdel']))
+	{
+		$userid = prep($_SESSION['LiTHekoll_login_id']);
+		$transid = prep($transaction['transid']);
+
+		$query = "DELETE FROM transactions WHERE (uid='$userid' AND transid='$transid')";
+		
+		mysql_query($query) or die(mysql_error());
+		
 		header("Location: dashboard.php");
 	}
 
@@ -104,6 +119,8 @@ elseif(isset($_GET['edit']))
 		</select>
 
 		<input type="submit" class="submittran" name="submittran" id="submittran" value="Ändra" />
+		<input type="submit" class="submitdel" name="submitdel" id="submitdel" value="Ta bort transaktion" />
+
 	</form>
 
 	<p>
