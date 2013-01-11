@@ -335,6 +335,12 @@ input[type="submit"] {
 	margin: 14px 0 5px 0 !important;
 }
 
+.submitdel
+{
+	background: #DC6060 !important;
+	border: 2px solid #A60000 !important;
+}
+
 
 /* ==========================================
    Signup-form
