@@ -88,7 +88,7 @@ elseif(isset($_GET['edit']))
 
 	?>
 
-
+<!-- Formulär för att ändra en transaktion -->
 <div id="content" class="wrapper contentwrapper">
 	<h1>Redigera transaktion <a href="#" onclick="history.go(-1); return false;" class="fright">&larr; Bakåt</a></h1>
 	<form action="transactions.php?edit=<?php echo $_GET['edit']; ?>" method="post">

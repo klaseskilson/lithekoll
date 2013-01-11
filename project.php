@@ -6,7 +6,7 @@ include("includes/start.php");
 
 build_header();
 ?>
-
+<!-- Sidan som beskriver vårat projekt -->
 <div class="fancyborder">
 	<div class="wrapper">
 			<p>

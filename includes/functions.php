@@ -107,6 +107,7 @@ function loginform($resetlink = true)
 	echo '</form>';
 }
 
+//echo a inputform
 function transform()
 {
 	echo '
