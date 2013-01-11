@@ -1,6 +1,7 @@
 // jobba bara om allt på sidan är laddat
 $(document).ready(function()
 {
+	//Döljer och visar divar när man klickar på utgiftflik
 	$('.utgiftlink').click(function(event) {
 		event.preventDefault();
 		$('.utgiftlink').addClass('fokus');
@@ -10,7 +11,7 @@ $(document).ready(function()
 		$('.errorlist').empty();
 		console.log($this);
 	});
-
+//Döljer och visar divar när man klickar på inkomstflik
 	$('.inkomstlink').click(function(event)
 	{
 		event.preventDefault();
