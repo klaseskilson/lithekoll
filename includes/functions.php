@@ -149,8 +149,10 @@ function transform()
 	</form><!-- .inkomst -->';
 }
 
-
-//check if a user is properly logged in
+/*
+ * kolla om användaren är inloggad
+ * @return 	bool
+ */
 function loginstatus()
 {
 	//finns inlogget?
@@ -208,7 +210,7 @@ function get_categories($positive = 0)
  * @param 	int 	$catid 	kategoriidt
  * @return 	array 	alla kategorier
  */
-function get_sumbycatid ($catid)
+function get_sumbycatid($catid)
 {
 	$from = date('Y-m').'-01';
 	$to = date('Y-m-').(date('d')+1);
@@ -227,7 +229,7 @@ function get_sumbycatid ($catid)
  * hämtar alla inkomster från denna månad
  * @return 	int 	summan
  */
-function get_inksum ()
+function get_inksum()
 {
 	// sätt from- och to-tider.
 	$from = date('Y-m').'-01';
@@ -250,7 +252,7 @@ function get_inksum ()
  * hämtar alla utgifter från denna månad
  * @return 	int 	summan
  */
-function get_utgsum ()
+function get_utgsum()
 {
 	// sätt from- och to-tider.
 	$from = date('Y-m').'-01';
@@ -275,7 +277,7 @@ function get_utgsum ()
  * @param 	int 	$ofset 	vilken rad vi ska börja på
  * @return 	array 	alla kategorier
  */
-function get_transactions ($categories = '', $positive = 0, $limit = 15, $offset = 0)
+function get_transactions($categories = '', $positive = 0, $limit = 15, $offset = 0)
 {
 	$uid = prep($_SESSION['LiTHekoll_login_id']);
 
@@ -307,7 +309,7 @@ function get_transactions ($categories = '', $positive = 0, $limit = 15, $offset
  * @param 	int 	$transid 	transaktions-id
  * @return 	array 	all info, samtliga kolumner
  */
-function get_transaction ($transid)
+function get_transaction($transid)
 {
 	$uid = prep($_SESSION['LiTHekoll_login_id']);
 
@@ -316,6 +318,4 @@ function get_transaction ($transid)
 
 	return $transaction;
 }
-
-
 ?>
