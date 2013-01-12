@@ -19,7 +19,7 @@ build_header();
 	if(isset ($_GET['q']))
 		echo ' > '.$helpsections[$_GET['q']].' <a href="#" onclick="history.go(-1); return false;" class="fright">&larr; Bakåt</a></h1>'.$helptexts[$_GET['q']];
 	else
-		echo '</h1><p class="ingress">Här står det en massa text som förklarar att man har kommit rätt om man vill ha hjälp.</p>';
+		echo '</h1><p class="ingress">Klicka på det du vill ha hjälp med i listan nedan, om du har frågor om något annat så kan du skicka iväg ett meddelande på kontaktsidan.</p>';
 	?>
 	<ul>
 		<?php
