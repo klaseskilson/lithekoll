@@ -5,8 +5,8 @@
 					<a href="#">Kontakt</a>
 				</nav>
 				<nav id="follow">
-					<a href="http://www.facebook.com/groups/lithekoll/" target="_blank">Facebook</a>
-					<a href="https://twitter.com/lithekoll" target="_blank">Twitter</a>
+					<a href="http://www.facebook.com/lithekoll/" target="_blank"><img src="/img/f_logo.png" width="20"></img></a>
+					<a href="https://twitter.com/lithekoll" target="_blank"><img src="/img/t_logo.png" width="30"></img></a>
 				</nav>
 			</div>
 		</div><!-- #container -->
