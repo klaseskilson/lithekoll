@@ -2,7 +2,7 @@
 				<nav>
 					<a href="help.php">Hjälp & support</a>
 					<a href="#">Villkor</a>
-					<a href="#">Kontakt</a>
+					<a href="contact.php">Kontakt</a>
 				</nav>
 				<nav id="follow">
 					<a href="http://www.facebook.com/lithekoll/" target="_blank"><img src="/img/f_logo.png" width="20"></img></a>
