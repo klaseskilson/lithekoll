@@ -16,10 +16,9 @@ build_header();
 				Välkommen till LiTHekoll!
 			</p>
 			<p>
-				Hen får gärna registrera sig och använda vår tjänst!
-			</p>
-			<p>
-				Skaffa LiTHekoll idag!
+				Det här är en webbtjänst som hjälper dig hålla koll på din ekonomi.
+				Registrera dig snabbt och enkelt här till höger.
+				Ha en bra dag!
 			</p>
 		</div><!-- .alignment -->
 		<?php signupform(); ?>

@@ -330,6 +330,17 @@ input[type="submit"] {
 	padding: 25px 0 10px 0px;
 }
 
+.submittran
+{
+	margin: 14px 0 5px 0 !important;
+}
+
+.submitdel
+{
+	background: #DC6060 !important;
+	border: 2px solid #A60000 !important;
+}
+
 
 /* ==========================================
    Signup-form

@@ -4,6 +4,7 @@ ini_set('error_reporting', E_ALL);
 
 include("includes/start.php");
 
+//Tar hand om utgiftsformuläret
 if(isset($_POST['submitu']))
 {
 	$usum = prep($_POST['usum']);
@@ -31,6 +32,7 @@ if(isset($_POST['submitu']))
 
 }
 
+//Tar hand om inkomstformuläret
 elseif(isset($_POST['submiti']))
 {
 	$isum = prep($_POST['isum']);
@@ -55,6 +57,7 @@ elseif(isset($_POST['submiti']))
 	header("Location: dashboard.php");
 }
 
+//Tar hand om ändra-transaktions-formuläret
 elseif(isset($_GET['edit']))
 {
 	$transaction = get_transaction(prep($_GET['edit']));
@@ -77,10 +80,26 @@ elseif(isset($_GET['edit']))
 		
 		if($error == '')
 		{
+			if($transsum < 0)
 			$query = "UPDATE transactions SET catid='$transcat', description='$transkomet', minus='$transsum', tdate='$transdatum' WHERE (uid='$userid' AND transid='$transid')";
+			else
+			$query = "UPDATE transactions SET catid='$transcat', description='$transkomet', plus='$transsum', tdate='$transdatum' WHERE (uid='$userid' AND transid='$transid')";
 		}
 		mysql_query($query) or die(mysql_error());
 
+		header("Location: dashboard.php");
+	}
+
+	//Tar hand om radera-transaktions-formuläret
+	if(isset($_POST['submitdel']))
+	{
+		$userid = prep($_SESSION['LiTHekoll_login_id']);
+		$transid = prep($transaction['transid']);
+
+		$query = "DELETE FROM transactions WHERE (uid='$userid' AND transid='$transid')";
+		
+		mysql_query($query) or die(mysql_error());
+		
 		header("Location: dashboard.php");
 	}
 
@@ -88,7 +107,7 @@ elseif(isset($_GET['edit']))
 
 	?>
 
-
+<!-- Formulär för att ändra transaktion samt ta-bort-knapp -->
 <div id="content" class="wrapper contentwrapper">
 	<h1>Redigera transaktion <a href="#" onclick="history.go(-1); return false;" class="fright">&larr; Bakåt</a></h1>
 	<form action="transactions.php?edit=<?php echo $_GET['edit']; ?>" method="post">
@@ -103,7 +122,9 @@ elseif(isset($_GET['edit']))
 		?>
 		</select>
 
-		<input type="submit" name="submittran" id="submittran" value="Ändra" />
+		<input type="submit" class="submittran" name="submittran" id="submittran" value="Ändra" />
+		<input type="submit" class="submitdel" name="submitdel" id="submitdel" value="Ta bort transaktion" />
+
 	</form>
 
 	<p>
