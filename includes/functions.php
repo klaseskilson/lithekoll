@@ -120,7 +120,7 @@ function transform()
 		<input type="text" class="fright width addr" name="ukomet" placeholder="Kommentar" />
 		<select name="ucat" class="select width fleft">';
 		foreach (get_categories() as $key => $value) {
-			echo '<option value ="'.$key.'"> '.$value.'</option>';
+			echo '<option value ="'.$key.'" '.($key == 1 ? 'selected="selected"' : '').'> '.$value.'</option>';
 		}
 		echo '
 		</select>
@@ -137,7 +137,7 @@ function transform()
 
 		//hämta kategorier för inkomster
 		foreach (get_categories(1) as $key => $value) {
-			echo '<option value ="'.$key.'"> '.$value.'</option>';
+			echo '<option value ="'.$key.'" '.($key == 9 ? 'selected="selected"' : '').'> '.$value.'</option>';
 		}
 		echo '
 		</select>
