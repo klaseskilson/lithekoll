@@ -37,11 +37,10 @@
 					?>
 				</nav>
 			</div> <!-- #header -->
-			<div class="wrapper" id="noscript">
-				<p class="error">
-					ÖJ. LiTHekoll använder sig av JavaScript! Aktivera det aå funkar allt som det ska, vännen.
-				</p>
-			</div>
-			<script>
-				document.getElementById('noscript').className='hide';
-			</script>
+			<noscript>
+				<div class="wrapper" id="noscript">
+					<p class="error">
+						ÖJ. LiTHekoll använder sig av JavaScript! Aktivera det aå funkar allt som det ska, vännen.
+					</p>
+				</div>
+			</noscript>
