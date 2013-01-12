@@ -22,7 +22,8 @@ build_header();
 
 <div id="content" class="wrapper">
 	<h1>Hantera konto</h1>
-
+	<form action="account.php" method="post">
+	</form>
 </div> <!-- #content -->
 
 <?php
