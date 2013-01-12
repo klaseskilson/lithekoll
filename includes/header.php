@@ -33,7 +33,7 @@
 					<a href="./project.php">Projektet</a>
 					<?php
 						// kolla om användaren är inloggad
-						echo (loginstatus() ? '<a href="login.php?logout">Logga ut</a>' : '<a href="login.php">Logga in</a>');
+						echo (loginstatus() ? '<a href="account.php">Konto</a><a href="login.php?logout">Logga ut</a>' : '<a href="login.php">Logga in</a>');
 					?>
 				</nav>
 			</div> <!-- #header -->
