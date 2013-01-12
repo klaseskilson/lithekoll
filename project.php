@@ -7,26 +7,23 @@ include("includes/start.php");
 build_header();
 ?>
 <!-- Sidan som beskriver vårat projekt -->
-<div class="fancyborder">
-	<div class="wrapper">
-			<p>
-				LiTHekoll är en tjänst för att hålla koll på sin ekonomi.
-			</p>
-			<p>
-				Webbtjänsten är ett resultat av ett projekt i kursen 
-				TNMK30 som hålls vid Linköpings Universitet. Vi som 
-				har gjort sidan är Carl Englund, Klas Eskilsson,
-				Johan Henriksson, Mattias Palmgren och Petra Öhlin.
-			</p>
-	</div><!-- .wrapper -->
-</div><!-- #fancyborder -->
-
-<!-- En div där man kan skriva mer saker ifall vi vill-->
-<div id="content" class="wrapper lotsoftext">
-	<p class="ingress">
-	</p>
-</div>
-
+<div id="content">
+<div class="wrapper contentwrapper" id="content">
+		<h1>
+			Om LiTHekoll
+		</h1>
+		<p class="ingress">
+			LiTHekoll är en tjänst för att hålla koll på sin ekonomi,
+			som började utvecklas i slutet av 2012. 
+		</p>
+		<p class="ingress">
+			Webbtjänsten är ett resultat av ett projekt i kursen Elektronisk publicering som hålls 
+			vid Linköpings Universitet. Denna kurs ingår i civilingenjörsprogrammet
+			Medieteknik där alla vi som utvecklat sidan studerar. Vi heter Carl Englund, Klas Eskilsson,
+			Johan Henriksson, Mattias Palmgren och Petra Öhlin.
+		</p>	
+</div><!-- .wrapper -->
+</div><!-- #content -->
 
 <?php
 
