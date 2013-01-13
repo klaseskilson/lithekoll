@@ -13,7 +13,7 @@ if(isset($_POST['submit']))
 	if(mysql_num_rows($emailquery) !== 0)
 	{
 		$user = mysql_fetch_array($emailquery);
-		$mailet = 'Hej'.$user['fname'].'!\n\nVälkommen till LiTHekoll! Ditt konto är alldeles strax klart för att användas. Allt du behöver göra är att klicka på länken här nedan så kommer ditt konto aktiveras.\n\nhttp://lithekoll.nu/activate.php?hash='.$user['hash'].'&email='.$user['email'].'\n\nMed vänliga hälsningar\nLiTHekoll-teamet\n\n\nPS. Kompis, du kan inte svara på det här mailet. DS.';
+		$mailet = mailmessage('<p>Hej '.$fname.'!</p><p>Välkommen till LiTHekoll. Ditt konto är alldeles strax klart för att användas. Allt du behöver göra är att klicka på länken här nedan.</p><p>http://lithekoll.nu/activate.php?hash='.$hash.'&email='.$email.'</p><p>Om länken inte går att klicka på, kopiera den och klista in den i din webläsares adressfält.</p><p>Med vänliga hälsningar, <br />LiTHekoll-teamet</p><p>PS. Kompis, du kan inte svara på det här mailet. DS.</p>');
 		$subject = 'Aktivera Lithekoll';
 		$from = 'From: donotreply@lithekoll.nu';
 

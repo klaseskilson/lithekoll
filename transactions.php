@@ -75,19 +75,20 @@ elseif(isset($_GET['edit']))
 		$transid = prep($transaction['transid']);
 
 		$error = '';
-		if(empty($transsum) || $transsum < 0)
-			$error .= "<li>Skriv in positiv summa</li>";
+		if(empty($transsum) || is_int($transsum))
+			$error .= '<p class="error">Skriv in en positiv summa.</p>';
 
 		if($error == '')
 		{
-			if($transsum < 0)
-			$query = "UPDATE transactions SET catid='$transcat', description='$transkomet', minus='$transsum', tdate='$transdatum' WHERE (uid='$userid' AND transid='$transid')";
+			if($transaction['minus'] == 0)
+				$query = "UPDATE transactions SET catid='$transcat', description='$transkomet', plus='$transsum', tdate='$transdatum' WHERE (uid='$userid' AND transid='$transid')";
 			else
-			$query = "UPDATE transactions SET catid='$transcat', description='$transkomet', plus='$transsum', tdate='$transdatum' WHERE (uid='$userid' AND transid='$transid')";
-		}
-		mysql_query($query) or die(mysql_error());
+				$query = "UPDATE transactions SET catid='$transcat', description='$transkomet', minus='$transsum', tdate='$transdatum' WHERE (uid='$userid' AND transid='$transid')";
 
-		header("Location: dashboard.php");
+			mysql_query($query);
+
+			header("Location: dashboard.php");
+		}
 	}
 
 	//Tar hand om radera-transaktions-formuläret
@@ -110,10 +111,13 @@ elseif(isset($_GET['edit']))
 <!-- Formulär för att ändra transaktion samt ta-bort-knapp -->
 <div id="content" class="wrapper contentwrapper">
 	<h1>Redigera transaktion <a href="#" onclick="history.go(-1); return false;" class="fright">&larr; Bakåt</a></h1>
+	<?php
+	echo (isset($_POST['submittran']) && $error !== '') ? $error : '';
+	?>
 	<form action="transactions.php?edit=<?php echo $_GET['edit']; ?>" method="post">
 		<input type="text" id="transkomet" name="transkomet" value="<?php echo $transaction['description']; ?>" placeholder="Kommentar" />
 		<input type="tel" id="transsum" name="transsum" value="<?php echo $transaction['minus'] == 0 ? $transaction['plus'] : $transaction['minus']; ?>" placeholder="Belopp" />
-		<input type="date" id="transdatum" name="transdatum" value="<?php echo date('Y-m-d', strtotime($transaction['tdate'])); ?>" placeholder="ÅÅÅÅ-MM-DD" />
+		<input type="date" id="transdatum" name="transdatum" value="<?php echo date('Y-m-d', strtotime($transaction['tdate'])); ?>" />
 		<select id="transcat" name="transcat">
 		<?php
 			foreach (get_categories() as $key => $value) {

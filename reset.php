@@ -22,7 +22,7 @@ if(isset($_POST['submit']))
 		if($updateq)
 		{
 			//fortsätt
-			$mailet = mailmessage('Hej'.$user['fname'].'!\n\nVälkommen till LiTHekoll! Ditt konto är alldeles strax klart för att användas. Allt du behöver göra är att klicka på länken här nedan så kommer ditt konto aktiveras.\n\nhttp://lithekoll.nu/reset.php?key='.$hash.'\n\nMed vänliga hälsningar\nLiTHekoll-teamet\n\n\nPS. Kompis, du kan inte svara på det här mailet. DS.');
+			$mailet = mailmessage('<p>Hej'.$user['fname'].'!</p><p>Tråkigt att du glömde bort ditt lösenord. Men det är lugnt. Klicka på länken här nedan för att återställa lösenordet och välja ett nytt.</p><p>http://lithekoll.nu/reset.php?key='.$hash.'</p><p>Med vänliga hälsningar,<br />LiTHekoll-teamet</p><p>PS. Kompis, du kan inte svara på det här mailet. DS.</p>');
 			$subject = 'Aktivera Lithekoll';
 			$from = 'From: donotreply@lithekoll.nu';
 
