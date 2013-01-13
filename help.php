@@ -14,7 +14,7 @@ build_header();
 ?>
 
 <div id="content" class="wrapper contentwrapper">
-	<h1>Hjälp & support
+	<h1>Hjälp &amp; support
 	<?php
 	if(isset ($_GET['q']))
 		echo ' > '.$helpsections[$_GET['q']].' <a href="#" onclick="history.go(-1); return false;" class="fright">&larr; Bakåt</a></h1>'.$helptexts[$_GET['q']];
