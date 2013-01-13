@@ -14,11 +14,10 @@ build_header();
 			Hejdå!
 		</h1>
 		<p class="ingress hurra">
-			Ditt konto är nu borttaget, vi hoppas du har vart nöjd med vår tjänst och kommer tillbaka igen. 
-		</p>
-		<p class="ingress">
+			Ditt konto är nu borttaget, vi hoppas du har vart nöjd med vår tjänst och kommer tillbaka igen. <br>
 			Puss & kram!
-		</p>		
+		</p>
+		<img src="./img/lithekolllogga.png"></img>
 	</div><!-- .wrapper -->
 </div><!-- #content -->
 
