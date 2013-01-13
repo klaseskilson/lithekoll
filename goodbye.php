@@ -21,6 +21,7 @@ build_header();
 		</p>		
 	</div><!-- .wrapper -->
 </div><!-- #content -->
+<meta http-equiv="refresh" content="6;url=http://www.lithekoll.nu" />
 
 <?php
 
