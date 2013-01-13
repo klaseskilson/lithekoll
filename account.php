@@ -131,6 +131,31 @@ if(isset($_POST['edit']))
 	}
 }
 
+//Detta händer när du klickar på radera knappen
+if(isset($_POST['radera']))
+{
+	//Kollar ifall lösenordet stämmer överrens med det som är i databasen
+	if(encrypt_password($_POST['password2']) == $user['password'])
+	{
+		$userid = prep($_SESSION['LiTHekoll_login_id']);
+
+		$delquery =  "DELETE FROM users WHERE uid='$userid'";
+		$delquery2 =  "DELETE FROM transactions WHERE uid='$userid'";
+
+		//Skickar frågorna
+		if(mysql_query($delquery) && mysql_query($delquery2))
+		{
+
+		}
+		else
+			$message .= '<p class="error"><em>Kunde inte ta bort användaren.</em>
+						Ett databasfel uppstod. Var god försök igen senare.</p>';
+
+	}
+	else
+	$message = '<p class="error"><em>Lösenordet du angav stämmer inte</em></p>';
+}
+
 // bygg sidan
 build_header();
 ?>
@@ -139,7 +164,7 @@ build_header();
 	<div class="contentwrapper wrapper">
 		<h1>Hantera konto</h1>
 		<?php
-		if(isset($_POST['edit']) && $message !== '')
+		if(isset($_POST['edit']) && $message !== '' || isset($_POST['radera']) && $message !== '')
 		{
 			echo $message;
 		}
@@ -147,6 +172,9 @@ build_header();
 		{
 			echo '<p>Här nedan kan du redigera din kontoinformation.</p>';
 		}
+
+		
+		
 		?>
 	</div>
 	<form action="account.php" method="post">
@@ -172,10 +200,8 @@ build_header();
 					Lösenord
 				</h2>
 				<p>
-					<input type="password" name="newpassword" id="newpassword" placeholder="Lösenord" />
-					<label for="newpassword">Nytt lösenord</label>
+					<input type="password" name="newpassword" id="newpassword" placeholder="Nytt lösenord" />
 					<input type="password" name="confirm" id="confirm" placeholder="Upprepa lösenord"/>
-					<label for="confirm">Upprepa</label>
 				</p>
 			</div>
 		</div><!-- .wrapper -->
@@ -187,11 +213,25 @@ build_header();
 				Fyll i ditt lösenord och klicka på Spara för att uppdatera ditt konto.
 			</p>
 			<p>
-				<input type="password" name="password" id="password" placeholder="Lösenord" required="required" />
-				<label for="password">Nuvarande lösenord</label>
+				<input type="password" name="password" id="password" placeholder="Lösenord" />
 			</p>
 			<p>
-				<input type="submit" name="edit" value="Spara" class="nomargin-left" />
+				<input type="submit" name="edit" value="Spara" class="nomargin-left submittran" />
+				<label>eller <a href="/">avbryt</a>.</label>
+			</p>
+		</div><!-- .wrapper -->
+				<div class="contentwrapper wrapper">
+			<h2>
+				Radera konto
+			</h2>
+			<p>
+				Fyll i ditt lösenord och klicka på Radera konto för att ta bort ditt konto och all tillhörande information.
+			</p>
+			<p>
+				<input type="password" name="password2" id="password2" placeholder="Lösenord" />
+			</p>
+			<p>
+				<input type="submit" name="radera" value="Radera konto" class="submitdel submittran" />
 				<label>eller <a href="/">avbryt</a>.</label>
 			</p>
 		</div><!-- .wrapper -->
