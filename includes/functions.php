@@ -103,7 +103,7 @@ function loginform($resetlink = true)
 		<input type="password" name="password" id="password" placeholder="Lösenord" />
 		<input type="submit" name="dologin" id="dologin" value="Logga in!" />';
 		if($resetlink)
-			echo '<a href="../reset.php">Glömt lösenord?</a>';
+			echo '<a href="reset.php">Glömt lösenord?</a>';
 	echo '</form>';
 }
 
