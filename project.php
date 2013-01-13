@@ -8,7 +8,7 @@ build_header();
 ?>
 <!-- Sidan som beskriver vårat projekt -->
 <div id="content">
-<div class="wrapper contentwrapper" id="content">
+	<div class="wrapper contentwrapper" id="content">
 		<h1>
 			Om LiTHekoll
 		</h1>
@@ -22,7 +22,7 @@ build_header();
 			Medieteknik där alla vi som utvecklat sidan studerar. Vi heter Carl Englund, Klas Eskilsson,
 			Johan Henriksson, Mattias Palmgren och Petra Öhlin.
 		</p>	
-</div><!-- .wrapper -->
+	</div><!-- .wrapper -->
 </div><!-- #content -->
 
 <?php
