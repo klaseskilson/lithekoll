@@ -24,7 +24,7 @@ if(isset($_POST['submit']))
 		$error .= "<li>Skriv in förnamn</li>";
 	if(empty($sname))
 		$error .= "<li>Skriv in efternamn</li>";
-	if(empty($email) || preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,6})$", $email))
+	if(empty($email) || !validate_email($email))
 		$error .= "<li>Skriv in en korrekt e-postadress</li>";
 	if($emailexists !== 0)
 		$error .= "<li>Epost-adressen är redan registrerad</li>";
