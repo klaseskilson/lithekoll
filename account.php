@@ -145,7 +145,9 @@ if(isset($_POST['radera']))
 		//Skickar frågorna
 		if(mysql_query($delquery) && mysql_query($delquery2))
 		{
-
+			session_unset();
+			session_destroy();
+			header("Location: index.php");
 		}
 		else
 			$message .= '<p class="error"><em>Kunde inte ta bort användaren.</em>
