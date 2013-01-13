@@ -57,9 +57,9 @@ build_header();
 	</div>
 	<div class="wrapper">
 		<div class = "contentwrapper wrapper-50 fleft">
-		<h2>Lägg till transaktion</h2>
-		<?php transform(); ?>
-	</div>
+			<h2>Lägg till transaktion</h2>
+			<?php transform(); ?>
+		</div>
 		<div class = "contentwrapper wrapper-50 fright">
 			<h2><?php echo date('m Y'); ?></h2>
 			<!--Skriver ut cirkeldiagramet-->
@@ -95,7 +95,7 @@ build_header();
 	</div>
 	</div>
 		<div class="wrapper contentwrapper">
-		<h2>Översikt</h2>
+		<h2>Översikt &mdash; De 15 senaste transaktionerna</h2>
 		<!--Skriver ut översiktstabellen-->
 		<table class="transactions" id="dashboard">
 			<tr>
@@ -115,6 +115,7 @@ build_header();
 					Tidpunkt
 				</th>
 				<th>
+					<!-- Redigera -->
 				</th>
 			</tr>
 			<?php

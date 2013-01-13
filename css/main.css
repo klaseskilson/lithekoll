@@ -91,6 +91,12 @@ h1 a {
 .fleft {
 	float: left;
 }
+.nomargin-left {
+	margin-left: 0 !important;
+}
+.nopadding-left {
+	padding-left: 0 !important;
+}
 .hide {
 	display: none;
 }
@@ -144,6 +150,9 @@ p.error, p.hurra, p.ingress, ul.error {
 	}
 ul.error {
 	list-style: none;
+}
+p.error {
+	padding: 10px;
 }
 .error {
 	background: #DC6060;
@@ -330,13 +339,12 @@ input[type="submit"] {
 	padding: 25px 0 10px 0px;
 }
 
-.submittran
-{
+.submittran{
 	margin: 14px 0 5px 0 !important;
+	clear: left;
 }
 
-.submitdel
-{
+.submitdel{
 	background: #DC6060 !important;
 	border: 2px solid #A60000 !important;
 }
@@ -450,7 +458,7 @@ form.signup {
 		background-color: #f7f7f7;
 	}
 	#dashboard tr .penna{
-		background:;
+		background: inherit;
 	}
 	#dashboard tr:hover .penna{
 		background: url('../img/pen.png');
