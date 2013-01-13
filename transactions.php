@@ -64,7 +64,7 @@ elseif(isset($_GET['edit']))
 
 	if(!is_array($transaction))
 		die('Finns inte ju.');
-		
+
 	if(isset($_POST['submittran']))
 	{
 		$transsum = prep($_POST['transsum']);
@@ -77,7 +77,7 @@ elseif(isset($_GET['edit']))
 		$error = '';
 		if(empty($transsum) || $transsum < 0)
 			$error .= "<li>Skriv in positiv summa</li>";
-		
+
 		if($error == '')
 		{
 			if($transsum < 0)
@@ -97,9 +97,9 @@ elseif(isset($_GET['edit']))
 		$transid = prep($transaction['transid']);
 
 		$query = "DELETE FROM transactions WHERE (uid='$userid' AND transid='$transid')";
-		
+
 		mysql_query($query) or die(mysql_error());
-		
+
 		header("Location: dashboard.php");
 	}
 
@@ -121,14 +121,10 @@ elseif(isset($_GET['edit']))
 			}
 		?>
 		</select>
-
-		<input type="submit" class="submittran" name="submittran" id="submittran" value="Ändra" />
+		<div class="clearfix"></div>
+		<input type="submit" class="nomargin-left" name="submittran" id="submittran" value="Ändra" />
 		<input type="submit" class="submitdel" name="submitdel" id="submitdel" value="Ta bort transaktion" />
-
 	</form>
-
-	<p>
-	</p>
 </div> <!-- #content -->
 
 

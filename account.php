@@ -134,13 +134,12 @@ if(isset($_POST['edit']))
 //Detta händer när du klickar på radera knappen
 if(isset($_POST['radera']))
 {
-	//Kollar ifall lösenordet stämmer överrens med det som är i databasen
-	if(encrypt_password($_POST['password2']) == $user['password'])
+	// Kollar ifall lösenordet stämmer överrens med det som är i databasen
+	if(encrypt_password($_POST['password2']) == $user['password'] && isset($_POST['delete']))
 	{
-		$userid = prep($_SESSION['LiTHekoll_login_id']);
-
-		$delquery =  "DELETE FROM users WHERE uid='$userid'";
-		$delquery2 =  "DELETE FROM transactions WHERE uid='$userid'";
+		// förbered ta bort-frågor
+		$delquery2 =  "DELETE FROM users WHERE uid='$uid'";
+		$delquery =  "DELETE FROM transactions WHERE uid='$uid'";
 
 		//Skickar frågorna
 		if(mysql_query($delquery) && mysql_query($delquery2))
@@ -148,17 +147,19 @@ if(isset($_POST['radera']))
 			header("Location: goodbye.php");
 			session_unset();
 			session_destroy();
-
-
-
 		}
 		else
 			$message .= '<p class="error"><em>Kunde inte ta bort användaren.</em>
-						Ett databasfel uppstod. Var god försök igen senare.</p>';
+						Ett databasfel uppstod. Var god försök igen senare.</p>'.mysql_error();
 
 	}
 	else
-	$message = '<p class="error"><em>Lösenordet du angav stämmer inte</em></p>';
+	{
+		if(encrypt_password($_POST['password2']) !== $user['password'])
+			$message .= '<p class="error"><em>Lösenordet du angav stämmer inte.</em></p>';
+		if(!isset($_POST['delete']))
+			$message .= '<p class="error"><em>Du måste kryssa i rutan för att kunna ta bort ditt konto.</em></p>';
+	}
 }
 
 // bygg sidan
@@ -178,8 +179,8 @@ build_header();
 			echo '<p>Här nedan kan du redigera din kontoinformation.</p>';
 		}
 
-		
-		
+
+
 		?>
 	</div>
 	<form action="account.php" method="post">
@@ -202,7 +203,7 @@ build_header();
 			</div>
 			<div class="contentwrapper wrapper-50 fright">
 				<h2>
-					Lösenord
+					Byt lösenord
 				</h2>
 				<p>
 					<input type="password" name="newpassword" id="newpassword" placeholder="Nytt lösenord" />
@@ -221,11 +222,13 @@ build_header();
 				<input type="password" name="password" id="password" placeholder="Lösenord" />
 			</p>
 			<p>
-				<input type="submit" name="edit" value="Spara" class="nomargin-left submittran" />
+				<input type="submit" name="edit" value="Spara" class="nomargin-left" />
 				<label>eller <a href="/">avbryt</a>.</label>
 			</p>
 		</div><!-- .wrapper -->
-				<div class="contentwrapper wrapper">
+	</form>
+	<form action="account.php" method="post">
+		<div class="contentwrapper wrapper">
 			<h2>
 				Radera konto
 			</h2>
@@ -233,10 +236,13 @@ build_header();
 				Fyll i ditt lösenord och klicka på Radera konto för att ta bort ditt konto och all tillhörande information.
 			</p>
 			<p>
+				<input type="checkbox" id="delete" name="delete" /> <label for="delete">Ja, jag vill ta bort mitt konto och förstår att det inte går att ångra sig.</label>
+			</p>
+			<p>
 				<input type="password" name="password2" id="password2" placeholder="Lösenord" />
 			</p>
 			<p>
-				<input type="submit" name="radera" value="Radera konto" class="submitdel submittran" />
+				<input type="submit" name="radera" value="Radera konto" class="submitdel nomargin-left" />
 				<label>eller <a href="/">avbryt</a>.</label>
 			</p>
 		</div><!-- .wrapper -->

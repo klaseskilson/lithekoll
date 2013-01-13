@@ -124,7 +124,7 @@ function transform()
 		}
 		echo '
 		</select>
-		<input type="date" class="fright width addr" name="udatum" placeholder="ÅÅ/MM/DD" />
+		<input type="date" class="fright width addr" name="udatum" value="'.date('Y-m-d').'" />
 		<div class="clearfix"></div>
 		<input type="submit" id="submitu" class="fleft trans" name="submitu" value="Lägg till" />
 		<p class="uerrorlist"></p>
@@ -141,7 +141,7 @@ function transform()
 		}
 		echo '
 		</select>
-		<input type="date" class="fright width addr" name="idatum" placeholder="ÅÅ/MM/DD" />
+		<input type="date" class="fright width addr" name="idatum" value="'.date('Y-m-d').'" />
 		<div class="clearfix"></div>
 		<input type="submit" id="submiti" class="fleft trans" name="submiti" value="Lägg till" />
 		<p class="ierrorlist"></p>

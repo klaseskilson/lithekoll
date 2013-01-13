@@ -46,7 +46,7 @@ if(isset($_POST['submit']))
 
 		if($adduser){
 			// MAILA ANVÄNDARE HÄR
-			$message = mailmessage('<p>Hej '.$fname.'!</p><p>Välkommen till LiTHekoll. Ditt konto är alldeles strax klart för att användas. Allt du behöver göra är att klicka på länken här nedan.</p><p>http://lithekoll.nu/activate.php?hash='.$hash.'&email='.$email.'</p><p>	Om länken inte går att klicka på, kopiera den och klista in den i din webläsares adressfält.</p><p>Med vänliga hälsningar, <br />LiTHekoll-teamet</p><p>PS. Kompis, du kan inte svara på det här mailet. DS.</p>');
+			$message = mailmessage('<p>Hej '.$fname.'!</p><p>Välkommen till LiTHekoll. Ditt konto är alldeles strax klart för att användas. Allt du behöver göra är att klicka på länken här nedan.</p><p>http://lithekoll.nu/activate.php?hash='.$hash.'&email='.$email.'</p><p>Om länken inte går att klicka på, kopiera den och klista in den i din webläsares adressfält.</p><p>Med vänliga hälsningar, <br />LiTHekoll-teamet</p><p>PS. Kompis, du kan inte svara på det här mailet. DS.</p>');
 			$subject = 'Välkommen till LiTHekoll!';
 
 			if (mail ($email, $subject, $message, MAILHEADER))

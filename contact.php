@@ -8,24 +8,18 @@ include("includes/start.php");
 build_header();
 ?>
 <!-- Kontaktformulär -->
-<div id="content">
-	<div class="wrapper contentwrapper" id="content">
-		<h1>
-			Kontakt
-		</h1>
-		<p class="ingress">
-			Här kan du lämna ett meddelande till LiTHekoll-teamet, frågor eller kommentarer allt är välkommet! 
-		</p>
-		<form action="MAILTO:petraohlin8@gmail.com" method="post" enctype="text/plain">
-			<input type="text" name="name" placeholder="Namn">
-			<input type="email" name="mail" placeholder="Email"><br>
-			<textarea id="styled" name="comment" placeholder="Ditt meddelande" rows="4" cols="49"></textarea><br>
-			<input type="submit" class="submittran" value="Skicka">
-		</form>
-	</div><!-- .wrapper -->
+<div id="content" class="wrapper contentwrapper" >
+	<h1>
+		Kontakt
+	</h1>
+	<p class="ingress">
+		Hör av dig till oss i teamet om du har en fråga eller en fundering.
+	</p>
+	<p>
+		Du kan nå oss på <a href="https://facebook.com/lithekoll" target="_blank">Facebook</a>, <a href="https://twitter.com/lithekoll" target="_blank">Twitter</a> eller via mail på <a href="mailto:team@lithekoll.nu" target="_blank">team@lithekoll.nu</a>.
+	</p>
 </div><!-- #content -->
 
 <?php
-
 build_footer();
 ?>

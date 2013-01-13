@@ -300,10 +300,6 @@ textarea
 	border-radius: 3px;
 	margin: 0 5px 5px 0;
 	padding: 5px;
-<<<<<<< HEAD
-=======
-
->>>>>>> ec63a46eb2ff69adf8cf249f9534a9fb2d669652
 }
 /* ==========================================
 	Transaktions-formulär
@@ -347,11 +343,6 @@ textarea
 }
 .utgift, .inkomst {
 	padding: 25px 0 10px 0px;
-}
-
-.submittran{
-	margin: 14px 0 5px 0 !important;
-	clear: left;
 }
 
 .submitdel{

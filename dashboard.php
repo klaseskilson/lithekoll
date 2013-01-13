@@ -56,11 +56,11 @@ build_header();
 		</div><!-- .sumboxcont -->
 	</div>
 	<div class="wrapper">
-		<div class = "contentwrapper wrapper-50 fleft">
+		<div class="contentwrapper wrapper-50 fleft">
 			<h2>Lägg till transaktion</h2>
 			<?php transform(); ?>
 		</div>
-		<div class = "contentwrapper wrapper-50 fright">
+		<div class="contentwrapper wrapper-50 fright">
 			<h2><?php echo date('m Y'); ?></h2>
 			<!--Skriver ut cirkeldiagramet-->
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -89,12 +89,10 @@ build_header();
 					chart.draw(data, options);
 				}
 			</script>
-
-     <div id="chart_div" style="width: 100%;"></div>
-
+			<div id="chart_div" style="width: 100%;"></div>
+		</div>
 	</div>
-	</div>
-		<div class="wrapper contentwrapper">
+	<div class="wrapper contentwrapper">
 		<h2>Översikt &mdash; De 15 senaste transaktionerna</h2>
 		<!--Skriver ut översiktstabellen-->
 		<table class="transactions" id="dashboard">

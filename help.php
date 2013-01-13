@@ -3,7 +3,7 @@ include("includes/start.php");
 
 $helpsections = array(
 					'resetpassword' => 'Återställ lösenord',
-					'activationmail' => 'Aktiveringsmail'
+					'activationmail' => 'Aktiveringsmail',
 				);
 $helptexts = array(
 				'resetpassword' => '<p>Har du glömt bort till lösenord? <a href="reset.php">Klicka här</a> för att få ett återställningsmail till den e-postadress du angav när du blev medlem.</p>',

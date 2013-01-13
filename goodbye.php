@@ -15,14 +15,10 @@ build_header();
 		</h1>
 		<p class="ingress hurra">
 			Ditt konto är nu borttaget, vi hoppas du har vart nöjd med vår tjänst och kommer tillbaka igen. <br>
-			Puss & kram!
+			Puss &amp; kram!
 		</p>
-		<img src="./img/lithekolllogga.png"></img>
 	</div><!-- .wrapper -->
 </div><!-- #content -->
-<meta http-equiv="refresh" content="6;url=http://www.lithekoll.nu" />
-
 <?php
-
 build_footer();
 ?>
