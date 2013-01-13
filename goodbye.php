@@ -7,16 +7,18 @@ include("includes/start.php");
 
 build_header();
 ?>
-<!-- Sidan som beskriver våra villkor-->
+<!-- Sidan som säger hejdå-->
 <div id="content">
 	<div class="wrapper contentwrapper" id="content">
 		<h1>
-			Villkor
+			Hejdå!
 		</h1>
 		<p class="ingress">
-			- Vi tar inget ansvar för den information som skrivs in i vår databas. <br>
-			- Tjänsten kan utan förvarning stängas ner.
-		</p>	
+			Ditt konto är nu borttaget, vi hoppas du har vart nöjd med vår tjänst och kommer tillbaka igen. 
+		</p>
+		<p class="ingress">
+			Puss & kram!
+		</p>		
 	</div><!-- .wrapper -->
 </div><!-- #content -->
 
