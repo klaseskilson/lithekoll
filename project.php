@@ -1,7 +1,5 @@
 <?php
 
-ini_set('error_reporting', E_ALL);
-
 include("includes/start.php");
 
 build_header();
@@ -14,14 +12,14 @@ build_header();
 		</h1>
 		<p class="ingress">
 			LiTHekoll är en tjänst för att hålla koll på sin ekonomi,
-			som började utvecklas i slutet av 2012. 
+			som började utvecklas i slutet av 2012.
 		</p>
 		<p class="ingress">
-			Webbtjänsten är ett resultat av ett projekt i kursen Elektronisk publicering som hålls 
+			Webbtjänsten är ett resultat av ett projekt i kursen Elektronisk publicering som hålls
 			vid Linköpings Universitet. Denna kurs ingår i civilingenjörsprogrammet
 			Medieteknik där alla vi som utvecklat sidan studerar. Vi heter Carl Englund, Klas Eskilsson,
 			Johan Henriksson, Mattias Palmgren och Petra Öhlin.
-		</p>	
+		</p>
 	</div><!-- .wrapper -->
 </div><!-- #content -->
 

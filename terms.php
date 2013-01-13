@@ -1,7 +1,5 @@
 <?php
 
-ini_set('error_reporting', E_ALL);
-
 include("includes/start.php");
 
 
@@ -16,7 +14,7 @@ build_header();
 		<p class="ingress">
 			- Vi tar inget ansvar för den information som skrivs in i vår databas. <br>
 			- Tjänsten kan utan förvarning stängas ner.
-		</p>	
+		</p>
 	</div><!-- .wrapper -->
 </div><!-- #content -->
 

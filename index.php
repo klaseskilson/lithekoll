@@ -1,6 +1,4 @@
 <?php
-// vi vill ha felmeddelanden i PHP
-ini_set('error_reporting', E_ALL);
 
 include("includes/start.php");
 

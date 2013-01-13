@@ -1,4 +1,5 @@
 <?php
+
 include("includes/start.php");
 
 $helpsections = array(

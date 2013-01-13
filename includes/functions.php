@@ -47,7 +47,7 @@ function hashgen($floor = 7, $roof = 10)
 {
 	$length = mt_rand($floor, $roof);
 	$characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	$string = "";
+	$string = '';
 
 	for($i = 0; $i < $length; $i++)
 		$string .= $characters[rand(0, strlen($characters))];
