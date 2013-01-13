@@ -1,7 +1,7 @@
 			<div id="footer" class="wrapper">
 				<nav>
 					<a href="help.php">Hjälp & support</a>
-					<a href="#">Villkor</a>
+					<a href="terms.php">Villkor</a>
 					<a href="contact.php">Kontakt</a>
 				</nav>
 				<nav id="follow">
