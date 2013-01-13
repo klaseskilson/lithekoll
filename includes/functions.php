@@ -318,4 +318,14 @@ function get_transaction($transid)
 
 	return $transaction;
 }
+
+/*
+ * validera en epostadress
+ * @param 	string 	$email 	email att validera
+ * @return 	bool
+ */
+function validate_email($email)
+{
+	return preg_match("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,6})$", $email);
+}
 ?>
