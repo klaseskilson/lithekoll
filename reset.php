@@ -27,7 +27,7 @@ if(isset($_POST['submit']))
 			$from = 'From: donotreply@lithekoll.nu';
 
 			if (mail ($email, $subject, $mailet, MAILHEADER))
-				$message = "<p class=\"hurra\">Hurra! Ett mail har skickats till den e-post du angav. Följ instruktionerna där och </p>";
+				$message = "<p class=\"hurra\">Hurra! Ett mail har skickats till den e-post du angav. Följ instruktionerna där så löser det sig!</p>";
 			else
 				$message = "<p class=\"error\">Tyvärr kunde mailet inte skickas, vi beklagar. Försök gärna igen senare!</p>";
 		}
